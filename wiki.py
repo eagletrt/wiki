@@ -12,8 +12,8 @@ from github import Github, GithubException, Repository
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 documentation = "docs"
-artifacts = "_artifacts"
-extract = "_docs"
+artifacts = "artifacts"
+extract = "docs"
 
 supported = [".rst", ".md"]
 
