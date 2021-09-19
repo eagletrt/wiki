@@ -1,0 +1,8 @@
+.vscode/
+
+.env
+_artifacts/
+_docs/
+
+build/*
+!build/.gitkeep
