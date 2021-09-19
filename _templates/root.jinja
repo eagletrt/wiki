@@ -1,0 +1,25 @@
+---
+github_url: https://github.com/torvalds/linux
+---
+
+# E-Agle TRT Wiki
+
+```{toctree}
+:caption: General
+:name: sec-general
+:maxdepth: 1
+
+about/index
+```
+
+{% for docs in corpus %}
+```{toctree}
+:caption: {{ docs.repo.name }}
+:name: sec-{{ docs.repo.name }}
+:maxdepth: 1
+
+{% for file in docs.contents %}
+{{ file }}
+{% endfor %}
+```
+{% endfor %}

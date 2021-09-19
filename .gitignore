@@ -1,8 +1,12 @@
+__pycache__
+
 .vscode/
 
 .env
 _artifacts/
 _docs/
+
+index.md
 
 build/*
 !build/.gitkeep

@@ -1,9 +1,3 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -15,7 +9,6 @@ import sys
 
 sys.path.append(os.path.abspath("_extensions"))
 
-import sphinx
 import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
@@ -23,7 +16,6 @@ import sphinx_rtd_theme
 project = "E-Agle TRT Wiki"
 copyright = "2021, E-Agle Team"
 author = "E-Agle Team"
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -39,7 +31,6 @@ templates_path = ["_templates"]
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -57,11 +48,11 @@ html_theme_options = {
 }
 
 html_context = {
-    "display_github": True,  # Integrate GitHub
-    "github_user": "eagletrt",  # Username
-    "github_repo": "wiki",  # Repo name
-    "github_version": "master",  # Version
-    "conf_py_path": "/source/",  # Path in the checkout to the docs root
+    # "display_github": True,  # Integrate GitHub
+    # "github_user": "eagletrt",  # Username
+    # "github_repo": "wiki",  # Repo name
+    # "github_version": "master",  # Version
+    # "conf_py_path": "/source/",  # Path in the checkout to the docs root
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
