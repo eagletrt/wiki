@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "wiki"
+version = "0.1.0"
+description = ""
+authors = ["Filippo Rossi <filipporossi@hey.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+black = "^21.9b0"
+mkdocs = "^1.2.2"
+mkdocs-material = "^7.3.2"
+mkdocs-material-extensions = "^1.0.3"
+mkdocs-awesome-pages-plugin = "^2.5.0"
+pymdown-extensions = "^9.0"
+requests = "^2.26.0"
+PyGithub = "^1.55"
+PyYAML = "^5.4.1"
+mkdocs-jupyter = "^0.18.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

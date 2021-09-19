@@ -1,0 +1,15 @@
+__pycache__
+
+.vscode/
+
+.env
+
+/index.md
+
+artifacts/
+
+docs/*
+!docs/common
+!docs/static
+!docs/index.md
+site

@@ -1,0 +1,46 @@
+site_name: Eagle TRT
+copyright: Copyright &copy; E-Agle TRT
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://github.com/eagletrt
+    - icon: fontawesome/brands/github
+      link: https://github.com/eagletrt
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/eagletrt
+
+theme:
+  name: material
+  logo: static/logo.png
+  theme:
+  palette:
+    scheme: slate
+
+plugins:
+  - search
+  - awesome-pages
+  - mkdocs-jupyter:
+      theme: dark
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: diagram
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_javascript:
+  - static/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+  - static/js/mermaid.js

@@ -1,0 +1,54 @@
+name: Documentation
+
+on:
+  schedule:
+    # Every hour
+    - cron: 0 * * * *
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Install poetry
+        uses: snok/install-poetry@v1.0.0
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Install dependencies
+        run: poetry install
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      - name: Fetch documentation
+        run: poetry run python wiki.py
+        env:
+          GITHUB_PAT: ${{ secrets.PAT }}
+      - name: Create static build
+        run: poetry run mkdocs build
+      - name: Complete static build
+        run: |
+          touch site/.nojekyll
+          echo "eagletrt.wiki" > site/CNAME
+      - name: Push to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: site
+          token: ${{ secrets.PAT }}
