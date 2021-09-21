@@ -6,7 +6,8 @@ __pycache__
 
 /index.md
 
-artifacts/
+_artifacts/
+
 docs/
 build/*
 !build/.gitkeep

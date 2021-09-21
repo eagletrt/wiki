@@ -6,13 +6,14 @@ import dataclasses
 
 from typing import List
 
+import yaml
 import requests
 
 from github import Github, GithubException, Repository
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+artifacts = "_artifacts"
 documentation = "docs"
-artifacts = "artifacts"
 extract = "docs"
 
 supported = [".rst", ".md"]
@@ -23,9 +24,16 @@ root = env.get_template("root.jinja")
 
 
 @dataclasses.dataclass
+class Meta:
+    name: str
+    author: str
+
+
+@dataclasses.dataclass
 class Docs:
     contents: List[str]
     repo: Repository
+    meta: Meta
 
 
 for folder in [artifacts, extract]:
@@ -43,12 +51,12 @@ for repo in org.get_repos():
         continue
 
     try:
-        contents = repo.get_contents("/")
+        repo_contents = repo.get_contents("/")
     except GithubException:
         print(f"[{repo.full_name}] Skipping. Repository is empty.", file=sys.stderr)
         continue
 
-    has_docs = any([content.name == documentation for content in contents])
+    has_docs = any([content.name == documentation for content in repo_contents])
     if not has_docs:
         print(f"[{repo.full_name}] Skipping. No `docs` folder found.", file=sys.stderr)
         continue
@@ -89,7 +97,15 @@ for repo in org.get_repos():
         print(f"[{repo.full_name}] Skipping. No root contents.", file=sys.stderr)
         continue
 
-    docs = Docs(contents, repo)
+    meta_path = os.path.join(extract_path, "docs.yml")
+    if os.path.exists(meta_path) and os.path.isfile(meta_path):
+        with open(meta_path) as file:
+            raw = yaml.load(file, Loader=yaml.Loader)
+        meta = Meta(raw.get("name", repo.name), raw.get("author", "E-Agle TRT"))
+    else:
+        meta = Meta(repo.name, "E-Agle TRT")
+
+    docs = Docs(contents, repo, meta)
     corpus.append(docs)
 
 if os.path.exists("index.md"):

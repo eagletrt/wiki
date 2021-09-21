@@ -2,6 +2,7 @@ black==21.9b0
 Jinja2==3.0.1
 myst-parser==0.15.2
 PyGithub==1.55
+pyyaml==5.4.1
 requests==2.26.0
 rst-to-myst[sphinx]==0.3.2
 Sphinx==4.2.0
