@@ -5,4 +5,5 @@
 
 introduction
 writing-docs
+openocd_errors
 ```
