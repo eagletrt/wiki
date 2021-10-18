@@ -23,7 +23,7 @@ docker run --rm \
 ```
 
 !!! tip
-Live reloading works when testing with docker.
+    Live reloading works when testing with docker.
 
 ## Ordering pages
 
@@ -77,7 +77,7 @@ stateDiagram-v2
 ```
 
 !!! note
-This this a note.
+    This this a note.
 
 ```
 !!! warning
@@ -85,7 +85,7 @@ This this a note.
 ```
 
 !!! warning
-This this a warning.
+    This this a warning.
 
 Supported types are:
 
