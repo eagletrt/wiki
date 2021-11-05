@@ -11,6 +11,8 @@ import requests
 
 from github import Github, GithubException, Repository
 
+from ignored import IGNORED
+
 artifacts = "artifacts"
 documentation = "docs"
 extract = "docs"
@@ -47,6 +49,10 @@ corpus = []
 for repo in org.get_repos():
     if repo.archived:
         print(f"[{repo.full_name}] Skipping. Repository is archived.", file=sys.stderr)
+        continue
+
+    if repo.name in IGNORED:
+        print(f"[{repo.full_name}] Skipping. Repository is IGNORED!", file=sys.stderr)
         continue
 
     try:
