@@ -16,6 +16,7 @@ requests = "^2.26.0"
 PyGithub = "^1.55"
 PyYAML = "^5.4.1"
 mkdocs-jupyter = "^0.18.0"
+importlib-resources = "^5.4.0"
 
 [tool.poetry.dev-dependencies]
 
