@@ -9,7 +9,7 @@ __pycache__
 artifacts/
 
 docs/*
-!docs/common
+!docs/about
 !docs/static
 !docs/index.md
 site
