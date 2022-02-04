@@ -67,7 +67,7 @@ In general, bus-related and protocol-related errors (**protocol error warning, e
 Firmware-related errors such as overruns or transmit failures may instead indicate an overly congested network or a mistake by the developer when invoking low-level API calls.
 
 !!! check
-    Test your device with less traffic to ensure that the performance of the MCU is suitable for the application. If you are using only two devices, try connecting a third one to better understand where and how the errors generate. Carefully compare you code with the HAL and ST application notes.
+    Test your device with less traffic to ensure that the performance of the MCU is suitable for the application. If you are using only two devices, try connecting a third one to better understand where and how the errors generate. Carefully compare your code with the HAL and ST application notes.
 
 ---
 
@@ -80,12 +80,25 @@ ST's MCUs incorporate an internal low-cost 16MHz crystal (called HSI in the cloc
 ---
 
 #### Hardware FIFOs or Mailboxes are not properly cleared
-[...]
+For MCUs with transmissions managed via mailboxes, the developer enqueues a new message to send by calling `HAL_CAN_AddTxMessage(...)` and providing as a last argument the address of a `uint32_t` variable in which the function will store the ID of the first free mailbox found. Errors may arise in two occasions: either the function is being called so frequently that the bus has no time to send and empty a slot, or no one is listening on the bus and the "Automatic Retransmission" option is set, making the MCU hang in a loop where it unsuccessfully tries to send messages over and over again.
+
+Conversely, reception queues might as well fill up and cause overruns if they are not read often enough or the network is so congested that the MCU cannot keep up.
+
+!!! warning
+    When a CAN message arrives and its ISR is triggered, remember to call `HAL_CAN_GetRxMessage(...)` to clear the reception slot, otherwise an overrun will occur after few messages.
+
+!!! check
+    If errors happen when transmitting, make sure you are not sending too frequently and either have free mailboxes available (check with `HAL_CAN_GetTxMailboxesFreeLevel(...)`) or a software queue to temporarily store your pending packets.
+
+    If instead they happen upon reception, test your code with as little incoming traffic as possible and try to understand if your MCU and your software architecture match the intended network performance. Always remember to also properly configure your hardware filters in order to only process what's necessary and not waste resources and CPU cycles.
 
 ---
 
 #### A segmentation fault or other error crashes the MCU
-[...]
+The ST drivers and HAL library are generally very solid, so I advise to thoroughly check your code for memory leaks (if the MCU runs out of memory it simply stops) or possible sources of segmentation faults such as handling of pointers or calls to low-level functions like `memcpy` and such. Remember that if the firmware crashes you won't see any error message printed over serial, the processor will just freeze and stop.
+
+!!! check
+    Print debug statements over UART or blink on-board LEDs to make sure your code keeps executing or, in fact, stops after a while. Use your IDE built-in debugging tools to interface with OpenOCD and find the exact instruction on which the crash happens.
 
 ---
 
