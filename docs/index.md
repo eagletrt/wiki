@@ -1,3 +1,3 @@
 # E-Agle TRT Wiki
 
-:wave:
+:wave
