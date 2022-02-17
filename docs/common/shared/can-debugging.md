@@ -1,7 +1,10 @@
 # CAN-bus Troubleshooting
 
 ## Step 1: Check Your Configuration
-[...]
+Check that you CubeMX configuration and you code precisely match what is detailed in [CAN-bus Configuration](can-config.md).
+
+!!! warning
+    Be sure to activate all error interrupts and log them properly, otherwise you'll have no way of knowing what is failing and how to fix it.
 
 ## Step 2: Follow This Flowchart
 Find your problem in the flowchart below and more details on the next chapter.
@@ -103,9 +106,18 @@ The ST drivers and HAL library are generally very solid, so I advise to thorough
 ---
 
 #### Filters not configured properly
-[...]
+If a message is discarded by a hardware filter you will not receive interrupts of any kind.
+
+!!! warning
+    Disabling filters will cause every message to be discarded, contrary to what you might expect.
+
+!!! check
+    Carefully read the filter configuration section in [CAN-bus Configuration](can-config.md) and ensure your filters are behaving as you intend.
 
 ---
 
 #### Interrupts not configured properly
-[...]
+For interrupts to be raised by the MCU, they need to be properly configured both from CubeMX and in your code.
+
+!!! check
+    Verify that you followed the correct procedure detailed in the Interrupt section in [CAN-bus Configuration](can-config.md).

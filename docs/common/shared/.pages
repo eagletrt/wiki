@@ -1,0 +1,5 @@
+title: General Documentation Files
+nav:
+    - CAN-bus Configuration: can-config.md
+    - CAN-bus Troubleshooting: can-debugging.md
+    - OpenOCD Troubleshooting: openocd-errors.md
