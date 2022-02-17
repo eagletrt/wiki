@@ -9,7 +9,7 @@ Check that you CubeMX configuration and you code precisely match what is detaile
 ## Step 2: Follow This Flowchart
 Find your problem in the flowchart below and more details on the next chapter.
 
-![CAN Troubleshooting Flowchart](can-flowchart.png)
+![CAN Troubleshooting Flowchart](imgs/can-flowchart.png)
 
 ## Step 3: Find More Details From The Flowchart
 Look for the paragraph regarding your problem and read through.
@@ -24,7 +24,7 @@ While the CAN bus operates on two differential lines, the MCU uses a serial prot
 
 #### Termination resistors not present or of incorrect value
 
-![CAN bus layout](can-bus.png)
+![CAN bus layout](imgs/can-bus.png)
 
 On a CAN network it is very important that the bus is terminated on both sides by a 120 $\Omega$ resistor ([interesting article on why](https://e2e.ti.com/blogs_/b/industrial_strength/posts/the-importance-of-termination-networks-in-can-transceivers)). Also note that some devices might already incorporate a termination resistor on their end, so pay attention at how many you put.
 
