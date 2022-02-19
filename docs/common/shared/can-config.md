@@ -1,14 +1,27 @@
 # Configuring of the CAN-bus on ST MCUs
 
 ## On CubeMX
-- Connectivity
-    - CAN: Activated
-    - Bit timing parameters (http://www.bittiming.can-wiki.info/)
-        - Prescaler
-        - TQ1
-        - TQ2
-    - NVIC: impisa tuto
-- Generate
+#### Activate the Peripheral
+In CubeMX, expand the "Connectivity" tab on the left pane and click on the CAN interface you wish to activate. A configuration pane will appear on the right; tick the "Activated" checkbox.
+
+![CubeMx Window](imgs/can-mx-1.png)
+
+#### Set the Bit Timing Parameters
+The sampling of the signal is dictated by a number of parameters that set time constraints for the reading and transmitting instants. The duration of a bit (nominal bit time) is split into four segments: a synchronization segment (SYNC_SEG) to sync all nodes on the network, the first Bit Segment (BS1) to define the location of the sampling point, the second Bit Segment to define the transmit point (BS2), and a resynchronization Jump Width (SJW) that indicates how much segments can be lengthened or shortened to compensate for timing errors or delays. The length of these segments is defined in terms of number of Time Quanta ($t_q$). For a visual representation of the subdivision and the mapping of the values to the registers refer to the image below.
+
+![Subdivision of a nominal bit time into segments](imgs/can-tqs.png)
+
+To define the duration of a time quanta and the length of the various segments, you need to input your parameters into the "Configuration" panel that appeared in CubeMx from the previous step (below the "Activate" checkbox"). If your parameters are still to be defined, use an online calculator such as [bittiming.can-wiki.info](http://www.bittiming.can-wiki.info/) and fill the form; note that selecting the platform is only needed if you're interested in the register mapping, but in any case this website provides a choice for "ST Microelectronics bxCAN" which is our case. Input the clock frequency after checking your Clock Tree in CubeMX for how the relevant bus is configured (in the example below, the bxCAN peripheral is connected to the APB1 bus which is at 54 MHz) and of course that the frequency is high enough to operate at the target link speed.
+
+![Clock Tree](imgs/can-clocktree.png)
+
+Next, input the desired sample point (the default 87.5% is fine), the SJW duration (the default 1 is fine as well), and the desired bitrate **in kbit/s**. The calculator will generate a table with valid combinations: copy over the values into CubeMX for the Prescaler, BS1, and BS2 (SYNC_SEG is always of length 1 $t_q$) and check that the resulting baud rate is correct.
+
+![Configuration parameters in CubeMX](imgs/can-mx-2.png)
+
+The last operation left to perform in CubeMX is to activate all CAN interrupts in the NVIC array: in the same panel as above, switch to the "NVIC" tab and tick all checkboxes.
+
+![NVIC activation in CubeMX](imgs/can-mx-3.png)
 
 ## In Your Code
 
