@@ -65,7 +65,7 @@ To configure a filter, you need to allocate and populate a `CAN_FilterTypeDef` s
 - `FilterIdLow`: LSBs of the ID register (or second one of the two 16-bit registers)
 - `FilterMaskIdHigh`: MSBs of the Mask register (or first one of the two 16-bit registers)
 - `FilterMaskIdLow`: LSBs of the Mask register (or second one of the two 16-bit registers)
-- `FilterFIFOAssignment`: the queue in which to store messages (a value of CAN_filet_FIFO, e.g. `CAN_FILTER_FIFO0`)
+- `FilterFIFOAssignment`: the queue in which to store messages (a value of `CAN_filter_FIFO`, e.g. `CAN_FILTER_FIFO0`)
 - `FilterBank`: index of the filter bank to be initialized
 - `FilterScale`: `CAN_FILTERSCALE_16BIT` or `CAN_FILTERSCALE_32BIT`, for the respective register scale
 - `FilterActivation`: `ENABLE` or `DISABLE`
