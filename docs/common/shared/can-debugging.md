@@ -1,13 +1,13 @@
 # CAN-bus Troubleshooting
 
 ## Step 1: Check Your Configuration
-Check that you CubeMX configuration and you code precisely match what is detailed in [CAN-bus Configuration](can-config.md).
+Check that your CubeMX configuration and your code precisely match what is detailed in [CAN-bus Configuration](can-config.md).
 
 !!! warning
     Be sure to activate all error interrupts and log them properly, otherwise you'll have no way of knowing what is failing and how to fix it.
 
 ## Step 2: Follow This Flowchart
-Find your problem in the flowchart below and more details on the next chapter.
+Find your problem in the flowchart below and more details in the next chapter.
 
 ![CAN Troubleshooting Flowchart](imgs/can-flowchart.png)
 
@@ -15,7 +15,7 @@ Find your problem in the flowchart below and more details on the next chapter.
 Look for the paragraph regarding your problem and read through.
 
 #### CAN Transceiver not communicating with the MCU
-While the CAN bus operates on two differential lines, the MCU uses a serial protocol, for which a transceiver is needed (for instance, an MCP2562) that translates the CAN_H and CAN_L signals into CAN_TX and CAN_RX. Absence of communication with this device cause the `HAL_CAN_Start` call to fail with a timeout error.
+While the CAN bus operates on two differential lines, the MCU uses a serial protocol, for which a transceiver is needed (for instance, an MCP2562) that translates the CAN_H and CAN_L signals into CAN_TX and CAN_RX. Absence of communication with this device causes the `HAL_CAN_Start` call to fail with a timeout error.
 
 !!! check
     Check continuity between all relevant pins of the transceiver, the CAN socket, and the MCU pins. Try swapping the transceiver with a new one.
@@ -26,7 +26,7 @@ While the CAN bus operates on two differential lines, the MCU uses a serial prot
 
 ![CAN bus layout](imgs/can-bus.png)
 
-On a CAN network it is very important that the bus is terminated on both sides by a 120 $\Omega$ resistor ([interesting article on why](https://e2e.ti.com/blogs_/b/industrial_strength/posts/the-importance-of-termination-networks-in-can-transceivers)). Also note that some devices might already incorporate a termination resistor on their end, so pay attention at how many you put.
+On a CAN network it is very important that the bus is terminated on both sides by a 120 $\Omega$ resistor ([interesting article on why](https://e2e.ti.com/blogs_/b/industrial_strength/posts/the-importance-of-termination-networks-in-can-transceivers)). Also note that some devices might already incorporate a termination resistor on their end, so pay attention to how many you put.
 
 !!! check
     Verify that resistors are properly connected to the bus and are of the correct value. Check schematics and datasheets for already-present termination resistors on the connected nodes. Use an oscilloscope to ensure that the quality of the signal is good.

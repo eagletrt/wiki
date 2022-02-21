@@ -41,7 +41,7 @@ To register callbacks you need to create the relative functions with the proper 
 | `void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *)`              | An error in the peripheral has occurred. **Make sure to properly log the raised error code.** |
 
 !!! example
-    For you convenience, here is a prepared Error Callback that verbosely logs any error bit that is high in the error code. `CAN_error_handler(...)` is a custom sample function that prints the message over UART and lights up a red LED.
+    For your convenience, here is a prepared Error Callback that verbosely logs any error bit that is high in the error code. `CAN_error_handler(...)` is a custom sample function that prints the message over UART and lights up a red LED.
 
     ```C
     void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *hcan) {
