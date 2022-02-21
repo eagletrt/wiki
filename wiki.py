@@ -16,7 +16,7 @@ from ignored import IGNORED
 artifacts = "artifacts"
 documentation = "docs"
 extract = "docs"
-do_not_delete = ["common", "static", "index.md"]
+do_not_delete = ["common", "static", "index.md", ".pages"]
 
 supported = [".md"]
 

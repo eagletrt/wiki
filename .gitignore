@@ -12,4 +12,5 @@ docs/*
 !docs/common
 !docs/static
 !docs/index.md
+!docs/.pages
 site
