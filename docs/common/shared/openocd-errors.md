@@ -35,7 +35,10 @@ Then the problem is likely to be hardware, i.e. the programmer (DAPlink) is unab
     - Are they the correct value?
     - Are there short-circuits to `GND`?
 2. Check continuity on `SWDIO` and `SWCLK` lines
-    - Are the mircos' pins soldered to the board?
+    - Are the micros' pins soldered to the board?
     - Is the micro correctly oriented on the pcb?
 3. Check the DAP connection
     - Do the jumper-wires work?
+4. Check if debug is enabled on the project present on the flash
+    - If not, start flashing the MCU while resetting it, when openocd stops on ```Info : Listening on port 3333 for gdb connections```, release the reset button. Be quick!!
+    - Enable debug in CubeMX -> System Core -> SYS -> Debug -> Serial Wire
