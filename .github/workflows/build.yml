@@ -52,3 +52,4 @@ jobs:
           branch: gh-pages
           folder: site
           token: ${{ secrets.PAT }}
+          git-config-name: eagletrtbot
