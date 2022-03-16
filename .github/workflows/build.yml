@@ -53,3 +53,4 @@ jobs:
           folder: site
           token: ${{ secrets.PAT }}
           git-config-name: eagletrtbot
+          git-config-email: fsae@eagletrt.it
