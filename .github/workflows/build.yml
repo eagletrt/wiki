@@ -52,5 +52,7 @@ jobs:
           branch: gh-pages
           folder: site
           token: ${{ secrets.PAT }}
+          force: true
+          single-commit: true
           git-config-name: eagletrtbot
           git-config-email: fsae@eagletrt.it
