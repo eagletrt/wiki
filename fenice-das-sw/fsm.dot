@@ -1,0 +1,67 @@
+digraph "vehicle_fsm" {
+    graph [pad="0.5", nodesep="1", ranksep="0.5"]
+    margin=0
+    layout=dot
+    node [shape=oval]
+
+    init
+    idle
+    start_ts_precharge
+    wait_ts_precharge
+    wait_driver
+    start_inv_updates
+    enable_inv_drive
+    drive
+    stop_inv_updates
+    disable_inv_drive
+    start_ts_discharge
+    wait_ts_discharge
+
+    # Uncomment for nice drawing, comment for gv_fsm generation
+    # { rank=source;init; }
+    # { rank=same;wait_ts_precharge;wait_ts_discharge; }
+    # { rank=same;wait_driver;start_ts_discharge; }
+    # { rank=same;start_inv_updates;stop_inv_updates; }
+    # { rank=same;enable_inv_drive;disable_inv_drive; }
+    # { rank=sink;drive; }
+
+    init -> idle
+
+    idle:ne -> idle
+    idle -> start_ts_precharge
+
+    start_ts_precharge:w -> start_ts_precharge
+    start_ts_precharge -> wait_ts_precharge
+    start_ts_precharge -> idle
+
+    wait_ts_precharge:nw -> wait_ts_precharge
+    wait_ts_precharge -> wait_driver
+    wait_ts_precharge -> start_ts_discharge
+
+    wait_driver:nw -> wait_driver
+    wait_driver -> start_inv_updates
+    wait_driver -> start_ts_discharge
+
+    start_inv_updates:nw -> start_inv_updates
+    start_inv_updates -> enable_inv_drive
+    start_inv_updates -> stop_inv_updates
+
+    enable_inv_drive:nw -> enable_inv_drive
+    enable_inv_drive -> drive
+    enable_inv_drive -> disable_inv_drive
+
+    drive:s -> drive
+    drive -> disable_inv_drive
+
+    disable_inv_drive:ne -> disable_inv_drive
+    disable_inv_drive -> stop_inv_updates
+
+    stop_inv_updates:ne -> stop_inv_updates
+    stop_inv_updates -> start_ts_discharge
+
+    start_ts_discharge:ne -> start_ts_discharge
+    start_ts_discharge -> wait_ts_discharge
+
+    wait_ts_discharge:ne -> wait_ts_discharge
+    wait_ts_discharge -> idle
+}

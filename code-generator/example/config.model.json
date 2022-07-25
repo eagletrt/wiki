@@ -1,0 +1,50 @@
+{
+    "mqtt": {
+      "host": "localhost",
+      "port": 1883,
+      "data_topic": "telemetria",
+      "log_topic": "telemetria_log"
+    },
+  
+    "mongodb": {
+      "host": "localhost",
+      "port": 27017,
+      "db": "eagle_test",
+      "collection": "chimera"
+    },
+  
+    "gps": {
+      "plugged": 1,
+      "simulated": 1,
+      "interface": "/dev/pts/4"
+    },
+  
+    "pilots": [
+      "default",
+      "Ivan",
+      "Filippo",
+      "Mirco",
+      "Nicola",
+      "Davide"
+    ],
+  
+    "races": [
+        "default",
+        "Autocross",
+        "Skidpad",
+        "Endurance",
+        "Acceleration"
+    ],
+  
+    "circuits": [
+      "default",
+      "Vadena",
+      "Varano",
+      "Povo"
+    ],
+  
+    "can_interface": "can0",
+    "sending_rate": 500,
+    "verbose": 0
+  }
+  

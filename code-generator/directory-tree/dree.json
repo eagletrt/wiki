@@ -1,0 +1,20 @@
+{
+    "showHidden": false,
+    "exclude": [
+        "node_modules",
+        "git",
+        "lcov-report",
+        "coverage",
+        
+        "directory-tree/",
+        "example/",
+        "videos/",
+        "bundled/lib/generators/",
+        "dist/source/bin/",
+        "dist/source/lib/",
+        "dist/test/",
+        "docs/documentation/html/",
+        "docs/documentation/html-dev/",
+        "test/"
+    ]
+}

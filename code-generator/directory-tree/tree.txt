@@ -1,0 +1,74 @@
+eagletrt-code-generator
+ ├── LICENSE
+ ├── README.md
+ ├─> bundled
+ │   ├─> bin
+ │   │   └── index.js
+ │   └─> lib
+ │       ├─> generators
+ │       ├── index.d.ts
+ │       └── index.js
+ ├─> dist
+ │   └─> source
+ │       ├─> bin
+ │       └─> lib
+ ├─> docs
+ │   ├─> directory-tree
+ │   ├─> documentation
+ │   │   ├─> html
+ │   │   └─> html-dev
+ │   ├─> example
+ │   └─> videos
+ ├── package-lock.json
+ ├── package.json
+ ├─> source
+ │   ├─> bin
+ │   │   └── index.ts
+ │   ├─> lib
+ │   │   ├─> generators
+ │   │   │   ├─> bson
+ │   │   │   │   └── bson.generator.ts
+ │   │   │   ├─> config
+ │   │   │   │   ├── config-allocator.generator.ts
+ │   │   │   │   ├── config-deallocator.generator.ts
+ │   │   │   │   ├── config-parser.generator.ts
+ │   │   │   │   ├── config-print.generator.ts
+ │   │   │   │   ├── config-type.generator.ts
+ │   │   │   │   └── configGenerator.ts
+ │   │   │   ├── index.ts
+ │   │   │   └─> structure
+ │   │   │       ├─> can-gatherer
+ │   │   │       │   ├── structure-can-gatherer-primary.generator.ts
+ │   │   │       │   ├── structure-can-gatherer-secondary.generator.ts
+ │   │   │       │   └── structureCanGathererGenerator.ts
+ │   │   │       ├── structure-allocator.generator.ts
+ │   │   │       ├── structure-deallocator.generator.ts
+ │   │   │       ├── structure-type.generator.ts
+ │   │   │       └── structureGenerator.ts
+ │   │   ├── index.ts
+ │   │   ├─> schemas
+ │   │   │   ├── config.schema.json
+ │   │   │   └── structure.schema.json
+ │   │   ├─> types
+ │   │   │   ├─> config
+ │   │   │   │   └── index.ts
+ │   │   │   ├─> generator
+ │   │   │   │   └── index.ts
+ │   │   │   ├── index.ts
+ │   │   │   ├─> options
+ │   │   │   │   └── index.ts
+ │   │   │   └─> structure
+ │   │   │       └── index.ts
+ │   │   └─> utils
+ │   │       ├── checkModelsSchema.ts
+ │   │       ├── getCodes.ts
+ │   │       ├── logger.ts
+ │   │       ├── options.ts
+ │   │       ├── parseTemplate.ts
+ │   │       └── transpile.ts
+ │   └── tsconfig.json
+ ├─> test
+ ├── tsconfig.json
+ ├── typedoc.dev.js
+ ├── typedoc.js
+ └── webpack.config.js

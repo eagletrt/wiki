@@ -1,0 +1,2813 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Building Qt for the Raspberry Pi - Eagle TRT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-qt-for-the-raspberry-pi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Eagle TRT" class="md-header__button md-logo" aria-label="Eagle TRT" data-md-component="logo">
+      
+  <img src="../../../static/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eagle TRT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building Qt for the Raspberry Pi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Eagle TRT" class="md-nav__button md-logo" aria-label="Eagle TRT" data-md-component="logo">
+      
+  <img src="../../../static/logo.png" alt="logo">
+
+    </a>
+    Eagle TRT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        E-Agle TRT Wiki
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Common
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common/about/writing-docs/" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          General Documentation Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General Documentation Files" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          General Documentation Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common/shared/can-config/" class="md-nav__link">
+        CAN-bus Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common/shared/can-debugging/" class="md-nav__link">
+        CAN-bus Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common/shared/openocd-errors/" class="md-nav__link">
+        OpenOCD Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DAS ECU hw
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DAS ECU hw" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DAS ECU hw
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DAS_ECU_hw/DAS_ECU/" class="md-nav__link">
+        DAS+ECU
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          High-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="High-Voltage BMS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          High-Voltage BMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/" class="md-nav__link">
+        High-Voltage Battery Management System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Mainboard
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mainboard" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mainboard
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/" class="md-nav__link">
+        Mainboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/io/" class="md-nav__link">
+        I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3">
+          Subsystems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Subsystems" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Subsystems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/bal/" class="md-nav__link">
+        Cell Balancing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_cli/" class="md-nav__link">
+        Command Line Interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_fsm/" class="md-nav__link">
+        Main State Machine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/current/" class="md-nav__link">
+        Current
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/feedback/" class="md-nav__link">
+        Feedback
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/mainboard/subsystems/timebase/" class="md-nav__link">
+        Timebase
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Bootloader
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bootloader" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Bootloader
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-hv-sw/bootloader/openblt/" class="md-nav__link">
+        OpenBlt
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Low-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Low-Voltage BMS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Low-Voltage BMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/" class="md-nav__link">
+        Low Voltage Battery Management System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Main functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Main functions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Main functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/Command%20Line%20Interface/" class="md-nav__link">
+        Command Line Interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/Cooling/" class="md-nav__link">
+        Cooling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/Errors/" class="md-nav__link">
+        Errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/Feedbacks%20signals/" class="md-nav__link">
+        Feedbacks signals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/IOC%20file%20and%20pinout/" class="md-nav__link">
+        IOC File and Pinout
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/State%20machine/" class="md-nav__link">
+        State Machine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-bms-lv/Main%20functions/Timing%20and%20Can%20messages/" class="md-nav__link">
+        Timing and CAN Messages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          DAS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DAS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          DAS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-das-sw/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          DAS (old docs)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DAS (old docs)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          DAS (old docs)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-ecu/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-ecu/modules/" class="md-nav__link">
+        Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-ecu/fsm/" class="md-nav__link">
+        Finite State Machine
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Steering Wheel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Steering Wheel" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Steering Wheel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Steering Wheel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Building Qt for the Raspberry Pi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Building Qt for the Raspberry Pi
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequites" class="md-nav__link">
+    Prerequites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-hardware" class="md-nav__link">
+    A. Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-software" class="md-nav__link">
+    B. Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-others" class="md-nav__link">
+    C. Others
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-the-target-machine" class="md-nav__link">
+    Setup the Target Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup the Target Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-start-from-scratch-optional" class="md-nav__link">
+    1. Start from Scratch (Optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Start from Scratch (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-download-softwares-prepare-the-sd-card" class="md-nav__link">
+    1.1. Download Softwares &amp; Prepare the SD card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-set-up-network" class="md-nav__link">
+    1.2 Set up Network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-ssh" class="md-nav__link">
+    2. Set up SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-open-terminal" class="md-nav__link">
+    3. Open Terminal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-enable-gl-fake-kms" class="md-nav__link">
+    4. Enable GL (FAKE KMS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-enable-development-sources" class="md-nav__link">
+    5. Enable Development Sources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-update-the-system" class="md-nav__link">
+    6. Update the system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-enable-rsync-with-elevated-rights" class="md-nav__link">
+    7. Enable rsync with elevated rights
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-install-the-important-development-packages" class="md-nav__link">
+    8. Install the important Development Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-additional-packages-optional" class="md-nav__link">
+    9. Additional packages (Optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-create-directory-for-qt-deployment" class="md-nav__link">
+    10. Create directory for QT Deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-the-host-machine" class="md-nav__link">
+    Setup the Host Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup the Host Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-update-the-host-machine" class="md-nav__link">
+    1. Update the Host Machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-setting-up-the-directory-structure" class="md-nav__link">
+    2. Setting up the directory structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-download-extract-qt-source" class="md-nav__link">
+    3. Download &amp; Extract QT Source
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Download &amp; Extract QT Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-download-binary" class="md-nav__link">
+    A. Download Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-extract-binary" class="md-nav__link">
+    B. Extract Binary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-patching-qt-source" class="md-nav__link">
+    4. Patching QT Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-download-extract-the-precompiled-cross-compiler" class="md-nav__link">
+    5. Download &amp; Extract the Precompiled Cross-Compiler
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Download &amp; Extract the Precompiled Cross-Compiler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-copy-binary-url" class="md-nav__link">
+    A. Copy Binary URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-download-binary" class="md-nav__link">
+    B. Download Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-extract-binary" class="md-nav__link">
+    C. Extract Binary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sync-raspberry-pi-sysroot-most-important" class="md-nav__link">
+    6. Sync Raspberry Pi sysroot (Most Important)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-fix-symbolic-links" class="md-nav__link">
+    7. Fix symbolic links
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configure-qt-build" class="md-nav__link">
+    8. Configure QT Build
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Configure QT Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-check-configure-output" class="md-nav__link">
+    8.1 Check Configure Output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-check-if-eglfs-enabled" class="md-nav__link">
+    8.2 Check if EGLFS enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-build-qt-source" class="md-nav__link">
+    9. Build QT Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-install-qt-source" class="md-nav__link">
+    10. Install QT Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-deploy-qt-to-raspberry-pi" class="md-nav__link">
+    11. Deploy QT to Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-step-for-target-machine" class="md-nav__link">
+    Final Step for Target Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Step for Target Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-linker-on-raspberry-pi" class="md-nav__link">
+    Update linker on Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Interface
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interface" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Interface
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interface/tabs/" class="md-nav__link">
+        Concept of Tabs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          ECU
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ECU" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          ECU
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-traction-control-sw/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-traction-control-sw/rpi-setup/" class="md-nav__link">
+        RPi Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fenice-traction-control-sw/compiling/" class="md-nav__link">
+        Compiling & Executing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Handcart hw
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Handcart hw" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Handcart hw
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handcart-hw/handcart/" class="md-nav__link">
+        Handcart / Charger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Handcart Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Handcart Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Handcart Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handcart-sw/main/" class="md-nav__link">
+        Handcart Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          rasp shieldV2 config
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="rasp shieldV2 config" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          rasp shieldV2 config
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rasp-shieldV2-config/" class="md-nav__link">
+        Documentation!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Telemetry
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telemetry" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Telemetry
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/" class="md-nav__link">
+        Telemetry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_2" type="checkbox" id="__nav_13_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_13_2">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Overview/features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Overview/report/" class="md-nav__link">
+        Report
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_3" type="checkbox" id="__nav_13_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13_3">
+          Setup and installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup and installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_13_3">
+          <span class="md-nav__icon md-icon"></span>
+          Setup and installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Setup%20and%20Installation/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Setup%20and%20Installation/setup/" class="md-nav__link">
+        Telemetry Usage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_4" type="checkbox" id="__nav_13_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13_4">
+          Internal implementations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Internal implementations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_13_4">
+          <span class="md-nav__icon md-icon"></span>
+          Internal implementations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Internal%20implementations/connection/" class="md-nav__link">
+        Implement New Connection Type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Internal%20implementations/json_loading/" class="md-nav__link">
+        Json Loading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../telemetry/Internal%20implementations/file_transmission/" class="md-nav__link">
+        File transmission
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequites" class="md-nav__link">
+    Prerequites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-hardware" class="md-nav__link">
+    A. Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-software" class="md-nav__link">
+    B. Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-others" class="md-nav__link">
+    C. Others
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-the-target-machine" class="md-nav__link">
+    Setup the Target Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup the Target Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-start-from-scratch-optional" class="md-nav__link">
+    1. Start from Scratch (Optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Start from Scratch (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-download-softwares-prepare-the-sd-card" class="md-nav__link">
+    1.1. Download Softwares &amp; Prepare the SD card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-set-up-network" class="md-nav__link">
+    1.2 Set up Network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-ssh" class="md-nav__link">
+    2. Set up SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-open-terminal" class="md-nav__link">
+    3. Open Terminal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-enable-gl-fake-kms" class="md-nav__link">
+    4. Enable GL (FAKE KMS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-enable-development-sources" class="md-nav__link">
+    5. Enable Development Sources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-update-the-system" class="md-nav__link">
+    6. Update the system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-enable-rsync-with-elevated-rights" class="md-nav__link">
+    7. Enable rsync with elevated rights
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-install-the-important-development-packages" class="md-nav__link">
+    8. Install the important Development Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-additional-packages-optional" class="md-nav__link">
+    9. Additional packages (Optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-create-directory-for-qt-deployment" class="md-nav__link">
+    10. Create directory for QT Deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-the-host-machine" class="md-nav__link">
+    Setup the Host Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup the Host Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-update-the-host-machine" class="md-nav__link">
+    1. Update the Host Machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-setting-up-the-directory-structure" class="md-nav__link">
+    2. Setting up the directory structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-download-extract-qt-source" class="md-nav__link">
+    3. Download &amp; Extract QT Source
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Download &amp; Extract QT Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-download-binary" class="md-nav__link">
+    A. Download Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-extract-binary" class="md-nav__link">
+    B. Extract Binary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-patching-qt-source" class="md-nav__link">
+    4. Patching QT Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-download-extract-the-precompiled-cross-compiler" class="md-nav__link">
+    5. Download &amp; Extract the Precompiled Cross-Compiler
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Download &amp; Extract the Precompiled Cross-Compiler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-copy-binary-url" class="md-nav__link">
+    A. Copy Binary URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-download-binary" class="md-nav__link">
+    B. Download Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-extract-binary" class="md-nav__link">
+    C. Extract Binary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sync-raspberry-pi-sysroot-most-important" class="md-nav__link">
+    6. Sync Raspberry Pi sysroot (Most Important)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-fix-symbolic-links" class="md-nav__link">
+    7. Fix symbolic links
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configure-qt-build" class="md-nav__link">
+    8. Configure QT Build
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Configure QT Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-check-configure-output" class="md-nav__link">
+    8.1 Check Configure Output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-check-if-eglfs-enabled" class="md-nav__link">
+    8.2 Check if EGLFS enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-build-qt-source" class="md-nav__link">
+    9. Build QT Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-install-qt-source" class="md-nav__link">
+    10. Install QT Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-deploy-qt-to-raspberry-pi" class="md-nav__link">
+    11. Deploy QT to Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-step-for-target-machine" class="md-nav__link">
+    Final Step for Target Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Step for Target Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-linker-on-raspberry-pi" class="md-nav__link">
+    Update linker on Raspberry Pi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="building-qt-for-the-raspberry-pi">Building Qt for the Raspberry Pi</h1>
+<p>This guide is an edited version of the <a href="https://github.com/abhiTronix/raspberry-pi-cross-compilers/blob/master/QT_build_instructions.md">original</a>
+by <a href="https://github.com/abhiTronix">abhiTronix</a>.</p>
+<h2 id="prerequites">Prerequites</h2>
+<h3 id="a-hardware">A. Hardware</h3>
+<ul>
+<li><strong>Host:</strong> Any x86 / x86_64 AMD / Intel machine</li>
+<li><strong>Target:</strong> Raspberry Pi any variant / module</li>
+</ul>
+<h3 id="b-software">B. Software</h3>
+<ul>
+<li><strong>Host:</strong> Any Linux machine <em>(Ubuntu 20.04 Tested)</em></li>
+<li><strong>Target:</strong> <a href="https://www.raspberrypi.org/software/operating-systems/">Any Raspberry Pi Linux 32-bit
+  OS</a>
+  <em>(Raspbian Buster Tested)</em></li>
+</ul>
+<h3 id="c-others">C. Others</h3>
+<ul>
+<li><strong>Storage and Time Requirements:</strong> The build directory takes around
+  \~10GB space and about 2-5 hours to complete <em>(based on dependencies &amp;
+  Host Machine Specifications)</em>.</li>
+<li><strong>Networking:</strong> Your Target Machine <em>(Raspberry Pi)</em> and Host Machine
+  <em>(where you cross-compiling)</em> both must have internet access, and
+  must be on same network to follow these instructions.</li>
+</ul>
+<h2 id="setup-the-target-machine">Setup the Target Machine</h2>
+<h3 id="1-start-from-scratch-optional">1. Start from Scratch <em>(Optional)</em></h3>
+<p><strong>Important:</strong> If you just brought a new Raspberry Pi or wanted to start
+from scratch just follow along. Otherwise, if you already has your
+Raspberry Pi setup, running, and Network Ready, then just skip to <a href="#2-set-up-ssh">step
+2</a>.</p>
+<p><strong>Note:</strong> This section assume you have atleast 10GB SDcard for
+installing Raspbian Buster OS and a Laptop/PC for uploading it.</p>
+<h4 id="11-download-softwares-prepare-the-sd-card">1.1. Download Softwares &amp; Prepare the SD card</h4>
+<ul>
+<li>Download the latest version of Raspbian (Buster) from
+  <a href="https://www.raspberrypi.org/software/operating-systems/">here</a> on
+  your laptop/pc.</li>
+<li>You will be needing an image writer to write the downloaded OS into
+  the SD card <em>(micro SD card in our case)</em>. So download the
+  open-source <strong>“win32 disk imager”</strong> from
+  <a href="https://sourceforge.net/projects/win32diskimager/files/Archive/">here</a>,
+  OR you can also use <a href="https://www.balena.io/etcher/">Balena Etcher</a>
+  instead.</li>
+<li>Insert the SD card into the laptop/pc and run the image writer. Once
+  open, browse and select the downloaded Raspbian image file. Select
+  the correct device, that is the drive representing the SD card.
+  <strong>Note:</strong><em>If the drive (or device) selected is different from the
+  SD card then the other selected drive will become corrupted.</em><strong>SO
+  BE CAREFUL!</strong></li>
+<li>Once the write is complete, eject the SD card and insert it into the
+  Raspberry Pi and turn it on. It should start booting up.</li>
+<li>Please remember that after booting the Pi, there might be situations
+  when the user credentials like the “username” and password will be
+  asked. Raspberry Pi comes with a default username <code>pi</code> and password
+  <code>raspberry</code> and so use it whenever it is being asked.</li>
+</ul>
+<h4 id="12-set-up-network">1.2 Set up Network</h4>
+<p>Now the you have your Raspberry Pi up and Running, its time to connect
+it your network with one of following ways:</p>
+<ul>
+<li><a href="https://www.raspberrypi.org/documentation/configuration/wireless/desktop.md">If you have Monitor</a>.</li>
+<li><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">If you don’t have Monitor</a></li>
+<li><a href="https://www.raspberrypi.org/documentation/configuration/wireless/">Any other way</a></li>
+</ul>
+<h3 id="2-set-up-ssh">2. Set up SSH</h3>
+<ul>
+<li><strong>If you have Monitor:</strong> On the Raspberry Pi terminal, type:
+  <code>sudo raspi-config</code> and menu should pop up on your terminal. To
+  enable SSH, go to: <code>Interfacing Options</code> -&gt; <code>SSH</code> -&gt; <code>Yes</code>, and
+  Click <code>OK</code> to enable it. Choose <code>Finish</code> finally and exit.</li>
+<li><strong>If you don’t have Monitor:</strong> After setting up the network, if you
+  don’t have monitor or you operating it remotely. Then, enable SSH by
+  just taking out your SD card, and hook it your computer, and simply
+  create an empty file called <code>ssh</code> in the <code>/boot/parition</code> path
+  inside SD card. Now insert back SD card into the Raspberry Pi.</li>
+</ul>
+<h3 id="3-open-terminal">3. Open Terminal</h3>
+<ul>
+<li><strong>From another Laptop/PC using SSH:</strong> To connect to your Pi from a
+  different computer, copy and paste the following command into the
+  terminal window but replace <code>192.160.1.47</code> with the IP address of
+  the Raspberry Pi. Use <code>Ctrl + Shift + V</code> to paste in the terminal.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ssh pi@192.168.1.47
+</code></pre></div>
+<p>It will ask for password, and if not changed, it is default
+  (<code>raspberry</code>), and so use it whenever it is being asked.</p>
+<p><strong>Note:</strong> It is possible to configure your Raspberry Pi to allow
+  access from another computer without needing to provide a password
+  each time you connect. <em>For more details,</em><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md">see
+  here</a>.</p>
+<ul>
+<li><strong>On Raspberry Pi directly with a Monitor:</strong> Just search “Terminal”
+  and click on it.</li>
+</ul>
+<h3 id="4-enable-gl-fake-kms">4. Enable GL (FAKE KMS)</h3>
+<p>To enable Fake KMS, type <code>sudo raspi-config</code> on your terminal to open
+a menu, then go to: <code>Advanced Options</code> -&gt; <code>A8 GL Driver</code> -&gt;
+<code>G2 GL (Fake KMS)</code> That should enable KMS. Choose <code>Finish</code> finally
+and exit.</p>
+<p><strong>Note:</strong> If you are using a minimal build, you may be prompted to
+download some updates before this option becomes available. If asked, do
+so.</p>
+<h3 id="5-enable-development-sources">5. Enable Development Sources</h3>
+<p>You need to edit your sources list to enable development sources. To do
+this, enter the following command into pi terminal:</p>
+<div class="highlight"><pre><span></span><code>sudo nano /etc/apt/sources.list
+</code></pre></div>
+<p>In the nano text editor, uncomment the following line by removing the
+<code>#</code> character from following line:</p>
+<div class="highlight"><pre><span></span><code>deb-src http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+</code></pre></div>
+<p>When done, press <code>Ctrl+O</code> and then <code>ENTER</code> to quit.</p>
+<h3 id="6-update-the-system">6. Update the system</h3>
+<p>Run the following commands in terminal to update the system</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt dist-upgrade
+</code></pre></div>
+<h3 id="7-enable-rsync-with-elevated-rights">7. Enable rsync with elevated rights</h3>
+<p>Later in this guide, we will be using the <code>rsync</code> command to sync
+files between the Host PC/Laptop and the Raspberry Pi. For some of these
+files, root rights (i.e. sudo) is required internally.</p>
+<p>You can do this with a single terminal command as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2"> ALL=NOPASSWD:</span><span class="k">$(</span>which rsync<span class="k">)</span><span class="s2">&quot;</span> <span class="p">|</span> sudo tee --append /etc/sudoers
+</code></pre></div>
+<p>That’s it. Now <code>rsync</code> should be setup to run with <code>sudo</code> if needed.</p>
+<h3 id="8-install-the-important-development-packages">8. Install the important Development Packages</h3>
+<p>Run the following commands in Raspberry Pi terminal to install the
+required packages:</p>
+<div class="highlight"><pre><span></span><code>sudo apt install build-essential cmake unzip pkg-config gfortran
+sudo apt build-dep qt5-qmake libqt5gui5 libqt5webengine-data libqt5webkit5 libudev-dev libinput-dev libts-dev libxcb-xinerama0-dev libxcb-xinerama0 gdbserver
+sudo apt install libxcb-randr0-dev libxcb-xtest0-dev libxcb-shape0-dev libxcb-xkb-dev
+</code></pre></div>
+<h3 id="9-additional-packages-optional">9. Additional packages (Optional)</h3>
+<p>You can install these packages if you want additional multimedia and
+bluetooth capability with your QT binaries:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># additional (multimedia) packages</span>
+sudo apt install libjpeg-dev libpng-dev libtiff-dev
+sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt install libxvidcore-dev libx264-dev
+<span class="c1"># audio packages</span>
+sudo apt install libopenal-data libsndio7.0 libopenal1 libopenal-dev pulseaudio
+<span class="c1"># bluetooth packages</span>
+sudo apt install bluez-tools
+sudo apt install libbluetooth-dev
+<span class="c1"># gstreamer (multimedia) packages</span>
+sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+sudo apt install libgstreamer1.0-dev  libgstreamer-plugins-base1.0-dev
+</code></pre></div>
+<h3 id="10-create-directory-for-qt-deployment">10. Create directory for QT Deployment</h3>
+<p>Now we create directories where the built QT Binaries will be deployed
+to your the Rasberry Pi, with following commands:</p>
+<div class="highlight"><pre><span></span><code>sudo mkdir /usr/local/qt5.15
+sudo chown -R pi:pi /usr/local/qt5.15
+</code></pre></div>
+<p>Also don’t forget to setup Important Symlinks as follows:
+<strong>(Important)</strong></p>
+<div class="highlight"><pre><span></span><code>sudo ln -sf -r /usr/include/arm-linux-gnueabihf/asm /usr/include
+sudo ln -sf -r /usr/include/arm-linux-gnueabihf/gnu /usr/include
+sudo ln -sf -r /usr/include/arm-linux-gnueabihf/bits /usr/include
+sudo ln -sf -r /usr/include/arm-linux-gnueabihf/sys /usr/include
+sudo ln -sf -r /usr/include/arm-linux-gnueabihf/openssl /usr/include
+sudo ln -sf /usr/lib/arm-linux-gnueabihf/crtn.o /usr/lib/crtn.o
+sudo ln -sf /usr/lib/arm-linux-gnueabihf/crt1.o /usr/lib/crt1.o
+sudo ln -sf /usr/lib/arm-linux-gnueabihf/crti.o /usr/lib/crti.o
+</code></pre></div>
+<p>That’s it for Raspberry Pi setup.</p>
+<h2 id="setup-the-host-machine">Setup the Host Machine</h2>
+<p>Now Raspberry Pi Side all setup, Let’s focus on commands for our Host
+Machine, i.e. PC/Laptop, where you going to cross-compile the QT
+Binaries for your Raspberry Pi.</p>
+<p><strong>Important:</strong> Make sure your Raspberry Pi and this Host machine <em>(where
+you cross-compiling)</em> MUST be on the SAME Network.</p>
+<h3 id="1-update-the-host-machine">1. Update the Host Machine</h3>
+<p>First of all, Run the following commands to update your system and
+install important dependancies:</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt dist-upgrade
+sudo apt install build-essential cmake unzip gfortran
+sudo apt install gcc git bison python gperf pkg-config gdb-multiarch wget
+sudo apt-get -y install gcc g++ gperf flex texinfo gawk bison openssl pigz libncurses-dev autoconf automake tar figlet
+</code></pre></div>
+<h3 id="2-setting-up-the-directory-structure">2. Setting up the directory structure</h3>
+<p>You can use these following commands to create “rpi-qt” to use as
+workspace for building QT Binaries:</p>
+<div class="highlight"><pre><span></span><code>sudo mkdir ~/rpi-qt
+sudo mkdir ~/rpi-qt/build
+sudo mkdir ~/rpi-qt/tools
+sudo mkdir ~/rpi-qt/sysroot
+sudo mkdir ~/rpi-qt/sysroot/usr
+sudo mkdir ~/rpi-qt/sysroot/opt
+sudo chown -R <span class="m">1000</span>:1000 ~/rpi-qt
+<span class="nb">cd</span> ~/rpi-qt
+</code></pre></div>
+<p><strong>Note:</strong> Ensure the last command should have changed your current
+directory to <code>~/rpi-qt</code>. If not, run the last line again to make sure
+you are inside it, as the next steps assume you’re running your commands
+from this directory.</p>
+<h3 id="3-download-extract-qt-source">3. Download &amp; Extract QT Source</h3>
+<h4 id="a-download-binary">A. Download Binary</h4>
+<p>Now, we can download the Latest source files for QT LTS
+(i.e. <code>v5.15.2</code>) by running following Terminal command to download the
+source files:</p>
+<div class="highlight"><pre><span></span><code>sudo wget http://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz
+</code></pre></div>
+<p><strong>Note:</strong> You can also <a href="http://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz">manually download
+file</a>
+through browser, and place it in the <code>~/rpi-qt</code> directory.</p>
+<h4 id="b-extract-binary">B. Extract Binary</h4>
+<p>Extract the downloaded <code>tar</code> file with the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo tar xfv qt-everywhere-src-5.15.2.tar.xz
+</code></pre></div>
+<h3 id="4-patching-qt-source">4. Patching QT Source</h3>
+<p>We need to slightly modify the a mkspec file within the source files to
+allow us to use our cross compiler. We will copy an existing directory
+within the source files, and modify the name of the directory and the
+contents of the <code>qmake.conf</code> file within that directory to follow the
+name of our compiler. To do this, run the following two command:</p>
+<div class="highlight"><pre><span></span><code>cp -R qt-everywhere-src-5.15.2/qtbase/mkspecs/linux-arm-gnueabi-g++ qt-everywhere-src-5.15.2/qtbase/mkspecs/linux-arm-gnueabihf-g++
+
+sed -i -e <span class="s1">&#39;s/arm-linux-gnueabi-/arm-linux-gnueabihf-/g&#39;</span> qt-everywhere-src-5.15.2/qtbase/mkspecs/linux-arm-gnueabihf-g++/qmake.conf
+</code></pre></div>
+<h3 id="5-download-extract-the-precompiled-cross-compiler">5. Download &amp; Extract the Precompiled Cross-Compiler</h3>
+<p>Let’s first change into <code>tools</code> directory for downloading our
+Precompiled Cross-compiler with the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/rpi-qt/tools
+</code></pre></div>
+<p><strong>Note:</strong> Ensure the last command should have changed your current
+directory to <code>~/rpi-qt/tools</code> now. If not, run it again.</p>
+<h4 id="a-copy-binary-url">A. Copy Binary URL</h4>
+<p>Copy URL from one of following Precompiled Compressed Base-Toolchain
+<em>(for maximum compatability)</em> based on your Raspberry Pi Variant and OS
+you installed on it, from below:</p>
+<table>
+<thead>
+<tr>
+<th>Raspberry Pi Board</th>
+<th>Stretch (32 bit)</th>
+<th>Buster (32 bit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero/W/WH &amp; 1 Model A/B/A+/B+</td>
+<td>https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Stretch/GCC%206.3.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-6.3.0-pi_0-1.tar.gz</td>
+<td>https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Buster/GCC%208.3.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-8.3.0-pi_0-1.tar.gz</td>
+</tr>
+<tr>
+<td>2 &amp; 3 Model A/B</td>
+<td>https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Stretch/GCC%206.3.0/Raspberry%20Pi%202%2C%203/cross-gcc-6.3.0-pi_2-3.tar.gz</td>
+<td>https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Buster/GCC%208.3.0/Raspberry%20Pi%202%2C%203/cross-gcc-8.3.0-pi_2-3.tar.gz</td>
+</tr>
+<tr>
+<td>3 &amp; 4 Model A+/B+ &amp; Compute 3/3-lite/3+</td>
+<td>https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Stretch/GCC%206.3.0/Raspberry%20Pi%203A%2B%2C%203B%2B%2C%204/cross-gcc-6.3.0-pi_3%2B.tar.gz</td>
+<td>https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Buster/GCC%208.3.0/Raspberry%20Pi%203A%2B%2C%203B%2B%2C%204/cross-gcc-8.3.0-pi_3%2B.tar.gz</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> You can also use the <a href="https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/">latest cross-compiler
+binaries</a>
+instead. But they are not tested.</p>
+<h4 id="b-download-binary">B. Download Binary</h4>
+<p>After that, paste your copied URL and run the following command to
+download the Cross-compiler:</p>
+<div class="highlight"><pre><span></span><code>wget &lt;Copied Binary URL goes here&gt; <span class="c1">#for e.g. =&gt; wget https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Buster/GCC%208.3.0/Raspberry%20Pi%202%2C%203/cross-gcc-8.3.0-pi_2-3.tar.gz</span>
+</code></pre></div>
+<h4 id="c-extract-binary">C. Extract Binary</h4>
+<p>Once it is downloaded, we can extract it using the following command:</p>
+<div class="highlight"><pre><span></span><code>tar xf cross-gcc-*.tar.gz
+</code></pre></div>
+<h3 id="6-sync-raspberry-pi-sysroot-most-important">6. Sync Raspberry Pi sysroot (Most Important)</h3>
+<p>First, let’s move back into the rpi folder as needed for the next
+sections:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/rpi-qt
+</code></pre></div>
+<p>Now, we need to sync up our sysroot folder with the system files from
+the Raspberry Pi. We will be using <code>rsync</code> that let us sync
+<em>(i.e. copy)</em> files from the Raspberry Pi with appropriate permission
+onto your Host Machine, potentially saving you alot of time.</p>
+<p>To do this, enter the following commands one by one into your terminal
+<em>(change ``192.168.1.47`` with the IP address of your Raspberry Pi
+present on the same network)</em>:</p>
+<ul>
+<li><strong>Command 1:</strong>
+  <div class="highlight"><pre><span></span><code>rsync -avz --rsync-path=&quot;sudo rsync&quot; --delete pi@192.168.1.47:/lib sysroot
+</code></pre></div></li>
+<li><strong>Command 2:</strong>
+  <div class="highlight"><pre><span></span><code>rsync -avz --rsync-path=&quot;sudo rsync&quot; --delete pi@192.168.1.47:/usr/include sysroot/usr
+</code></pre></div></li>
+<li><strong>Command 3:</strong>
+  <div class="highlight"><pre><span></span><code>rsync -avz --rsync-path=&quot;sudo rsync&quot; --delete pi@192.168.1.47:/usr/lib sysroot/usr
+</code></pre></div></li>
+<li><strong>Command 4:</strong>
+  <div class="highlight"><pre><span></span><code>rsync -avz --rsync-path=&quot;sudo rsync&quot; --delete pi@192.168.1.47:/opt/vc sysroot/opt
+</code></pre></div></li>
+</ul>
+<p><strong>Note:</strong> Double check after each of the above commands that all the
+files have been copied to <code>~/rpi-qt/sysroot</code> folder. There will be an
+information message if there were any issues.</p>
+<h3 id="7-fix-symbolic-links">7. Fix symbolic links</h3>
+<p>The files we copied in the previous step still have symbolic links
+pointing to the file system on the Raspberry Pi. We need to alter this
+so that they become relative links from the new sysroot directory on the
+host machine. We can do this with a python script, which we can download
+as follows:</p>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/abhiTronix/rpi_rootfs/master/scripts/sysroot-relativelinks.py
+</code></pre></div>
+<p>Once it is downloaded, you just need to make it executable and run it,
+using the following commands:</p>
+<div class="highlight"><pre><span></span><code>sudo chmod +x sysroot-relativelinks.py
+./sysroot-relativelinks.py sysroot
+</code></pre></div>
+<h3 id="8-configure-qt-build">8. Configure QT Build</h3>
+<p>Let’s move into the <code>build</code> directory for further steps, as we don’t
+want to build within that source directory as its crowded, so we will
+access it from within this this directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/rpi-qt/build
+</code></pre></div>
+<p>Finally, Now we can configure our QT build. We need to run the
+<code>configure</code> script inside QT source to configure our build. Run
+following command to configure the build, including all the necessary
+options:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">CROSS_COMPILER_LOCATION</span><span class="o">=</span><span class="nv">$HOME</span>/rpi-qt/tools/cross-pi-gcc-*
+
+../qt-everywhere-src-5.15.2/configure -release -opengl es2  -eglfs -device linux-rasp-pi4-v3d-g++ -device-option <span class="nv">CROSS_COMPILE</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$CROSS_COMPILER_LOCATION</span><span class="k">)</span>/bin/arm-linux-gnueabihf- -sysroot ~/rpi-qt/sysroot/ -prefix /usr/local/qt5.15 -extprefix ~/rpi-qt/qt5.15 -opensource -confirm-license -skip qtscript -skip qtwayland -skip qtwebengine -nomake tests -make libs -pkg-config -no-use-gold-linker -v -recheck -L<span class="nv">$HOME</span>/rpi-qt/sysroot/usr/lib/arm-linux-gnueabihf -I<span class="nv">$HOME</span>/rpi-qt/sysroot/usr/include/arm-linux-gnueabihf
+</code></pre></div>
+<p>The configure script may take a few minutes to complete.</p>
+<h4 id="81-check-configure-output">8.1 Check Configure Output</h4>
+<p>Once it is completed you should get a summary of what has been
+configured. Make sure the following options appear:</p>
+<div class="highlight"><pre><span></span><code>Configure summary:
+
+Building on: linux-g++ <span class="o">(</span>x86_64, CPU features: mmx sse sse2<span class="o">)</span>
+Building <span class="k">for</span>: devices/linux-rasp-pi4-v3d-g++ <span class="o">(</span>arm, CPU features: neon<span class="o">)</span>
+Target compiler: gcc <span class="m">8</span>.3.0
+Configuration: cross_compile compile_examples enable_new_dtags largefile neon precompile_header shared shared rpath release c++11 c++14 c++17 c++1z concurrent dbus reduce_exports stl
+</code></pre></div>
+<h4 id="82-check-if-eglfs-enabled">8.2 Check if EGLFS enabled</h4>
+<div class="highlight"><pre><span></span><code>QPA backends:
+  EGLFS .................................. yes  <span class="o">[</span>SHOULD BE YES<span class="o">]</span>
+  EGLFS details:
+    EGLFS OpenWFD ........................ no
+    EGLFS i.Mx6 .......................... no
+    EGLFS i.Mx6 Wayland .................. no
+    EGLFS RCAR ........................... no
+    EGLFS EGLDevice ...................... yes  <span class="o">[</span>SHOULD BE YES<span class="o">]</span>
+    EGLFS GBM ............................ yes
+    EGLFS VSP2 ........................... no
+    EGLFS Mali ........................... no
+    EGLFS Raspberry Pi ................... no   <span class="o">[</span>SHOULD BE NO<span class="o">]</span>
+    EGLFS X11 ............................ yes
+</code></pre></div>
+<p>If the your configuration summary doesn’t have the EGLFS features set to
+what’s shown above, something has probably gone wrong. You can look at
+the config.log file in the build directory to try and diagnose what the
+issue might be.</p>
+<p>If all looks good and all libraries you need have been installed we can
+continue to the next section</p>
+<h3 id="9-build-qt-source">9. Build QT Source</h3>
+<p>Our build has been configured now, and it is time to actually build the
+source files, and run the following command:</p>
+<p><strong>Important:</strong> Ensure you are still in the <code>~/rpi-qt/build</code> directory</p>
+<div class="highlight"><pre><span></span><code>make -j<span class="k">$(</span>nproc<span class="k">)</span>
+</code></pre></div>
+<p><strong>Note:</strong> <code>-j$(nproc)</code> option indicates that the job should be spread
+into mutliple threads and run in parallel on available cores.</p>
+<p>☕️ This process will take some time!</p>
+<h3 id="10-install-qt-source">10. Install QT Source</h3>
+<p>Once it is completed, we can install the built package using the
+following command:</p>
+<div class="highlight"><pre><span></span><code>make install
+</code></pre></div>
+<p>This should install the files in the correct directories</p>
+<h3 id="11-deploy-qt-to-raspberry-pi">11. Deploy QT to Raspberry Pi</h3>
+<p>First move back into the rpi folder using the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/rpi-qt
+</code></pre></div>
+<p>Now, We can now deploy built QT Binaries <em>(contained in ``qt5.15``
+folder in ``~/rpi-qt`` directory)</em> back to our Raspberry Pi, again using
+<code>rsync</code> command. Just run the following command <em>(change
+``192.168.1.47`` with the IP address of your Raspberry Pi present on the
+same network)</em>:</p>
+<div class="highlight"><pre><span></span><code>rsync -avz --rsync-path<span class="o">=</span><span class="s2">&quot;sudo rsync&quot;</span> qt5.15 pi@192.168.1.47:/usr/local
+</code></pre></div>
+<h2 id="final-step-for-target-machine">Final Step for Target Machine</h2>
+<h3 id="update-linker-on-raspberry-pi">Update linker on Raspberry Pi</h3>
+<p>Enter the following command to update the device letting the linker to
+find the new QT binary files:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> /usr/local/qt5.15/lib <span class="p">|</span> sudo tee /etc/ld.so.conf.d/qt5.15.conf
+sudo ldconfig
+</code></pre></div>
+<p><strong>For Raspberry Pi 2:</strong> If you’re facing issues with running the
+example, try to use <code>00-qt5pi.conf</code> instead of <code>qt5pi.conf</code>, in the
+above command.</p>
+<p>🍻 <em>That should be it! You have now succesfully installed latest QT
+5.15.2 on the Raspberry Pi.</em></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Steering Wheel" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Steering Wheel
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../interface/tabs/" class="md-footer__link md-footer__link--next" aria-label="Next: Concept of Tabs" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Concept of Tabs
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; E-Agle TRT
+          </div>
+        
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/eagletrt" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/eagletrt" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://hub.docker.com/u/eagletrt" target="_blank" rel="noopener" title="hub.docker.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="../../../static/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      
+        <script src="../../../static/js/mermaid.js"></script>
+      
+    
+  </body>
+</html>
