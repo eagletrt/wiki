@@ -45,7 +45,7 @@ jobs:
       - name: Complete static build
         run: |
           touch site/.nojekyll
-          echo "eagletrt.wiki" > site/CNAME
+          echo "wiki.eagletrt.it" > site/CNAME
       - name: Push to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
