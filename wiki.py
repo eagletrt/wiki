@@ -88,7 +88,26 @@ for repo in org.get_repos():
         extractables = [info for info in members if info.name.startswith(base)]
         for extractable in extractables:
             extractable.name = extractable.name[len(base) :]
-        file.extractall(extract_path, extractables)
+        def is_within_directory(directory, target):
+            
+            abs_directory = os.path.abspath(directory)
+            abs_target = os.path.abspath(target)
+        
+            prefix = os.path.commonprefix([abs_directory, abs_target])
+            
+            return prefix == abs_directory
+        
+        def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+        
+            for member in tar.getmembers():
+                member_path = os.path.join(path, member.name)
+                if not is_within_directory(path, member_path):
+                    raise Exception("Attempted Path Traversal in Tar File")
+        
+            tar.extractall(path, members, numeric_owner=numeric_owner) 
+            
+        
+        safe_extract(file, extract_path, extractables)
 
     contents = []
     for item in os.listdir(extract_path):
