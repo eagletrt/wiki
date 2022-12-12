@@ -1,9 +1,9 @@
 name: Documentation
 
 on:
+  workflow_dispatch:
   schedule:
-    # Every hour
-    - cron: 0 * * * *
+    - cron: 0 0,12 * * * # twice a day, at 12:00 and 00:00
   push:
     branches:
       - master
@@ -39,7 +39,7 @@ jobs:
       - name: Fetch documentation
         run: poetry run python wiki.py
         env:
-          GITHUB_PAT: ${{ secrets.PAT }}
+          GITHUB_PAT: ${{ secrets.WIKI_PAT }}
       - name: Create static build
         run: poetry run mkdocs build
       - name: Complete static build
@@ -51,7 +51,7 @@ jobs:
         with:
           branch: gh-pages
           folder: site
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.WIKI_PAT }}
           force: true
           single-commit: true
           git-config-name: eagletrtbot
