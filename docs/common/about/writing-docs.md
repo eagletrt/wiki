@@ -46,7 +46,7 @@ nav:
 You can draw diagrams with [mermaid](https://mermaid-js.github.io/mermaid/#/).
 
 ````
-```diagram
+```mermaid
 stateDiagram-v2
     [*] --> Still
     Still --> [*]
@@ -58,7 +58,7 @@ stateDiagram-v2
 ```
 ````
 
-```diagram
+```mermaid
 stateDiagram-v2
     [*] --> Still
     Still --> [*]

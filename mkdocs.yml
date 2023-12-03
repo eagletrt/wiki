@@ -20,6 +20,9 @@ theme:
 plugins:
   - search
   - awesome-pages
+  - mermaid2:
+      arguments:
+        theme: dark
   - mkdocs-jupyter:
       theme: dark
 
@@ -31,12 +34,10 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
-        - name: diagram
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
         - name: mermaid
-          class: mermaid
+          class: mermaid-experimental
           format: !!python/name:pymdownx.superfences.fence_code_format
+
   - extra
   - admonition
   - pymdownx.details

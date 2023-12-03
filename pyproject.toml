@@ -14,9 +14,10 @@ mkdocs-awesome-pages-plugin = "^2.5.0"
 pymdown-extensions = "^10.4.0"
 requests = "^2.26.0"
 PyGithub = "^1.55"
-PyYAML = "^5.4.1"
 mkdocs-jupyter = "^0.18.0"
 importlib-resources = "^5.4.0"
+PyYAML = "6.0.1"
+mkdocs-mermaid2-plugin = "^1.1.1"
 
 [tool.poetry.dev-dependencies]
 
