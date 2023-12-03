@@ -34,6 +34,9 @@ markdown_extensions:
         - name: diagram
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - extra
   - admonition
   - pymdownx.details
