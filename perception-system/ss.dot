@@ -1,0 +1,18 @@
+
+digraph common_fsm {
+
+    subgraph engine {
+        style=filled
+        color=grey
+        label="Logger"
+        node [shape=ellipse,style=filled,color=lightgrey]
+        "Init()"
+        node [shape=ellipse]
+        "Init()" -> "Idle()" [label="InitToIdle()"]
+        "Idle()" -> "Run()" [label="IdleToRun()"]
+        "Run()" -> "Idle()" [label="RunToIdle()"]
+        "Run()" -> "Stop()" [label="RunToStop()"]
+        "Idle()" -> "Stop()" [label="IdleToStop()"]
+    }
+
+}
