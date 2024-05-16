@@ -1,0 +1,151 @@
+\documentclass[a4paper]{report}
+
+\usepackage[top=25mm,bottom=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+%\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+
+\tikzset{
+  ->,  % makes the edges directed
+  %>=stealth’, % makes the arrow heads bold
+  node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary.
+  every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+  initial text=$ $, % sets the text that appears on the start arrow
+}
+
+\title{Handcart for Fenice}
+\author{Matteo Bitussi - Lorenzo Rossi\\ E-Agle TRT}
+\date{2020-2021}
+
+\begin{document}
+  \maketitle
+
+  \tableofcontents
+
+  \section*{Introduction}
+  Cose
+
+  \chapter{General view}
+
+  \chapter{Back-end}
+  The back-end is thought to act as the controller to start and stop the charge, to handle the fans and to act as an intermedery between the BMS and the BRUSA.
+  \section{How it works}
+  \begin{itemize}
+    \item The back-end sends a can message to the BMS, with \textbf{Cut-off voltage}, \textbf{type of charge} (fast or normal)
+    \item The accumulator decides what charging curve to follow, he sends charging messages to the back-end that forward them to the BRUSA
+    \item The charge can be interupped by the back-end itself, or finished/interrupped by the BMS
+  \end{itemize}
+  Note that the accumulator has a parallel state-machine (apart the normal one) when is charging
+
+  \section{Settings}
+  There are various settings to be choosen in the back-end
+  \begin{itemize}
+    \item \textbf{Charging speed}: back-end can ask the BMS to use a particular charging curve (\textbf{fast} or \textbf{normal}) default is normal.
+    \item \textbf{Current drawn from the outlet}: back-end can ask BRUSA to set a maximum current to drawn from the outlet, useful when using standard home outlet
+    \item \textbf{Fan profile}: back-end can use a fixed profile for the fans (i.e 90), by default it uses a fan curve
+    \item \textbf{Choose Accumulator}: this setting is obligatory, the back-end has to know what car's accumulator is attached
+  \end{itemize}
+
+  \section{The state machine}
+  The main.py is based on a state machine, which states are these
+
+    \begin{figure}[ht] % ’ht’ tells LaTeX to place the figure ’here’ or at the top of the page
+      \centering % centers the figure
+      \begin{tikzpicture}% tikz code goes here
+        \node[state, initial] (check) {$check$};
+        \node[state, right of=check] (idle) {$idle$};
+        \node[state, right of=idle] (precharge) {$precharge$};
+        T\node[state, right of=precharge] (ready) {$ready$};
+        \node[state, right of=ready] (charge) {$charge$};
+        \node[state, below of=charge] (c_done) {$c\_done$};
+        \node[state, below of=check] (error) {$error$};
+        \node[state, below of=precharge] (end) {$end$};
+
+        \draw
+          (check) edge[loop above] (check)
+          (check) edge[above] (idle)
+          (idle) edge[loop above] (idle)
+          (idle) edge[above] (precharge)
+          (precharge) edge[above] (ready)
+          (ready) edge[above] (charge)
+          (ready) edge[loop above] (ready)
+          (charge) edge[bend left, below] (c_done)
+          (charge) edge[loop above] (charge)
+          (c_done) edge[loop right] (c_done)
+          (error) edge[below] (check)
+          (error) edge[below] (end)
+          (error) edge[loop left] (error)
+          (c_done) edge[left] (ready)
+          (c_done) edge[bend left, above] (charge)
+      \end{tikzpicture}
+      \caption{Back-end state machine}
+      \label{fig:my_label}
+    \end{figure}
+
+  \subsection{STATE: check}
+  Checks for the presence of the accumulator and BRUSA
+  \subsection{STATE: idle}
+  Accumulator and BRUSA are connected, wait for user input to start precharge
+  \subsection{STATE: precharge}
+  Ask BMS TS_ON
+  \subsection{STATE: ready}
+  Accumulator has closed airs, and is ready to be charged. Waiting for user input
+  \subsection{STATE: charge}
+  Charging, until bms stop or user stop
+  \subsection{STATE: c\_done}
+  Looping waiting for user input
+  \subsection{STATE: error}
+  An error has ben detected, tell to user and restart program or exit
+
+  \section{The can listener}
+  The object istantiated by the class CanListener stores all the info received by can messages, its called every time a new message arrives, processes it and save the result in itself. This object (can\_read) is thought to be an interface to read all the useful info from the can, so dont get and process can messages outside this object (please).
+
+  \chapter{Front-end}
+  \section{General description}
+  The front-end GUI is a webapp written in JS, it communicates to the HTTP server with RESTFUL requests
+
+  \chapter{Flask HTTP server}
+  \section{General description}
+  The server is needed from the back-end and the front-end to communicate. It is a flask server written in python. It serves both the http pages to clients and also the RESTFUL requests from the js webapp
+
+  \chapter{BRUSA NLG5 charger}
+  Prepare yourself for the better part of the documentation, the brusa part.
+  \section{connect in serial}
+  With serial communication you can upload charging profiles via ChargeStar software (see proper section) and monitor some serial-related infos\\
+  To connect to the BRUSA with serial you have to use an USB to serial adapter. The pin has to be mapped from the brusa as told in the brusa's manual (PINs 11,12,14). There are the settings for the connection that in german are called anschlusseinstellungen (i have stepped in it while searching for the parameters ;) ):
+  \begin{enumerate}
+    \item Baudrate: 19200
+    \item Data bits (Datenbits): 8
+    \item parity; none
+    \item stopbits: 1
+    \item protocol: Xon/Xoff
+  \end{enumerate}
+  If you are on windows, let the serial COM settings as default, but edit the putty settings, i got some problems otherwise.\\
+  \textbf{Very important}: i don't know why, but if you are going to use ChargeStar software you need to change the COM port to COM1, otherwise the brusa will not be recognized by the program.
+  Note that the serial works only if the board on the brusa is fed with 12 volts via the proper pin 2 AUX or with the main power.\\
+  Note that sometimes the serial will freeze or not respond, try to restart the brusa.
+
+  \subsection{serial monitor}
+  to use the serial monitor you have to properly connect and setup the serial, then, use putty on windows or minicom on linux to connect to it. You will asked with a pasword, which is \"monitor\"
+
+  \section{ChargeStar software}
+  With the ChargeStar software you can program a charging profile, set various parameters and change some configuration of the brusa, see the brusa's manual for all the infos. Via ChargeStar you can also set the mode to CAN, very useful to control the charge via can.
+  The ChargeStar software will run only on Windows XP or Windows Vista, obviously we'll chose XP, you can run a virtual machine on virtualbox and do the USB-passthrough of the serial to USB adapter. I read that sombody had issues with ChargeStar using the 64 bit version of windows, but for me worked fine.
+  Note that i ran in some problems uploading a custom setting to the brusa: sometimes when the settings are uploaded, the brusa gives an NVSRAM CRC error, the only possible fix is reupload the settings to brusa changing some parameters. I'm still not sure which parameter is causing problems, so change them randomly a bit and it should work after some tries. If you see, some input fields don't accept values with the \".\" not sure why.\\
+
+
+  \section{connecting with CAN}
+  Connecting with can allows to monitor the message outputed by the brusa and (if properly configured) to set some parameters for charging.
+  The CAN connection has to end with a 120 Ohm resistor, otherwise the messages will keep bouncing (kinda), trust me, it is necessary.\\
+  See the full CAN matrix at the file or manual.\\
+  By default the CAN is at 500kbps, unless differently specified in config file with ChargeStar.
+  As i saw, brusa send messages just when the PON pin is set to HIGH (>5V).
+  To set and enable the charge via can you have to send periodically a can message named NLG5\_CTL see details on the can matrix.\\
+  Note that the endianess is \textbf{big (motorola)}
+
+\end{document}

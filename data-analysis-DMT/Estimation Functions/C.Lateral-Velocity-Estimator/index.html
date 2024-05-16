@@ -1,0 +1,3054 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
+<title>Lateral Velocity Estimator - Eagle TRT</title>
+<link href="../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#lateral-velocity-estimator">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Eagle TRT" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Eagle TRT">
+<img alt="logo" src="../../../static/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Eagle TRT
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Lateral Velocity Estimator
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Eagle TRT" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Eagle TRT">
+<img alt="logo" src="../../../static/logo.png"/>
+</a>
+    Eagle TRT
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        E-Agle TRT Wiki
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Common
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Common" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Common
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1">
+          About
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="About" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/about/writing-docs/">
+        Writing Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          General Documentation Files
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="General Documentation Files" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          General Documentation Files
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/can-config/">
+        CAN-bus Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/can-debugging/">
+        CAN-bus Troubleshooting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/openocd-errors/">
+        OpenOCD Troubleshooting
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          [SW] ACR (Advanced Cone Registration)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[SW] ACR (Advanced Cone Registration)" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          [SW] ACR (Advanced Cone Registration)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/1.%20Overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/2.%20Shield/">
+        Shield
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/3.%20Usage/">
+        Usage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/4.%20Output%20formats/">
+        Output formats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Bms monitor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bms monitor" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Bms monitor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../bms-monitor/Notes/">
+        Segment board
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          Cantools
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cantools" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Cantools
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cantools/conf/">
+        Conf
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          [DMT] Data Analysis
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Data Analysis" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Data Analysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" id="__nav_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_1">
+          Estimation Functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Estimation Functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_1">
+<span class="md-nav__icon md-icon"></span>
+          Estimation Functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Home-Estimation/">
+        Estimation Functions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" id="__nav_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2">
+          Experimental Measurements for Validation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Experimental Measurements for Validation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+          Experimental Measurements for Validation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Experimental%20Measurement/ExperimentalMeasurement/">
+        Experimental Measurement
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+          Tire Fitting and Validation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tire Fitting and Validation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Tire Fitting and Validation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tire%20Fitting%20and%20Validation/Home_Validation/">
+        Tyre Fitting &amp; Model Validation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Usage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Repo%20Usage/Home/">
+        Data Analysis
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Setup/Setup/">
+        PROCEDURE SET-UP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          [DMT] Anti Roll Bar
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Anti Roll Bar" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Anti Roll Bar
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-arb-DMT/Home/">
+        Fenice Anti Roll Bar
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          High-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="High-Voltage BMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          High-Voltage BMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/">
+        High-Voltage Battery Management System
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2">
+          Mainboard
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mainboard" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+          Mainboard
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/">
+        Mainboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/io/">
+        I/O
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2_3" id="__nav_8_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_3">
+          Subsystems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Subsystems" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Subsystems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bal/">
+        Cell Balancing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_cli/">
+        Command Line Interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_fsm/">
+        Main State Machine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/config/">
+        Config
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/current/">
+        Current
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/feedback/">
+        Feedback
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/timebase/">
+        Timebase
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3">
+          Bootloader
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bootloader" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+          Bootloader
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/bootloader/openblt/">
+        OpenBLT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          Low-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Low-Voltage BMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Low-Voltage BMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/">
+        Low Voltage Battery Management System
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" id="__nav_9_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2">
+          Main functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Main functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+          Main functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Command%20Line%20Interface/">
+        Command Line Interface <!-- omit in toc -->
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Cooling/">
+        Cooling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Feedbacks%20signals/">
+        Feedbacks signals
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/IOC%20file%20and%20pinout/">
+        IOC File and Pinout
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/State%20machine/">
+        State Machine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Timing%20and%20Can%20messages/">
+        Timing and CAN Messages
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2_7" id="__nav_9_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2_7">
+          Safety Checks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Safety Checks" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_2_7">
+<span class="md-nav__icon md-icon"></span>
+          Safety Checks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Safety%20Checks/Errors/">
+        Errors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Safety%20Checks/Health%20Signals/">
+        Health Signals
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          Fenice bms lv hw
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Fenice bms lv hw" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          Fenice bms lv hw
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/">
+        BMS'S CHANGELOG
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/startup/">
+        STARTING UP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/sd_feedbacks/">
+        Sd feedbacks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/sensors/">
+        SENSORS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/other/">
+        FLASHING THE MCU
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+          [DMT] Dampers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Dampers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Dampers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-dampers-DMT/Home/">
+        Linear vs non linear model
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+          DAS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DAS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          DAS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/bkl/">
+        Brakelight
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/buz/">
+        Buzzer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13">
+          DAS (old docs)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DAS (old docs)" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          DAS (old docs)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/modules/">
+        Modules
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/fsm/">
+        Finite State Machine
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
+          [DMT] Steering System
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Steering System" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Steering System
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steering-system-DMT/Home/">
+        Fenice Steering system
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
+          Steering Wheel
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Steering Wheel" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          Steering Wheel
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/">
+        Steering Wheel
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_2" id="__nav_15_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_2">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Development" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_2">
+<span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/development/qt/">
+        Building Qt for the Raspberry Pi
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_3" id="__nav_15_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_3">
+          Interface
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Interface" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_3">
+<span class="md-nav__icon md-icon"></span>
+          Interface
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/interface/tabs/">
+        Concept of Tabs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16">
+          [DMT] Suspensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Suspensions" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Suspensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-suspension-DMT/Home/">
+        Fenice Suspensions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17">
+          ECU
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="ECU" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+          ECU
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/rpi-setup/">
+        RPi Setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/compiling/">
+        Compiling &amp; Executing
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" id="__nav_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18">
+          [DMT] Vehicle Model
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Vehicle Model" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_18">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Vehicle Model
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18_1" id="__nav_18_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18_1">
+          Repo Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Repo Usage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_18_1">
+<span class="md-nav__icon md-icon"></span>
+          Repo Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-vehicle-model-DMT/Repo%20Usage/Home/">
+        Repo Usage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18_2" id="__nav_18_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18_2">
+          Theory (model + controls)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Theory (model + controls)" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_18_2">
+<span class="md-nav__icon md-icon"></span>
+          Theory (model + controls)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-vehicle-model-DMT/Theory/Home_Theory/">
+        Vehicle Model+Control Theory
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-vehicle-model-DMT/Vehicle_Design_Choices/">
+        Vehicle Design Choices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_19" id="__nav_19" type="checkbox"/>
+<label class="md-nav__link" for="__nav_19">
+          gpslib
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="gpslib" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_19">
+<span class="md-nav__icon md-icon"></span>
+          gpslib
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gpslib/">
+        GPS lib
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_20" id="__nav_20" type="checkbox"/>
+<label class="md-nav__link" for="__nav_20">
+          Handcart hw
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Handcart hw" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_20">
+<span class="md-nav__icon md-icon"></span>
+          Handcart hw
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../handcart-hw/handcart/">
+        Hancart Hardware Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_21" id="__nav_21" type="checkbox"/>
+<label class="md-nav__link" for="__nav_21">
+          Handcart Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Handcart Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_21">
+<span class="md-nav__icon md-icon"></span>
+          Handcart Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../handcart-sw/main/">
+        Handcart Fenice&amp;Chimera 2021-22 Documentation and Guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_22" id="__nav_22" type="checkbox"/>
+<label class="md-nav__link" for="__nav_22">
+          Hw fenice ecu
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice ecu" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_22">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice ecu
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-ecu/DAS_ECU/">
+        ECU hardware
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_23" id="__nav_23" type="checkbox"/>
+<label class="md-nav__link" for="__nav_23">
+          Hw fenice evo ecu
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice evo ecu" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_23">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice evo ecu
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-ecu/DAS_ECU/">
+        DAS+ECU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-ecu/ECU%20Documentation/">
+        ECU Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_24" id="__nav_24" type="checkbox"/>
+<label class="md-nav__link" for="__nav_24">
+          Hw fenice evo tsal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice evo tsal" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_24">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice evo tsal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-tsal/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_25" id="__nav_25" type="checkbox"/>
+<label class="md-nav__link" for="__nav_25">
+          [DMT] Lap Time Simulator
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Lap Time Simulator" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_25">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Lap Time Simulator
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lap-time-simulator-DMT/Home/">
+        Lap Time Simulator
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_26" id="__nav_26" type="checkbox"/>
+<label class="md-nav__link" for="__nav_26">
+          Lib communication
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Lib communication" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_26">
+<span class="md-nav__icon md-icon"></span>
+          Lib communication
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lib-communication/connection/">
+        Implement New Connection Type
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lib-communication/mqtt_connection/">
+        MOSQUITTO SETUP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27" id="__nav_27" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27">
+          Lvgl
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Lvgl" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_27">
+<span class="md-nav__icon md-icon"></span>
+          Lvgl
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CHANGELOG/">
+        Changelog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CODE_OF_CONDUCT/">
+        Contributor Covenant Code of Conduct
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CODING_STYLE/">
+        Coding style
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CONTRIBUTING/">
+        Contributing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/ROADMAP/">
+        Roadmap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/build/">
+        Build
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/conf/">
+        Conf
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/example_list/">
+        Example list
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_10" id="__nav_27_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_10">
+           ext
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label=" ext" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_10">
+<span class="md-nav__icon md-icon"></span>
+           ext
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/_ext/lv_example/">
+        Lv example
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11" id="__nav_27_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11">
+          Get started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Get started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_11">
+<span class="md-nav__icon md-icon"></span>
+          Get started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/">
+        Get started
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/quick-overview/">
+        Quick overview
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_3" id="__nav_27_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_3">
+          Bindings
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bindings" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_3">
+<span class="md-nav__icon md-icon"></span>
+          Bindings
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/">
+        Bindings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/cpp/">
+        Cpp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/micropython/">
+        Micropython
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_4" id="__nav_27_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_4">
+          Os
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Os" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_4">
+<span class="md-nav__icon md-icon"></span>
+          Os
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/">
+        (RT)OS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/freertos/">
+        FreeRTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/nuttx/">
+        NuttX RTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/rt-thread/">
+        RT-Thread RTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/zephyr/">
+        Zephyr
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_5" id="__nav_27_11_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_5">
+          Platforms
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Platforms" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_5">
+<span class="md-nav__icon md-icon"></span>
+          Platforms
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/">
+        Platforms
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/arduino/">
+        Arduino
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/cmake/">
+        CMake
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/espressif/">
+        Espressif (ESP32 chip series)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/nxp/">
+        NXP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/pc-simulator/">
+        Simulator on PC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/stm32/">
+        STM32
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/tasmota-berry/">
+        Tasmota and berry
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_12" id="__nav_27_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_12">
+          Intro
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Intro" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_12">
+<span class="md-nav__icon md-icon"></span>
+          Intro
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/intro/">
+        Introduction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_13" id="__nav_27_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_13">
+          Layouts
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Layouts" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_13">
+<span class="md-nav__icon md-icon"></span>
+          Layouts
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/">
+        Layouts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/flex/">
+        Flex
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/grid/">
+        Grid
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_14" id="__nav_27_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_14">
+          Libs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Libs" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_14">
+<span class="md-nav__icon md-icon"></span>
+          Libs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/">
+        3rd party libraries
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/bmp/">
+        BMP decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/ffmpeg/">
+        FFmpeg support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/freetype/">
+        FreeType support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/fsdrv/">
+        File System Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/gif/">
+        GIF decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/png/">
+        PNG decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/qrcode/">
+        QR code
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/rlottie/">
+        Lottie player
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/sjpg/">
+        JPG decoder
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_15" id="__nav_27_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_15">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Others" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_15">
+<span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/">
+        Others
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/fragment/">
+        Fragment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/gridnav/">
+        Grid navigation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/ime_pinyin/">
+        Pinyin IME
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/imgfont/">
+        Image font (imgfont)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/monkey/">
+        Monkey
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/msg/">
+        Messaging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/snapshot/">
+        Snapshot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_16" id="__nav_27_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_16">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_16">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/animation/">
+        Animations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/color/">
+        Colors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/coords/">
+        Positions, sizes, and layouts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/display/">
+        Displays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/drawing/">
+        Drawing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/event/">
+        Events
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/file-system/">
+        File system
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/font/">
+        Fonts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/image/">
+        Images
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/indev/">
+        Input devices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/layer/">
+        Layers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/new_widget/">
+        New widget
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/object/">
+        Objects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/scroll/">
+        Scroll
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/style-props/">
+        Style properties
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/style/">
+        Styles
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/timer/">
+        Timers
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_16_19" id="__nav_27_16_19" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_16_19">
+          Renderers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Renderers" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_16_19">
+<span class="md-nav__icon md-icon"></span>
+          Renderers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/">
+        Renderers and GPUs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/arm-2d/">
+        Arm-2D GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/dma2d/">
+        DMA2D GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/pxp-vglite/">
+        NXP PXP and VGLite GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/sdl/">
+        SDL renderer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/sw/">
+        Software renderer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_17" id="__nav_27_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_17">
+          Porting
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Porting" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_17">
+<span class="md-nav__icon md-icon"></span>
+          Porting
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/">
+        Porting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/display/">
+        Display interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/gpu/">
+        Add custom GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/indev/">
+        Input device interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/log/">
+        Logging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/os/">
+        Operating system and interrupts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/project/">
+        Set up a project
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/sleep/">
+        Sleep management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/tick/">
+        Tick interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/timer-handler/">
+        Timer Handler
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18" id="__nav_27_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18">
+          Widgets
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Widgets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_18">
+<span class="md-nav__icon md-icon"></span>
+          Widgets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/">
+        Widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/obj/">
+        Base object (lv_obj)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18_3" id="__nav_27_18_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18_3">
+          Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Core" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_18_3">
+<span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/">
+        Core widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/arc/">
+        Arc (lv_arc)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/bar/">
+        Bar (lv_bar)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/btn/">
+        Button (lv_btn)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/btnmatrix/">
+        Button matrix (lv_btnmatrix)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/canvas/">
+        Canvas (lv_canvas)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/checkbox/">
+        Checkbox (lv_checkbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/dropdown/">
+        Drop-down list (lv_dropdown)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/img/">
+        Image (lv_img)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/label/">
+        Label (lv_label)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/line/">
+        Line (lv_line)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/roller/">
+        Roller (lv_roller)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/slider/">
+        Slider (lv_slider)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/switch/">
+        Switch (lv_switch)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/table/">
+        Table (lv_table)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/textarea/">
+        Text area (lv_textarea)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18_4" id="__nav_27_18_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18_4">
+          Extra
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Extra" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_18_4">
+<span class="md-nav__icon md-icon"></span>
+          Extra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/">
+        Extra widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/animimg/">
+        Animation Image (lv_animimg)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/calendar/">
+        Calendar (lv_calendar)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/chart/">
+        Chart (lv_chart)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/colorwheel/">
+        Color wheel (lv_colorwheel)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/imgbtn/">
+        Image button (lv_imgbtn)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/keyboard/">
+        Keyboard (lv_keyboard)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/led/">
+        LED (lv_led)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/list/">
+        List (lv_list)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/menu/">
+        Menu (lv_menu)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/meter/">
+        Meter (lv_meter)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/msgbox/">
+        Message box (lv_msgbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/span/">
+        Span (lv_span)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/spinbox/">
+        Spinbox (lv_spinbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/spinner/">
+        Spinner (lv_spinner)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/tabview/">
+        Tabview (lv_tabview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/tileview/">
+        Tile view (lv_tileview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/win/">
+        Window (lv_win)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28" id="__nav_28" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28">
+          Micro-Libs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Micro-Libs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_28">
+<span class="md-nav__icon md-icon"></span>
+          Micro-Libs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/micro-libs/">
+        Micro-Libs
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_2" id="__nav_28_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_2">
+          Blinky
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Blinky" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_2">
+<span class="md-nav__icon md-icon"></span>
+          Blinky
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/blinky/">
+        Blinky
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/blinky-handler/">
+        Blinky handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_3" id="__nav_28_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_3">
+          Bms monitor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bms monitor" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_3">
+<span class="md-nav__icon md-icon"></span>
+          Bms monitor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/bms-monitor/">
+        Bms monitor
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_3_2" id="__nav_28_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_3_2">
+          Ltc6811
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ltc6811" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_28_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Ltc6811
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/ltc6811/">
+        Ltc6811
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/command-format/">
+        Command format
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/pec/">
+        Packet Error Code
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_4" id="__nav_28_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_4">
+          Can manager
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Can manager" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_4">
+<span class="md-nav__icon md-icon"></span>
+          Can manager
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/can-manager/can-manager/">
+        Can manager
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_5" id="__nav_28_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_5">
+          Mcp23017
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mcp23017" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_5">
+<span class="md-nav__icon md-icon"></span>
+          Mcp23017
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/mcp23017/mcp23017/">
+        Mcp23017
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_6" id="__nav_28_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_6">
+          Min heap
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Min heap" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_6">
+<span class="md-nav__icon md-icon"></span>
+          Min heap
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/min-heap/">
+        Min heap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/heap-handler/">
+        Heap handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_7" id="__nav_28_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_7">
+          Ring buffer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ring buffer" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_7">
+<span class="md-nav__icon md-icon"></span>
+          Ring buffer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/ring-buffer/">
+        Ring buffer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/critical-section/">
+        Critical section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/buffer-handler/">
+        Buffer handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29" id="__nav_29" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29">
+          Micro-Utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Micro-Utils" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_29">
+<span class="md-nav__icon md-icon"></span>
+          Micro-Utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/micro-utils/">
+        Micro-Utils
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29_2" id="__nav_29_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29_2">
+          Error handler generator
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Error handler generator" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_29_2">
+<span class="md-nav__icon md-icon"></span>
+          Error handler generator
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/error-handler-generator/">
+        Error handler generator
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/error/">
+        Error
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/input-file/">
+        Input file
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29_2_4" id="__nav_29_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29_2_4">
+          Generated
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Generated" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_29_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Generated
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/error-handler/">
+        Error handler library
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/timer/">
+        Timer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/internal-data/">
+        Internal data
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_30" id="__nav_30" type="checkbox"/>
+<label class="md-nav__link" for="__nav_30">
+          rasp shieldV2 config
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="rasp shieldV2 config" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_30">
+<span class="md-nav__icon md-icon"></span>
+          rasp shieldV2 config
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rasp-shieldV2-config/">
+        Documentation!
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_31" id="__nav_31" type="checkbox"/>
+<label class="md-nav__link" for="__nav_31">
+          Rtl 433
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Rtl 433" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_31">
+<span class="md-nav__icon md-icon"></span>
+          Rtl 433
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/ANALYZE/">
+        Capture and analyze devices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/BUILDING/">
+        Building rtl_433
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/CONTRIBUTING/">
+        Contributing guidelines
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/DATA_FORMAT/">
+        JSON Data fields
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/HARDWARE/">
+        Hardware tested with rtl_433
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/INTEGRATION/">
+        Integration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/IQ_FORMATS/">
+        Introduction to I/Q formats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/LINKS/">
+        Links to tools and related projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/OPERATION/">
+        Basic rtl_433 operation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/PRIMER/">
+        Primer on SDR concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/STARTING/">
+        Getting Started
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32" id="__nav_32" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32">
+          Telemetry
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Telemetry" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_32">
+<span class="md-nav__icon md-icon"></span>
+          Telemetry
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/">
+        Telemetry
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_2" id="__nav_32_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_2">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Overview/features/">
+        Features
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_3" id="__nav_32_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_3">
+          Setup and installation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup and installation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_3">
+<span class="md-nav__icon md-icon"></span>
+          Setup and installation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/installation/">
+        Installation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/raspberry_setup/">
+        Raspberry setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/usage/">
+        Telemetry Usage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/run/">
+        Telemetry run
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_4" id="__nav_32_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_4">
+          Components
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Components" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_4">
+<span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/serializers/">
+        Serializers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/connection/">
+        Telemetry connection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/file_transmission/">
+        File transmission
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_5" id="__nav_32_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_5">
+          Cross compile
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cross compile" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_5">
+<span class="md-nav__icon md-icon"></span>
+          Cross compile
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Cross%20compile/setup/">
+        Setup
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_33" id="__nav_33" type="checkbox"/>
+<label class="md-nav__link" for="__nav_33">
+          JSON Loader
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="JSON Loader" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_33">
+<span class="md-nav__icon md-icon"></span>
+          JSON Loader
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry-json-loader/">
+        JSON Loader
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_34" id="__nav_34" type="checkbox"/>
+<label class="md-nav__link" for="__nav_34">
+          [SW] Traction Control
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[SW] Traction Control" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_34">
+<span class="md-nav__icon md-icon"></span>
+          [SW] Traction Control
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/1.%20Overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/2.%20Architecture/">
+        Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/3.%20Implementation/">
+        Implementation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/4.%20Workflow/">
+        Workflow
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lateral-velocity-luemberger-observer">
+    Lateral Velocity Luemberger Observer
+  </a>
+<nav aria-label="Lateral Velocity Luemberger Observer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#luemberger-observer-tuning">
+    Luemberger Observer Tuning
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kf-lateral-velocity-estimators-planar-estimator">
+    KF Lateral Velocity Estimators - Planar Estimator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kf-lateral-velocity-estimators-3d-estimator">
+    KF Lateral Velocity Estimators - 3D Estimator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kalman-filters-tuning">
+    Kalman Filters tuning
+  </a>
+<nav aria-label="Kalman Filters tuning" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tuning-results-planar-estimator">
+    Tuning results - Planar Estimator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tuning-results-3d-estimator">
+    Tuning results - 3D Estimator
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algorithms-performances">
+    Algorithms Performances
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="lateral-velocity-estimator">Lateral Velocity Estimator</h1>
+<h2 id="lateral-velocity-luemberger-observer">Lateral Velocity Luemberger Observer</h2>
+<p>One of the most common problem in the vehicle state estimation is the estimation of the lateral velocity <span class="arithmatex">\((v)\)</span>, or the body-side slip angle <span class="arithmatex">\((\beta)\)</span>. A simple method to solve this problem is the kinematic-based Luemberger observer, presented also in [7].</p>
+<p>This observer is based on the following system of equations.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+\dot{u}=v \Omega+a_{x} \\
+\dot{v}=-u \Omega+a_{y}
+\end{array}\right.
+\]</div>
+<p>In order to implement the observer, the system has to be written in state-space form.</p>
+<div class="arithmatex">\[
+\begin{gathered}
+\dot{ {x}}=\left[\begin{array}{l}
+\dot{u} \\
+\dot{v}
+\end{array}\right]=\left[\begin{array}{cc}
+0 &amp; \Omega \\
+-\Omega &amp; 0
+\end{array}\right]\left[\begin{array}{l}
+u \\
+v
+\end{array}\right]+\left[\begin{array}{ll}
+1 &amp; 0 \\
+0 &amp; 1
+\end{array}\right]\left[\begin{array}{l}
+a_{x} \\
+a_{y}
+\end{array}\right]=F  {x}+B  {c} \\
+z=[u]=\left[\begin{array}{ll}
+1 &amp; 0
+\end{array}\right]\left[\begin{array}{l}
+u \\
+v
+\end{array}\right]=H  {x}
+\end{gathered}
+\]</div>
+<p>Equation 16 correspond to the system evolution equation while equation 17 is the output equation, namely, the computation of the measurable quantities. Since the lateral velocity is not in the output vector, it can not be measured.</p>
+<p>The observer uses the state evolution equation in order to estimate the states and corrects the estimation using the estimation error on the measurable output <span class="arithmatex">\((z-\hat{z})\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\dot{\hat{x}} &amp; =F \hat{x}+B  {c}+L( {z}-\hat{ {z}}) \\
+&amp; =(F-L H) \hat{x}+B  {c}+L  {z}
+\end{aligned}
+\]</div>
+<p>Where <span class="arithmatex">\(\hat{ {x}}\)</span> and <span class="arithmatex">\(\hat{ {z}}\)</span> are the estimated state and output vector respectively and <span class="arithmatex">\(L\)</span> is the so-called Luemberger's matrix.</p>
+<p>From equation 18, the estimation error <span class="arithmatex">\(( {e}= {x}-\hat{ {x}})\)</span> dynamical equation can be extrapolated.</p>
+<div class="arithmatex">\[
+\dot{e}=(F-L H)  {e}=G  {e}
+\]</div>
+<p>Looking at equation 19, the error is asymptotically stable if and only if the matrix <span class="arithmatex">\((F-L H)\)</span> is Hurwitz, i.e. its eigenvalues has a negative real part. In order to impose this condition, the Luemberger's matrix has to be properly tuned.</p>
+<p>A possible choice for the matrix <span class="arithmatex">\(L\)</span> is reported in relation 20. This matrix ensures that the eigenvalues of the matrix <span class="arithmatex">\(G\)</span> are <span class="arithmatex">\(e_{v-1,2}=-\gamma|\Omega|\)</span>, providing error stability. The parameter <span class="arithmatex">\(\gamma\)</span> is a tunable parameter and is connected to the convergence rate.</p>
+<div class="arithmatex">\[
+L=\left[\begin{array}{c}
+2 \gamma|\Omega| \\
+\left(\gamma^{2}-1\right) \Omega
+\end{array}\right]
+\]</div>
+<p>An observability check is useful to evaluate the performance of this algorithm. It consists in the computation of the rank of the Observability matrix <span class="arithmatex">\((O)\)</span>. If <span class="arithmatex">\(\operatorname{Rank}(O)=\)</span> <span class="arithmatex">\(n\)</span>, where <span class="arithmatex">\(n\)</span> is the state dimension - in this case 2 -, the system is observable.</p>
+<div class="arithmatex">\[
+O=\left[\begin{array}{c}
+H \\
+F H
+\end{array}\right]=\left[\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; -\Omega
+\end{array}\right]
+\]</div>
+<p>From equation 21, it is possible to see that the matrix <span class="arithmatex">\(O\)</span> has rank equal to 2 if the yawrate is different from 0 . This means that the system is not observable if the trajectory is straight. This may be deduced also from the eigenvalues of the matrix <span class="arithmatex">\(G\)</span>, that goes to zero making the system simply stable when <span class="arithmatex">\(\Omega\)</span> tends to zero. However, this problem can be easily solved by resetting the observer when the yaw-rate is close to zero - as explained in the results of [7] -.</p>
+<p>This observer does not require any prior knowledge about the vehicle and is computationally simple. These characteristics allow the spreading of this algorithm.</p>
+<h3 id="luemberger-observer-tuning">Luemberger Observer Tuning</h3>
+<p>As we already said, the performance of the Luemberger observer is given by the tunable parameter <span class="arithmatex">\(\gamma\)</span>. Theoretically, it should be higher as possible in order to guarantee convergence. However, increasing it too much can generate chattering in the estimation. On the contrary, if the value of <span class="arithmatex">\(\gamma\)</span> is low, the estimation tends to diverge under the effects of dynamical bias that are difficult to be compensated.</p>
+<p>In an offline analysis, a simple solution to this problem is to increase the observer gain to ensure a correct estimation and strongly filter the observer output. For this application, a moving average filter is applied further and backwards in time to compensate for the filtering delay.</p>
+<p>Using this trick, the parameter <span class="arithmatex">\(\gamma\)</span> can be set equal to 100 .</p>
+<p>Real-time estimation of the lateral velocity needs a more sophisticated observer tuning, a different filtering technique - for example, similarly to the one applied to the SOSM observer presented in the following section - or a more robust estimation scheme, involving vehicle dynamical properties.</p>
+<h2 id="kf-lateral-velocity-estimators-planar-estimator">KF Lateral Velocity Estimators - Planar Estimator</h2>
+<p>Alternatively to the Luemberger observer, there are other methods for the lateral velocity estimation. In this thesis, two different Kalman filters are shown, with two different levels of complexity.</p>
+<p>The first presented Kalman filter is based on the same system model described in equations of Luemberger observer and reported also below. However, the definition of the system and measurement errors ( <span class="arithmatex">\(v\)</span> and <span class="arithmatex">\(w\)</span> respectively) is needed. The integration scheme is included in the system matrices. The vector z contains the measured quatities from the sensor, instead the vector x the states. N.B. <span class="arithmatex">\(\dot{u}\)</span> and <span class="arithmatex">\(\dot{v}\)</span> are different form <span class="arithmatex">\(a_{x}\)</span> and <span class="arithmatex">\(a_{y}\)</span> (measured from the IMU), because the time partial derivate of the velocity in states (<span class="arithmatex">\(\dot{u}\)</span> and <span class="arithmatex">\(\dot{v}\)</span>) measure only the absolute value variation of u and v!</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+ {x}_{k}=F_{k}  {x}_{k-1}+B_{k}  {c}_{k}+ {v}_{k} \\
+ {z}_{k}=H_{k}  {x}_{k-1}+ {w}_{k}
+\end{array}\right.
+\]</div>
+<p>where</p>
+<div class="arithmatex">\[
+F_{k}  {x}_{k-1}+B_{k}  {c}_{k} = 
+\left\{\begin{array}{l}
+u_{k} = u_{k-1} + Ts*a_{x} \\
+\dot{u}=v \Omega+a_{x} \\
+v_{k} = v_{k-1} + Ts*a_{y} \\
+\dot{v}=-u \Omega+a_{y}
+\end{array}\right.
+\]</div>
+<div class="arithmatex">\[
+H_{k}  {x}_{k-1} = 
+\left\{\begin{array}{l}
+u_{k_{SF}} = u_{k-1}\\
+a_{x_{IMU}} = \dot{u} - v \Omega \\
+a_{y_{IMU}} = \dot{v} + u \Omega
+\end{array}\right.
+\]</div>
+<p>so the matrices become:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; \hspace{5em}  {x}_{k}=\left[\begin{array}{c}u_{k} \\\dot{u}_{k} \\v_{k} \\\dot{v}_{k}\end{array}\right] \hspace{10em} z_{k}=\left[\begin{array}{c}u_{k} \\a_{x, k} \\a_{y, k}\end{array}\right] \\
+&amp; F_{k}=\left[\begin{array}{cccc}1 &amp; T_{s} &amp; 0 &amp; 0 \\0 &amp; 0 &amp; \Omega_{k} &amp; 0 \\0 &amp; 0 &amp; 1 &amp; T_{s} \\-\Omega_{k} &amp; 0 &amp; 0 &amp; 0\end{array}\right] \quad B_{k}=\left[\begin{array}{ll}0 &amp; 0 \\1 &amp; 0 \\0 &amp; 0 \\0 &amp; 1\end{array}\right] \quad H_{k}=\left[\begin{array}{cccc}1 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 1 &amp; -\Omega_{k} &amp; 0 \\\Omega_{k} &amp; 0 &amp; 0 &amp; 1\end{array}\right]
+\end{aligned}
+\]</div>
+<p>Differently from the Luemberger case, this algorithm uses also the information on the measured acceleration in order to correct the estimation. The estimated accelerations are computed in the updating step inverting the process equations. Hence, the same values of accelerations are used as inputs, in the prediction steps, and as measured quantities in the updating step.</p>
+<p>The algorithm iteration scheme is shown in equations 3, 4 and 5. To increase the estimation accuracy, the estimator output is reset when the yaw-rate is close to zero.</p>
+<h2 id="kf-lateral-velocity-estimators-3d-estimator">KF Lateral Velocity Estimators - 3D Estimator</h2>
+<p>The second state estimator Kalman filter that is presented in this thesis is based on the work of Alatorre et al. [4]. This estimator is based on a larger system of equations that include also the third dimension. This allows us to take advantage of the gravity term in order to correct some acceleration bias and to estimate the roll and the pitch angle. The system of equations is reported in relation 23. The vector z contains the measured quatities from the sensor, instead the vector x the states. N.B. <span class="arithmatex">\(\dot{u}\)</span>, <span class="arithmatex">\(\dot{v}\)</span> and <span class="arithmatex">\(\dot{w}\)</span> are different form <span class="arithmatex">\(a_{x}\)</span>, <span class="arithmatex">\(a_{y}\)</span> and <span class="arithmatex">\(a_{z}\)</span>  (measured from the IMU), because the time partial derivative of the velocity in the states (<span class="arithmatex">\(\dot{u}\)</span>, <span class="arithmatex">\(\dot{v}\)</span> and <span class="arithmatex">\(\dot{w}\)</span>) measure only the absolute value variation of u and v! The equation is used directly for the matrix H, instead need to be inverted to find matrix F, which needs <span class="arithmatex">\(\dot{u}\)</span>, <span class="arithmatex">\(\dot{v}\)</span> and <span class="arithmatex">\(\dot{w}\)</span>.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+a_{x}=\dot{u}+\dot{\theta} w-\Omega v-g \sin (\theta) \\
+a_{y}=\dot{v}+\Omega u-\dot{\phi} w+g \sin (\phi) \cos (\theta) \\
+a_{z}=\dot{w}+\dot{\phi} v-\dot{\theta} u-g \cos (\phi) \cos (\theta)
+\end{array}\right.
+\]</div>
+<p>where <span class="arithmatex">\(w\)</span> is the vertical component of the centre of mass velocity and <span class="arithmatex">\(g\)</span> is the gravity acceleration value - equal to <span class="arithmatex">\(-9,81 \mathrm{~m} / \mathrm{s}^{2}\)</span> -</p>
+<p>In relation 23, roll and pitch appear in the trigonometric functions. To remove these non-linearity terms, the sine and the cosine of these angles are considered as system states defining its evolution as follow, where <span class="arithmatex">\(\alpha\)</span> is a generic angle.</p>
+<div class="arithmatex">\[
+\frac{d}{d t} \sin (\alpha)=\sin (\alpha)=\cos (\alpha) \dot{\alpha} \quad ; \quad \frac{d}{d t} \cos (\alpha)=\cos (\alpha)=-\sin (\alpha) \dot{\alpha}
+\]</div>
+<p>To sum up, the system states are collected in the vector <span class="arithmatex">\(x\)</span>. The measurements are collected in the vector <span class="arithmatex">\(z\)</span> and includes the longitudinal velocity computed from the frot wheels - or another estimation method -, the centre of mass accelerations and the value of sine and cosine of roll and pitch, estimated using the steady-state formulation in the load transfer model - reported in the following section in the expressions 39 and 40 The system input vector collects the centre of mass accelerations.</p>
+<p>The system equations in state-space can be written as reported in the expression 22 where, in this case, the terms are defined as follow.</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; x=[u, \dot{u}, v, \dot{v}, w, \dot{w}, \\
+&amp; \sin (\theta), \sin (\theta), \cos (\theta), \cos (\theta), \sin (\phi), \sin (\phi), \cos (\phi), \cos (\phi)]^{T} \\
+&amp; z=\left[u, a_{x}, a_{y}, a_{z}, \sin (\theta), \cos (\theta), \sin (\phi), \cos (\phi), 1,1\right]^{T} \\
+&amp; B  {c}=\left[0, a_{x}, 0, a_{y}, 0, a_{z}, 0,0,0,0,0,0,0,0\right]^{T}
+\end{aligned}
+\]</div>
+<p></p>
+<p>In this case, the system matrices are defined as follow.</p>
+<div class="arithmatex">\[
+F=\left[\begin{array}{cc}
+F_{1,1} &amp; F_{1,2} \\
+0 &amp; F_{2,2}
+\end{array}\right] \quad H=\left[\begin{array}{cc}
+H_{1,1} &amp; H_{1,2} \\
+0 &amp; H_{2,2}
+\end{array}\right]
+\]</div>
+<p>where</p>
+<div class="arithmatex">\[
+F_{1,1}=\left[\begin{array}{cccccc}1 &amp; T_{s} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                  0 &amp; 0 &amp; \Omega &amp; 0 &amp; -\dot{\theta} &amp; 0 \\
+                                  0 &amp; 0 &amp; 1 &amp; T_{s} &amp; 0 &amp; 0 \\
+                                  -\Omega &amp; 0 &amp; 0 &amp; 0 &amp; \dot{\phi} &amp; 0 \\
+                                  0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; T_{s} \\
+                                  \dot{\theta} &amp; 0 &amp; -\dot{\phi} &amp; 0 &amp; 0 &amp; 0\end{array}\right] 
+\]</div>
+<div class="arithmatex">\[
+F_{1,2}=\left[\begin{array}{cccccccc}0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                     -g &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                     0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                     0 &amp; 0 &amp; \frac{g \sin (\phi)}{2} &amp; 0 &amp; \frac{g \cos (\theta)}{2} &amp; 0 &amp; 0 &amp; 0 \\
+                                     0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                     0 &amp; 0 &amp; -\frac{g \cos (\phi)}{2} &amp; 0 &amp; 0 &amp; 0 &amp; -\frac{g \cos (\theta)}{2} &amp; 0\end{array}\right] \\
+\]</div>
+<div class="arithmatex">\[                                  
+F_{2,2}=\left[\begin{array}{cccccccc}      1 &amp; T_{s} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                           0 &amp; 0 &amp; \dot{\theta} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                           0 &amp; 0 &amp; 1 &amp; T_{s} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                           -\dot{\theta} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                           0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; T_{s} &amp; 0 &amp; 0 \\
+                                           0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \dot{\phi} &amp; 0 \\
+                                           0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; T_{s} \\
+                                           0 &amp; 0 &amp; 0 &amp; 0 &amp; -\dot{\phi} &amp; 0 &amp; 0 &amp; 0\end{array}\right] \\
+\]</div>
+<div class="arithmatex">\[
+H_{1,1}=\left[\begin{array}{cccccc}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                  0 &amp; 1 &amp; -\Omega &amp; 0 &amp; \dot{\theta} &amp; 0 \\
+                                  \Omega &amp; 0 &amp; 0 &amp; 1 &amp; -\dot{\phi} &amp; 0 \\
+                                  -\dot{\theta} &amp; 0 &amp; \dot{\phi} &amp; 0 &amp; 0 &amp; 1\end{array}\right] \\
+\]</div>
+<div class="arithmatex">\[
+H_{1,2}=\left[\begin{array}{cccccccc}0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                    g &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; -\frac{g \sin (\phi)}{2} &amp; 0 &amp; -\frac{g \cos (\theta)}{2} &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; \frac{g \cos (\phi)}{2} &amp; 0 &amp; 0 &amp; 0 &amp; \frac{g \cos (\theta)}{2} &amp; 0\end{array}\right] 
+\]</div>
+<div class="arithmatex">\[
+H_{2,2}=\left[\begin{array}{cccccccc}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+                                    \sin (\theta) &amp; 0 &amp; \cos (\theta) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; 0 &amp; 0 &amp; \sin (\phi) &amp; 0 &amp; \cos (\phi) &amp; 0\end{array}\right] \\
+\]</div>
+<p></p>
+<p>The matrices are not constant but depend on the states, as in the previous case. In order to fill these matrices, the data from the current measurement vector are used. The last two rows of the matrix <span class="arithmatex">\(H\)</span> correspond to the constraints about the sum of the square of sine and cosine of pitch and roll respectively. These constraints must be always equal to 1 , as can be seen in the last two terms of the vector <span class="arithmatex">\(z\)</span>.</p>
+<p>Also, in this case, the estimator output is reset when the yaw rate is close to zero.</p>
+<p>In [4], is reported also a different notation for this system using the quaternions formulation. However, since the vehicle model is defined using the Euler angle - roll <span class="arithmatex">\((\phi)\)</span>, pitch <span class="arithmatex">\((\theta)\)</span> and yaw <span class="arithmatex">\((\psi)\)</span>-, this formulation allows being closer to the vehicle model description. The usage of quaternions can reflect on a more robust numerical stability with respect to Euler angle. However, the Euler angles appear in their trigonometric functions which correspond with the quaternions definition.</p>
+<h2 id="kalman-filters-tuning">Kalman Filters tuning</h2>
+<p>In literature, there are several methods for Kalman filter tuning. The estimators aforementioned are based on time-variant systems. For this reason, a method that uses Monte-Carlo simulation is suggested.</p>
+<p>In this work, the Genetic Algorithm [14] is used in order to optimize the covariance matrices. The tuning algorithm aims to optimize the matrix <span class="arithmatex">\(Q \in \mathbb{R}^{n, n}\)</span> and the matrix <span class="arithmatex">\(R \in \mathbb{R}^{m, m}\)</span>, where <span class="arithmatex">\(n\)</span> is the dimension of the state vector and <span class="arithmatex">\(m\)</span> is the dimension of the measurements vector. The theory behind this algorithm consists of check the statistical consistency between the estimation error and their covariance. This means that that the estimation error has to be normally distributed, with covariance matrix equal to <span class="arithmatex">\(P- {e}_{k} \backsim N(0, P) ;  {e}_{k}=x_{k}-\hat{x}_{k \mid k}\)</span>, where <span class="arithmatex">\(x_{k}\)</span> is the actual state and <span class="arithmatex">\(x_{k \mid k}\)</span> is the KF estimation -</p>
+<p>To check the consistency, a simulated data sample is built in a simulation environment. This sample contains <span class="arithmatex">\(N\)</span> sample discretized with <span class="arithmatex">\(N_{k}\)</span> time interval. For each time-step </p>
+<p><span class="arithmatex">\((k)\)</span>, the normalized error statistic <span class="arithmatex">\(\xi_{k}\)</span> can be computed as shown in relation 24 .</p>
+<div class="arithmatex">\[
+\xi_{k}= {e}_{k}^{T} P_{k \mid k}^{-1}  {e}_{k}
+\]</div>
+<p>The algorithm is evaluated, at each iteration, over <span class="arithmatex">\(N_{M C}\)</span> Monte-Carlo runs. Averaging the error statistic over the <span class="arithmatex">\(N_{M C}\)</span> runs, the mean normalized error statistic is defined as</p>
+<div class="arithmatex">\[
+\bar{\xi}_{k}=\sum_{r=1}^{N_{M C}} \xi_{k}
+\]</div>
+<p>If the estimation error <span class="arithmatex">\(e_{k}\)</span> has a Gaussian distribution, <span class="arithmatex">\(\bar{\xi}_{k}\)</span> is distributed as a <span class="arithmatex">\(\chi^{2}\)</span> random variable with <span class="arithmatex">\(n N_{M C}\)</span> degrees of freedom</p>
+<p>Thus the filter consistency can be verified via statistical hypothesis that <span class="arithmatex">\(\bar{\xi}_{k}\)</span> is distributed as a <span class="arithmatex">\(\chi_{n N_{M C}}^{2}\)</span>. To do that, <span class="arithmatex">\(F_{k}^{\chi^{2}}\)</span> has to be defined for each time-step.</p>
+<div class="arithmatex">\[
+F_{k}^{\chi^{2}}=\operatorname{Prob}\left\{\chi_{n N_{M C}^{2}}^{2}&lt;\bar{\xi}_{k}\right\}
+\]</div>
+<p>Then, the couples <span class="arithmatex">\(\left[\bar{\xi}_{k}, F_{k}^{\chi^{2}}\right]\)</span> have to be sorted in ascending order. The index <span class="arithmatex">\(i(k) \in\)</span> <span class="arithmatex">\(\left[1, N_{k}\right]\)</span> denotes the position of <span class="arithmatex">\(F_{k}^{\chi^{2}}\)</span> in the sorted array. Finally, <span class="arithmatex">\(F_{k}^{\chi^{2}}\)</span> can be plotted against <span class="arithmatex">\(i(k) / N_{k}\)</span> (figure 3).</p>
+<p><center></center></p>
+<p><img alt="" src="../media/C/Consistency.png"/></p>
+<p>Figure 3: <span class="arithmatex">\(\chi^{2}\)</span> consistency test
+</p>
+<p><span class="arithmatex">\(1 "[\ldots]\)</span> In statistic, it is the number of values or of variables which can be chosen arbitrarily in a stocastic model identification. [...]" see "libertà, gradi di" treccani.com Regarding figure 3, the actual distribution is consistent if it is close to the desired distribution <span class="arithmatex">\(\left(\chi^{2}\right)\)</span>. In order to measure the consistency of the filter, a performance index <span class="arithmatex">\((J)\)</span> is mathematically defined as the area between the two curves, actual and desired.</p>
+<div class="arithmatex">\[
+J=\frac{1}{N_{k}} \sum_{i=1}^{N_{k}}\left|d_{i(k)}\right|
+\]</div>
+<p>If a filter is consistent, the optimization structure aims to minimize the estimation covariance. For this reason, the algorithm cost function is defined as the norm of the estimation covariance matrix <span class="arithmatex">\((\|P\|)\)</span>. To distinguish when a filter is consistent, a simple threshold over the performance index is set - typically equal to <span class="arithmatex">\(0.05\)</span>-.</p>
+<p>Algorithmically, the cost function is called fitness and is defined in relation 28 .</p>
+<div class="arithmatex">\[
+\text { fitness }= \begin{cases}\|P\| &amp; J&lt;0.05 \\ -J &amp; \text { otherwise }\end{cases}
+\]</div>
+<p>If the fitness is negative, it means that the system is inconsistent since the <span class="arithmatex">\(J\)</span> is an always positive value. Among the inconsistent filters, the best fitness is a value close to zero. When a filter becomes consistent, the best choice is a value of fitness the smallest as possible. Between a consistent and an inconsistent filter, the best choice is always the consistent one.</p>
+<p>The algorithm starts initializing a population: each individual is identified using a chromosome in which the optimized parameters are encoded in a string of bits. Once the initial population is evaluated, the algorithm iterations start. Each iteration is composed of three parts: reproduction, mutation and reevaluation. In the reproduction step, a certain number of individuals, randomly extracted from the population, are selected to be mother or father of two new individuals. The chromosome of the parents is cut and crossed to generate the chromosome of the children. This operation is called crossover. In order to speed up the convergence of the algorithm, the individuals with a better level of "fitness" will reproduce more. In the following step, some individuals of the original population are randomly selected to become mutants: a small number of bits is randomly selected and are inverted. Finally, to compensate for particular "lucky" Monte-Carlo simulations some individuals are chosen to be reevaluated.</p>
+<p>These new individuals are evaluated and added to the starting population. The individuals with the worst "fitness" are the ones that should die.</p>
+<p>For what concerns the Kalman filter implemented in this thesis, the process is timevariant. For this reason, the tuning procedure is more challenging. Nevertheless, if the sample of simulated data is enough comprehensive, the results can be still good. For both the tuning, the algorithm parameters are set as follow:</p>
+<ul>
+<li>
+<p>The parameters are encoded in the chromosome using 10 bits;</p>
+</li>
+<li>
+<p>The population has a fixed size of 50 individuals;</p>
+</li>
+<li>
+<p>At each iteration, 26 children are generated;</p>
+</li>
+<li>
+<p>At each iteration, 20 mutants are created with 10 mutations each;</p>
+</li>
+<li>
+<p>At each iteration, 5 individuals are selected to be reevaluated;</p>
+</li>
+<li>
+<p>The number of Monte-Carlo runs are set equal to 250 over a sample of 324 tests;</p>
+</li>
+<li>
+<p>The number of iterations is set equal to 1000</p>
+</li>
+</ul>
+<p>In order to have a proper tuning and results evaluation, the simulated quantities, considered as virtual sensors, are perturbed with a random noise that is closest as possible to the noise of the real sensor. In particular, for the IMU data, the MATLAB model of the inertial measurement unit (imuSensor()) is employed, considering also random walk effects.</p>
+<h3 id="tuning-results-planar-estimator">Tuning results - Planar Estimator</h3>
+<p>The tuning procedure for the first exposed Kalman filter starts with the definition of the parameters that the algorithm has to tune. Assuming an uncorrelated processnoise and measurement noise, the covariance matrices are diagonal and their elements are the variance of the related state or measure.</p>
+<div class="arithmatex">\[
+Q=\left[\begin{array}{cccc}
+\sigma_{u}^{2} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \sigma_{u_{-} d o t}^{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \sigma_{v}^{2} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \sigma_{u-d o t}^{2}
+\end{array}\right] \quad R=\left[\begin{array}{ccc}
+\sigma_{u_{m}}^{2} &amp; 0 &amp; 0 \\
+0 &amp; \sigma_{a}^{2} &amp; 0 \\
+0 &amp; 0 &amp; \sigma_{a}^{2}
+\end{array}\right]
+\]</div>
+<p>These variances are free to vary over a certain interval during the optimization. Table 3 reports these intervals and the optimized value for each parameter.</p>
+<p><center></center></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Min. Val.</th>
+<th>Max. Val.</th>
+<th>Opt. Val.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\sigma_{u}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(15.0\)</span></td>
+<td><span class="arithmatex">\(9.432\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{u_{d} d o t}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(10.0\)</span></td>
+<td><span class="arithmatex">\(2.601\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{v}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(10.0\)</span></td>
+<td><span class="arithmatex">\(6.247\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{v-d o t}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(15.0\)</span></td>
+<td><span class="arithmatex">\(9.521\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{u_{m}}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(5.0\)</span></td>
+<td><span class="arithmatex">\(3.468\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{a}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.5\)</span></td>
+<td><span class="arithmatex">\(2.0\)</span></td>
+<td><span class="arithmatex">\(0.605\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Table 3: Tuning results - planar state estimator
+</p>
+<p>Adopting these parameters in the covariance matrices, the consistency test gives a performance index <span class="arithmatex">\(J=0.143\)</span>. This means that the filter is not consistent, using the aforementioned definition. This definition, coupled with the fact that the consistency graph (figure 4) shows two curves different from each other, suggests not use this estimation algorithm. However, looking at the algorithm output for a simulation manoeuvre - the simulation inputs of this manoeuvre are shown in figure 5-, the results seem to be proper (figure 6). </p>
+<p><center></center></p>
+<p><img alt="" src="../media/C/Consistency2D.png"/></p>
+<p>Figure 4: <span class="arithmatex">\(\chi^{2}\)</span> consistency test - planar state estimator</p>
+<p><img alt="" src="../media/C/TurningInput.png"/></p>
+<p>Figure 5: Inputs of the manoeuvre used for the tuning evaluation</p>
+<p><img alt="" src="../media/C/Turning2D.png"/></p>
+<p>Figure 6: Estimation results - planar state estimator</p>
+<p></p>
+<h3 id="tuning-results-3d-estimator">Tuning results - 3D Estimator</h3>
+<p>For what concern the second Kalman filter, the process and the measurement covariance matrices are larger than in the case before - <span class="arithmatex">\(Q \in \mathbb{R}^{14,14}\)</span> and <span class="arithmatex">\(R \in \mathbb{R}^{10,10}\)</span>-. However, it is possible to assume that the process state and the measure are uncorrelated with each other. Using this hypothesis, the matrices <span class="arithmatex">\(Q\)</span> and <span class="arithmatex">\(R\)</span> can be initialized as diagonal matrices, with their elements equal to the variance of the associated state or measure.</p>
+<p>In table <span class="arithmatex">\(4 \sigma_{\text {sin/cos }}^{2}\)</span> and <span class="arithmatex">\(\sigma_{\text {sin/cos-dot }}^{2}\)</span> are the variance related to the trigonometric functions of pitch and roll and their derivatives. <span class="arithmatex">\(\sigma_{1}^{2}\)</span> is, instead, connected to the constraint about the trigonometric functions: ideally, it is equal to zero. However the non-absolutely correctness of the expressions, due to estimation errors, makes the constraint vary causing a non-zero variance.</p>
+<p>With this set of parameters (table 4), the resulting performance index results <span class="arithmatex">\(J=\)</span> 0.175. As in the case before, the filter results non-consistent. However, looking at the figures 8 and 9, obtained with the same manoeuvre of the case before (figure 5), the estimation results give a sufficiently good estimation for the states of interest. The only state that seems to be wrong estimated is the vertical velocity <span class="arithmatex">\(w\)</span>. Nevertheless, the reference value of it is equal to zero and the estimated value does not differ too much from the reference.</p>
+<p><center></center></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Min.</th>
+<th>Max.</th>
+<th>Opt.</th>
+<th>Value</th>
+<th>Min.</th>
+<th>Max.</th>
+<th>Opt.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\sigma_{u}^{2}\)</span></td>
+<td><span class="arithmatex">\(5.0\)</span></td>
+<td><span class="arithmatex">\(15.0\)</span></td>
+<td><span class="arithmatex">\(6.769\)</span></td>
+<td><span class="arithmatex">\(\sigma_{w-dot}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(10.0\)</span></td>
+<td><span class="arithmatex">\(7.811\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{u    ext { dot }}^{2}\)</span></td>
+<td><span class="arithmatex">\(15.0\)</span></td>
+<td><span class="arithmatex">\(25.0\)</span></td>
+<td><span class="arithmatex">\(15.684\)</span></td>
+<td><span class="arithmatex">\(\sigma_{\text {sin }}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(1.0\)</span></td>
+<td><span class="arithmatex">\(0.116\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{v}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(10.0\)</span></td>
+<td><span class="arithmatex">\(2.601\)</span></td>
+<td><span class="arithmatex">\(\sigma_{\text {sin-dot }}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(5.0\)</span></td>
+<td><span class="arithmatex">\(4.057\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{v_{-d o t}}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(10.0\)</span></td>
+<td><span class="arithmatex">\(0.627\)</span></td>
+<td><span class="arithmatex">\(\sigma_{\text {cos }}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(0.5\)</span></td>
+<td><span class="arithmatex">\(0.546\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{w}^{2}\)</span></td>
+<td><span class="arithmatex">\(8.0\)</span></td>
+<td><span class="arithmatex">\(18.0\)</span></td>
+<td><span class="arithmatex">\(15.410\)</span></td>
+<td><span class="arithmatex">\(\sigma_{\text {cos-dot }}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(5.0\)</span></td>
+<td><span class="arithmatex">\(1.418\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{u_{m}}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(5.0\)</span></td>
+<td><span class="arithmatex">\(3.803\)</span></td>
+<td><span class="arithmatex">\(\sigma_{\text {cos } m }^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(0.5\)</span></td>
+<td><span class="arithmatex">\(0.256\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{a}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(2.0\)</span></td>
+<td><span class="arithmatex">\(0.714\)</span></td>
+<td><span class="arithmatex">\(\sigma_{1}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(1.0\)</span></td>
+<td><span class="arithmatex">\(0.224\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_{\text {sin } \mathrm{m} .}^{2}\)</span></td>
+<td><span class="arithmatex">\(0.0\)</span></td>
+<td><span class="arithmatex">\(1.0\)</span></td>
+<td><span class="arithmatex">\(0.499\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 4: Tuning results - three dimensional state estimator</p>
+<p><img alt="" src="../media/C/Consistency3D.png"/></p>
+<p>Figure 7: <span class="arithmatex">\(\chi^{2}\)</span> consistency test - 3D estimator</p>
+<p><img alt="" src="../media/C/Turning3D1.png"/></p>
+<p>Figure 8: Estimation results - 3D estimator - Part 1</p>
+<p><img alt="" src="../media/C/Turning3D2.png"/></p>
+<p>Figure 9: Estimation results - 3D estimator - Part 2
+</p>
+<h2 id="algorithms-performances">Algorithms Performances</h2>
+<p>Finally, let us evaluate the lateral velocity estimators performances both applied to simulated data and the real telemetry data from the tests.</p>
+<p>Figure 10 illustrates the outputs of the algorithms using the simulated data for a constant steering angle test. The noise model used for this simulation is the same used in the tuning case and in the manoeuvre which inputs are reported in figure 5. It can be seen that the lateral velocity shows a different behaviour depending on the estimation algorithm used. The most simple algorithm (Luemberger) shows the best estimation of the lateral velocity, remaining very close to the actual simulated value, both at low speed and at high speed. The Kalman filter, instead, gives out useless estimation of the states. This can be related to the nature of the estimators itself: these are estimators that use kinematic relations. For this reason, they are strongly subjected to the type of noise and to the bias terms. In particular, a very small bias term in the acceleration can make the algorithm diverge, as it happens in the second Kalman filter case. However, in the data loading part, some acceleration biases due to a not perfectly planar mounting of the IMU sensor is compensated. This correction works thanks to a rotation matrix evaluated knowing that, in the static condition, the only measurable acceleration is the gravity term (perfectly vertical). Hence, the failure of the algorithms can be due to some other non-modelled effects as the chassis motion.</p>
+<p>The diverging behaviour of the Kalman algorithms can be also caused by the filter inconsistency: this property can give good results for some specific scenarios but completely wrong estimation in normal situations.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/C/Tele1.png"/></p>
+<p>Figure 10: Estimation results using simulated telemetry data</p>
+<p></p>
+<p>Working with real telemetry data (figure 11), the effects aforementioned are stronger and the Kalman estimations are even worse than in the previous case. The Luemberger estimation, instead, seems to give a good estimation of the real lateral velocity. The graph reported in figure 11, shows the longitudinal and lateral velocity during a steering pad, driven with a gradually increasing speed.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/C/Tele2.png"/></p>
+<p>Figure 11: Estimation results using real telemetry data</p>
+<p></p>
+<p>The divergent attitude of the Kalman algorithms encourages the usage of the Luemberger observer as lateral velocity estimator.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Longitudinal Velocity Estimators" class="md-footer__link md-footer__link--prev" href="../B.Longitudinal-Velocity-Estimators/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Longitudinal Velocity Estimators
+            </div>
+</div>
+</a>
+<a aria-label="Next: Tire Slips Estimation" class="md-footer__link md-footer__link--next" href="../D.Tire-Slips-Estimation/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Tire Slips Estimation
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Copyright © E-Agle TRT
+          </div>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/eagletrt" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/eagletrt" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://hub.docker.com/u/eagletrt" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+<script src="../../../static/js/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="../../../static/js/mermaid.js"></script>
+</body>
+</html>

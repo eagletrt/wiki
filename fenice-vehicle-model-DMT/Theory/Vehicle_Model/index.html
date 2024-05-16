@@ -1,0 +1,2987 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
+<title>Vehicle Model for Simulation - Eagle TRT</title>
+<link href="../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#vehicle-model-for-simulation">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Eagle TRT" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Eagle TRT">
+<img alt="logo" src="../../../static/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Eagle TRT
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Vehicle Model for Simulation
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Eagle TRT" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Eagle TRT">
+<img alt="logo" src="../../../static/logo.png"/>
+</a>
+    Eagle TRT
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        E-Agle TRT Wiki
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Common
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Common" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Common
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1">
+          About
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="About" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/about/writing-docs/">
+        Writing Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          General Documentation Files
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="General Documentation Files" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          General Documentation Files
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/can-config/">
+        CAN-bus Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/can-debugging/">
+        CAN-bus Troubleshooting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/openocd-errors/">
+        OpenOCD Troubleshooting
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          [SW] ACR (Advanced Cone Registration)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[SW] ACR (Advanced Cone Registration)" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          [SW] ACR (Advanced Cone Registration)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/1.%20Overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/2.%20Shield/">
+        Shield
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/3.%20Usage/">
+        Usage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/4.%20Output%20formats/">
+        Output formats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Bms monitor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bms monitor" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Bms monitor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../bms-monitor/Notes/">
+        Segment board
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          Cantools
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cantools" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Cantools
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cantools/conf/">
+        Conf
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          [DMT] Data Analysis
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Data Analysis" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Data Analysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" id="__nav_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_1">
+          Estimation Functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Estimation Functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_1">
+<span class="md-nav__icon md-icon"></span>
+          Estimation Functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Estimation%20Functions/Home-Estimation/">
+        Estimation Functions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" id="__nav_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2">
+          Experimental Measurements for Validation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Experimental Measurements for Validation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+          Experimental Measurements for Validation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Experimental%20Measurement/ExperimentalMeasurement/">
+        Experimental Measurement
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+          Tire Fitting and Validation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tire Fitting and Validation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Tire Fitting and Validation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Tire%20Fitting%20and%20Validation/Home_Validation/">
+        Tyre Fitting &amp; Model Validation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Usage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Repo%20Usage/Home/">
+        Data Analysis
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Setup/Setup/">
+        PROCEDURE SET-UP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          [DMT] Anti Roll Bar
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Anti Roll Bar" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Anti Roll Bar
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-arb-DMT/Home/">
+        Fenice Anti Roll Bar
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          High-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="High-Voltage BMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          High-Voltage BMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/">
+        High-Voltage Battery Management System
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2">
+          Mainboard
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mainboard" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+          Mainboard
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/">
+        Mainboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/io/">
+        I/O
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2_3" id="__nav_8_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_3">
+          Subsystems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Subsystems" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Subsystems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bal/">
+        Cell Balancing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_cli/">
+        Command Line Interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_fsm/">
+        Main State Machine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/config/">
+        Config
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/current/">
+        Current
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/feedback/">
+        Feedback
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/timebase/">
+        Timebase
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3">
+          Bootloader
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bootloader" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+          Bootloader
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/bootloader/openblt/">
+        OpenBLT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          Low-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Low-Voltage BMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Low-Voltage BMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/">
+        Low Voltage Battery Management System
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" id="__nav_9_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2">
+          Main functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Main functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+          Main functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Command%20Line%20Interface/">
+        Command Line Interface <!-- omit in toc -->
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Cooling/">
+        Cooling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Feedbacks%20signals/">
+        Feedbacks signals
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/IOC%20file%20and%20pinout/">
+        IOC File and Pinout
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/State%20machine/">
+        State Machine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Timing%20and%20Can%20messages/">
+        Timing and CAN Messages
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2_7" id="__nav_9_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2_7">
+          Safety Checks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Safety Checks" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_2_7">
+<span class="md-nav__icon md-icon"></span>
+          Safety Checks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Safety%20Checks/Errors/">
+        Errors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Safety%20Checks/Health%20Signals/">
+        Health Signals
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          Fenice bms lv hw
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Fenice bms lv hw" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          Fenice bms lv hw
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/">
+        BMS'S CHANGELOG
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/startup/">
+        STARTING UP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/sd_feedbacks/">
+        Sd feedbacks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/sensors/">
+        SENSORS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/other/">
+        FLASHING THE MCU
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+          [DMT] Dampers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Dampers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Dampers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-dampers-DMT/Home/">
+        Linear vs non linear model
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+          DAS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DAS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          DAS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/bkl/">
+        Brakelight
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/buz/">
+        Buzzer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13">
+          DAS (old docs)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DAS (old docs)" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          DAS (old docs)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/modules/">
+        Modules
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/fsm/">
+        Finite State Machine
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
+          [DMT] Steering System
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Steering System" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Steering System
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steering-system-DMT/Home/">
+        Fenice Steering system
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
+          Steering Wheel
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Steering Wheel" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          Steering Wheel
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/">
+        Steering Wheel
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_2" id="__nav_15_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_2">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Development" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_2">
+<span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/development/qt/">
+        Building Qt for the Raspberry Pi
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_3" id="__nav_15_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_3">
+          Interface
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Interface" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_3">
+<span class="md-nav__icon md-icon"></span>
+          Interface
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/interface/tabs/">
+        Concept of Tabs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16">
+          [DMT] Suspensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Suspensions" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Suspensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-suspension-DMT/Home/">
+        Fenice Suspensions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17">
+          ECU
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="ECU" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+          ECU
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/rpi-setup/">
+        RPi Setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/compiling/">
+        Compiling &amp; Executing
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" id="__nav_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18">
+          [DMT] Vehicle Model
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Vehicle Model" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_18">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Vehicle Model
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18_1" id="__nav_18_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18_1">
+          Repo Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Repo Usage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_18_1">
+<span class="md-nav__icon md-icon"></span>
+          Repo Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Repo%20Usage/Home/">
+        Repo Usage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_18_2" id="__nav_18_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18_2">
+          Theory (model + controls)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Theory (model + controls)" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_18_2">
+<span class="md-nav__icon md-icon"></span>
+          Theory (model + controls)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Home_Theory/">
+        Vehicle Model+Control Theory
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Vehicle_Design_Choices/">
+        Vehicle Design Choices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_19" id="__nav_19" type="checkbox"/>
+<label class="md-nav__link" for="__nav_19">
+          gpslib
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="gpslib" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_19">
+<span class="md-nav__icon md-icon"></span>
+          gpslib
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gpslib/">
+        GPS lib
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_20" id="__nav_20" type="checkbox"/>
+<label class="md-nav__link" for="__nav_20">
+          Handcart hw
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Handcart hw" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_20">
+<span class="md-nav__icon md-icon"></span>
+          Handcart hw
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../handcart-hw/handcart/">
+        Hancart Hardware Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_21" id="__nav_21" type="checkbox"/>
+<label class="md-nav__link" for="__nav_21">
+          Handcart Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Handcart Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_21">
+<span class="md-nav__icon md-icon"></span>
+          Handcart Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../handcart-sw/main/">
+        Handcart Fenice&amp;Chimera 2021-22 Documentation and Guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_22" id="__nav_22" type="checkbox"/>
+<label class="md-nav__link" for="__nav_22">
+          Hw fenice ecu
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice ecu" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_22">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice ecu
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-ecu/DAS_ECU/">
+        ECU hardware
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_23" id="__nav_23" type="checkbox"/>
+<label class="md-nav__link" for="__nav_23">
+          Hw fenice evo ecu
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice evo ecu" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_23">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice evo ecu
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-ecu/DAS_ECU/">
+        DAS+ECU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-ecu/ECU%20Documentation/">
+        ECU Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_24" id="__nav_24" type="checkbox"/>
+<label class="md-nav__link" for="__nav_24">
+          Hw fenice evo tsal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice evo tsal" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_24">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice evo tsal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-tsal/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_25" id="__nav_25" type="checkbox"/>
+<label class="md-nav__link" for="__nav_25">
+          [DMT] Lap Time Simulator
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Lap Time Simulator" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_25">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Lap Time Simulator
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lap-time-simulator-DMT/Home/">
+        Lap Time Simulator
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_26" id="__nav_26" type="checkbox"/>
+<label class="md-nav__link" for="__nav_26">
+          Lib communication
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Lib communication" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_26">
+<span class="md-nav__icon md-icon"></span>
+          Lib communication
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lib-communication/connection/">
+        Implement New Connection Type
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lib-communication/mqtt_connection/">
+        MOSQUITTO SETUP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27" id="__nav_27" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27">
+          Lvgl
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Lvgl" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_27">
+<span class="md-nav__icon md-icon"></span>
+          Lvgl
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CHANGELOG/">
+        Changelog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CODE_OF_CONDUCT/">
+        Contributor Covenant Code of Conduct
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CODING_STYLE/">
+        Coding style
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CONTRIBUTING/">
+        Contributing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/ROADMAP/">
+        Roadmap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/build/">
+        Build
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/conf/">
+        Conf
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/example_list/">
+        Example list
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_10" id="__nav_27_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_10">
+           ext
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label=" ext" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_10">
+<span class="md-nav__icon md-icon"></span>
+           ext
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/_ext/lv_example/">
+        Lv example
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11" id="__nav_27_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11">
+          Get started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Get started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_11">
+<span class="md-nav__icon md-icon"></span>
+          Get started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/">
+        Get started
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/quick-overview/">
+        Quick overview
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_3" id="__nav_27_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_3">
+          Bindings
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bindings" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_3">
+<span class="md-nav__icon md-icon"></span>
+          Bindings
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/">
+        Bindings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/cpp/">
+        Cpp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/micropython/">
+        Micropython
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_4" id="__nav_27_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_4">
+          Os
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Os" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_4">
+<span class="md-nav__icon md-icon"></span>
+          Os
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/">
+        (RT)OS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/freertos/">
+        FreeRTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/nuttx/">
+        NuttX RTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/rt-thread/">
+        RT-Thread RTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/zephyr/">
+        Zephyr
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_5" id="__nav_27_11_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_5">
+          Platforms
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Platforms" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_5">
+<span class="md-nav__icon md-icon"></span>
+          Platforms
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/">
+        Platforms
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/arduino/">
+        Arduino
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/cmake/">
+        CMake
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/espressif/">
+        Espressif (ESP32 chip series)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/nxp/">
+        NXP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/pc-simulator/">
+        Simulator on PC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/stm32/">
+        STM32
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/tasmota-berry/">
+        Tasmota and berry
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_12" id="__nav_27_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_12">
+          Intro
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Intro" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_12">
+<span class="md-nav__icon md-icon"></span>
+          Intro
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/intro/">
+        Introduction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_13" id="__nav_27_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_13">
+          Layouts
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Layouts" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_13">
+<span class="md-nav__icon md-icon"></span>
+          Layouts
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/">
+        Layouts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/flex/">
+        Flex
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/grid/">
+        Grid
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_14" id="__nav_27_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_14">
+          Libs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Libs" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_14">
+<span class="md-nav__icon md-icon"></span>
+          Libs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/">
+        3rd party libraries
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/bmp/">
+        BMP decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/ffmpeg/">
+        FFmpeg support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/freetype/">
+        FreeType support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/fsdrv/">
+        File System Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/gif/">
+        GIF decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/png/">
+        PNG decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/qrcode/">
+        QR code
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/rlottie/">
+        Lottie player
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/sjpg/">
+        JPG decoder
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_15" id="__nav_27_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_15">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Others" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_15">
+<span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/">
+        Others
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/fragment/">
+        Fragment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/gridnav/">
+        Grid navigation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/ime_pinyin/">
+        Pinyin IME
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/imgfont/">
+        Image font (imgfont)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/monkey/">
+        Monkey
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/msg/">
+        Messaging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/snapshot/">
+        Snapshot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_16" id="__nav_27_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_16">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_16">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/animation/">
+        Animations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/color/">
+        Colors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/coords/">
+        Positions, sizes, and layouts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/display/">
+        Displays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/drawing/">
+        Drawing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/event/">
+        Events
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/file-system/">
+        File system
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/font/">
+        Fonts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/image/">
+        Images
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/indev/">
+        Input devices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/layer/">
+        Layers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/new_widget/">
+        New widget
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/object/">
+        Objects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/scroll/">
+        Scroll
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/style-props/">
+        Style properties
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/style/">
+        Styles
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/timer/">
+        Timers
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_16_19" id="__nav_27_16_19" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_16_19">
+          Renderers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Renderers" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_16_19">
+<span class="md-nav__icon md-icon"></span>
+          Renderers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/">
+        Renderers and GPUs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/arm-2d/">
+        Arm-2D GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/dma2d/">
+        DMA2D GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/pxp-vglite/">
+        NXP PXP and VGLite GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/sdl/">
+        SDL renderer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/sw/">
+        Software renderer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_17" id="__nav_27_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_17">
+          Porting
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Porting" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_17">
+<span class="md-nav__icon md-icon"></span>
+          Porting
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/">
+        Porting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/display/">
+        Display interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/gpu/">
+        Add custom GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/indev/">
+        Input device interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/log/">
+        Logging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/os/">
+        Operating system and interrupts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/project/">
+        Set up a project
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/sleep/">
+        Sleep management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/tick/">
+        Tick interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/timer-handler/">
+        Timer Handler
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18" id="__nav_27_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18">
+          Widgets
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Widgets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_18">
+<span class="md-nav__icon md-icon"></span>
+          Widgets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/">
+        Widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/obj/">
+        Base object (lv_obj)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18_3" id="__nav_27_18_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18_3">
+          Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Core" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_18_3">
+<span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/">
+        Core widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/arc/">
+        Arc (lv_arc)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/bar/">
+        Bar (lv_bar)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/btn/">
+        Button (lv_btn)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/btnmatrix/">
+        Button matrix (lv_btnmatrix)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/canvas/">
+        Canvas (lv_canvas)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/checkbox/">
+        Checkbox (lv_checkbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/dropdown/">
+        Drop-down list (lv_dropdown)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/img/">
+        Image (lv_img)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/label/">
+        Label (lv_label)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/line/">
+        Line (lv_line)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/roller/">
+        Roller (lv_roller)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/slider/">
+        Slider (lv_slider)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/switch/">
+        Switch (lv_switch)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/table/">
+        Table (lv_table)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/textarea/">
+        Text area (lv_textarea)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18_4" id="__nav_27_18_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18_4">
+          Extra
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Extra" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_18_4">
+<span class="md-nav__icon md-icon"></span>
+          Extra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/">
+        Extra widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/animimg/">
+        Animation Image (lv_animimg)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/calendar/">
+        Calendar (lv_calendar)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/chart/">
+        Chart (lv_chart)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/colorwheel/">
+        Color wheel (lv_colorwheel)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/imgbtn/">
+        Image button (lv_imgbtn)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/keyboard/">
+        Keyboard (lv_keyboard)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/led/">
+        LED (lv_led)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/list/">
+        List (lv_list)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/menu/">
+        Menu (lv_menu)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/meter/">
+        Meter (lv_meter)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/msgbox/">
+        Message box (lv_msgbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/span/">
+        Span (lv_span)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/spinbox/">
+        Spinbox (lv_spinbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/spinner/">
+        Spinner (lv_spinner)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/tabview/">
+        Tabview (lv_tabview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/tileview/">
+        Tile view (lv_tileview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/win/">
+        Window (lv_win)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28" id="__nav_28" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28">
+          Micro-Libs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Micro-Libs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_28">
+<span class="md-nav__icon md-icon"></span>
+          Micro-Libs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/micro-libs/">
+        Micro-Libs
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_2" id="__nav_28_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_2">
+          Blinky
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Blinky" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_2">
+<span class="md-nav__icon md-icon"></span>
+          Blinky
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/blinky/">
+        Blinky
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/blinky-handler/">
+        Blinky handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_3" id="__nav_28_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_3">
+          Bms monitor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bms monitor" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_3">
+<span class="md-nav__icon md-icon"></span>
+          Bms monitor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/bms-monitor/">
+        Bms monitor
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_3_2" id="__nav_28_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_3_2">
+          Ltc6811
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ltc6811" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_28_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Ltc6811
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/ltc6811/">
+        Ltc6811
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/command-format/">
+        Command format
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/pec/">
+        Packet Error Code
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_4" id="__nav_28_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_4">
+          Can manager
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Can manager" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_4">
+<span class="md-nav__icon md-icon"></span>
+          Can manager
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/can-manager/can-manager/">
+        Can manager
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_5" id="__nav_28_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_5">
+          Mcp23017
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mcp23017" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_5">
+<span class="md-nav__icon md-icon"></span>
+          Mcp23017
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/mcp23017/mcp23017/">
+        Mcp23017
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_6" id="__nav_28_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_6">
+          Min heap
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Min heap" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_6">
+<span class="md-nav__icon md-icon"></span>
+          Min heap
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/min-heap/">
+        Min heap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/heap-handler/">
+        Heap handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_7" id="__nav_28_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_7">
+          Ring buffer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ring buffer" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_7">
+<span class="md-nav__icon md-icon"></span>
+          Ring buffer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/ring-buffer/">
+        Ring buffer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/critical-section/">
+        Critical section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/buffer-handler/">
+        Buffer handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29" id="__nav_29" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29">
+          Micro-Utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Micro-Utils" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_29">
+<span class="md-nav__icon md-icon"></span>
+          Micro-Utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/micro-utils/">
+        Micro-Utils
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29_2" id="__nav_29_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29_2">
+          Error handler generator
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Error handler generator" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_29_2">
+<span class="md-nav__icon md-icon"></span>
+          Error handler generator
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/error-handler-generator/">
+        Error handler generator
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/error/">
+        Error
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/input-file/">
+        Input file
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29_2_4" id="__nav_29_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29_2_4">
+          Generated
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Generated" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_29_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Generated
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/error-handler/">
+        Error handler library
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/timer/">
+        Timer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/internal-data/">
+        Internal data
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_30" id="__nav_30" type="checkbox"/>
+<label class="md-nav__link" for="__nav_30">
+          rasp shieldV2 config
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="rasp shieldV2 config" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_30">
+<span class="md-nav__icon md-icon"></span>
+          rasp shieldV2 config
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rasp-shieldV2-config/">
+        Documentation!
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_31" id="__nav_31" type="checkbox"/>
+<label class="md-nav__link" for="__nav_31">
+          Rtl 433
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Rtl 433" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_31">
+<span class="md-nav__icon md-icon"></span>
+          Rtl 433
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/ANALYZE/">
+        Capture and analyze devices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/BUILDING/">
+        Building rtl_433
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/CONTRIBUTING/">
+        Contributing guidelines
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/DATA_FORMAT/">
+        JSON Data fields
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/HARDWARE/">
+        Hardware tested with rtl_433
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/INTEGRATION/">
+        Integration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/IQ_FORMATS/">
+        Introduction to I/Q formats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/LINKS/">
+        Links to tools and related projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/OPERATION/">
+        Basic rtl_433 operation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/PRIMER/">
+        Primer on SDR concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/STARTING/">
+        Getting Started
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32" id="__nav_32" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32">
+          Telemetry
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Telemetry" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_32">
+<span class="md-nav__icon md-icon"></span>
+          Telemetry
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/">
+        Telemetry
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_2" id="__nav_32_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_2">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Overview/features/">
+        Features
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_3" id="__nav_32_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_3">
+          Setup and installation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup and installation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_3">
+<span class="md-nav__icon md-icon"></span>
+          Setup and installation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/installation/">
+        Installation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/raspberry_setup/">
+        Raspberry setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/usage/">
+        Telemetry Usage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/run/">
+        Telemetry run
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_4" id="__nav_32_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_4">
+          Components
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Components" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_4">
+<span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/serializers/">
+        Serializers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/connection/">
+        Telemetry connection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/file_transmission/">
+        File transmission
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_5" id="__nav_32_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_5">
+          Cross compile
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cross compile" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_5">
+<span class="md-nav__icon md-icon"></span>
+          Cross compile
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Cross%20compile/setup/">
+        Setup
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_33" id="__nav_33" type="checkbox"/>
+<label class="md-nav__link" for="__nav_33">
+          JSON Loader
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="JSON Loader" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_33">
+<span class="md-nav__icon md-icon"></span>
+          JSON Loader
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry-json-loader/">
+        JSON Loader
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_34" id="__nav_34" type="checkbox"/>
+<label class="md-nav__link" for="__nav_34">
+          [SW] Traction Control
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[SW] Traction Control" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_34">
+<span class="md-nav__icon md-icon"></span>
+          [SW] Traction Control
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/1.%20Overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/2.%20Architecture/">
+        Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/3.%20Implementation/">
+        Implementation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/4.%20Workflow/">
+        Workflow
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="vehicle-model-for-simulation">Vehicle Model for Simulation</h1>
+<p>In this report, the theory behind the vehicle model is briefly explained. This allows us to understand how the simulation environment works and how to define some of the most important characteristics of the vehicle kinematics and dynamics.</p>
+<p>The model parameters are selected in order to simulate the behaviour of the Trento Formula SAE racing vehicle, called Chimera Evoluzione (figure 11). In the original model, the tires behaviour is simulated using the Pacejka formulation. However, in the validated version of the model, the tires characteristics will be modelled using a simplified tire model, defined in a dedicated paper.</p>
+<p>The description follows the works done by Piccinini M. in his thesis [16]. In order to extract equation of motion, the symbolic computation software Maple <span class="arithmatex">\(^{\circledR}\)</span> is used, with the multibody library MBSymba <span class="arithmatex">\(^{\circledR}\)</span>[13].</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Chimera.png"/></p>
+<p>Figure 1: Photo of Chimera Evoluzione (Tests of 09-11-2020)
+</p>
+<h1 id="vehicle-kinematics">Vehicle kinematics</h1>
+<p>As first, we have to define the vehicle reference frame <span class="arithmatex">\(\left(R F_{V}\right)\)</span> with respect to an absolute fixed reference frame <span class="arithmatex">\(\left(R F_{0}\right)\)</span>. The vehicle reference frame has its origin in the projection of the vehicle Centre of Mass (CoM) in the xy absolute plane, the <span class="arithmatex">\(\mathrm{x}\)</span>-axis points in the vehicle forward direction and the z-axis points upward. The transformation from <span class="arithmatex">\(R F_{0}\)</span> to <span class="arithmatex">\(R F_{V}\)</span> is a translation of <span class="arithmatex">\(\{\mathrm{x}, \mathrm{y}, 0\}\)</span> and a rotation of the yaw angle <span class="arithmatex">\((\psi)\)</span> around the z-axis, as depicted in figure 2 .</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Ref.png"/></p>
+<p>Figure 2: 2D representation of the vehicle reference frames
+</p>
+<p>With reference to figure <span class="arithmatex">\(2, R F_{V}\)</span> moves with a linear velocity <span class="arithmatex">\(\left\{v_{x}, v_{y}, 0\right\}\)</span> and an angular velocity along the z-axis of <span class="arithmatex">\(\Omega=\dot{\psi}\)</span>. Projecting these components in the vehicle reference frame, the longitudinal and the lateral velocity <span class="arithmatex">\((u\)</span> and <span class="arithmatex">\(v)\)</span> can be defined. For definition, the angle <span class="arithmatex">\(\beta\)</span>, called Body Side Slip Angle, is the angle between the absolute velocity vector <span class="arithmatex">\(\left(\bar{V}_{G}\right)\)</span> and the <span class="arithmatex">\(x_{V}\)</span> axis.</p>
+<p>Until now, the vehicle is shown as a rigid body that moves in the absolute ground plane. To proceed with the kinematic analysis, it is useful to distinguish between the Spring and Un-Spring masses. The Un-Spring masses correspond to the parts of the vehicle "constrained" to the ground - i.e. the tires, the wheels, the hub and part of the suspensions assembly -. The spring masses, instead, are the vehicle parts above the suspensions, namely that parts of the vehicle that can moves under the effects of suspensions deformation - for example, the remaining part of the suspensions, the chassis, the motors, the inverters or the driver <span class="arithmatex">\(-\)</span>.</p>
+<p>The spring masses have 3 additional Degrees of Freedom that corresponds to the Roll <span class="arithmatex">\((\phi)\)</span> the Pitch <span class="arithmatex">\((\theta)\)</span> and the Heave <span class="arithmatex">\((z)\)</span> motion. These are the components of the so-called internal kinematics. In particular, the Roll Axis has to be modelled. It is the axis around which the vehicle rolls and depends on the suspension geometry. Specifically, assuming the vehicle as symmetric, the Roll Axis lives in the <span class="arithmatex">\(\mathrm{xz}\)</span> vehicle plane and pass through the front and rear Roll Centres: points with a height of <span class="arithmatex">\(h_{R F}\)</span> and <span class="arithmatex">\(h_{R R}\)</span> respectively. The angle between the Roll Axis and the <span class="arithmatex">\(x_{V}\)</span> axis, in static case, is called <span class="arithmatex">\(\alpha_{r a}\)</span>. The geometric representation of the internal kinematics geometry is depicted in figure 3</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Roll.png"/></p>
+<p>Figure 3: Roll axis position
+</p>
+<div class="arithmatex">\[
+\alpha_{r a}=\operatorname{atan}\left(\frac{h_{R R}-h_{R F}}{L_{R}+L_{F}}\right) \quad ; \quad h_{R}=h_{R F}+\alpha_{r a} L_{F}
+\]</div>
+<p>In order to mathematically define the internal kinematics, an auxiliary reference frame <span class="arithmatex">\(\left(R F_{S, a}\right)\)</span> is defined, starting from the vehicle reference frame. In the static condition, this new frame has the origin in the point <span class="arithmatex">\(P_{R}\)</span>, depicted in figure 3. The <span class="arithmatex">\(\mathrm{x}\)</span> axis that coincides with the roll axis and points in the vehicle forward direction. The <span class="arithmatex">\(\mathrm{z}\)</span> axis points upward. Besides, the auxiliary reference frame is free to move along the <span class="arithmatex">\(z_{V}\)</span> axis to model the heave motion. From <span class="arithmatex">\(R F_{S, a}\)</span>, the others internal kinematic motion can be defined in order to find the Spring masses reference frame <span class="arithmatex">\(\left(R F_{S}\right)\)</span> : firstly, the pitch along y and, secondly, the roll motion along <span class="arithmatex">\(\mathrm{x}\)</span>. Since the angles are small, the transformation matrix between <span class="arithmatex">\(R F_{S, a}\)</span> and <span class="arithmatex">\(R F_{S}\)</span> can be linearized. The result is shown in 2 .</p>
+<div class="arithmatex">\[
+T_{R F_{S, a} \rightarrow R F_{S}}=\left[\begin{array}{cccc}
+1 &amp; 0 &amp; \theta(t) &amp; 0 \\
+0 &amp; 1 &amp; -\phi(t) &amp; 0 \\
+-\theta(t) &amp; \phi(t) &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</div>
+<p>In order to resume the transformations, they are collected in relation 3.</p>
+<div class="arithmatex">\[
+\begin{gathered}
+\left\{\begin{array}{l}
+R F_{V} \quad=R F_{0} \cdot T(x(t), y(t), 0) \cdot R_{Z}(\psi(t)) \\
+R F_{S, a}=R F_{V} \cdot T\left(0,0, h_{R}+z(t)\right) \cdot R_{Y}\left(\alpha_{r a}\right) \\
+R F_{S}=R F_{S, a} \cdot R_{Y}(\theta(t)) \cdot R_{X}(\phi(t)) \approx R F_{S, a} \cdot T_{R F_{S, a} \rightarrow R F_{S}}
+\end{array}\right. \\
+T(a, b, c)=\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; a \\
+0 &amp; 1 &amp; 0 &amp; b \\
+0 &amp; 0 &amp; 1 &amp; c \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right] \\
+R_{X}(\alpha)=\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \cos (\alpha) &amp; -\sin (\alpha) &amp; 0 \\
+0 &amp; \sin (\alpha) &amp; \cos (\alpha) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right] \\
+R_{Y}(\alpha)=\left[\begin{array}{ccccc}
+\cos (\alpha) &amp; 0 &amp; \sin (\alpha) &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+-\sin (\alpha) &amp; 0 &amp; \cos (\alpha) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right] \quad R_{Z}(\alpha)=\left[\begin{array}{cccc}
+\cos (\alpha) &amp; -\sin (\alpha) &amp; 0 &amp; 0 \\
+\sin (\alpha) &amp; \cos (\alpha) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\end{gathered}
+\]</div>
+<h1 id="vehicle-dynamics">Vehicle Dynamics</h1>
+<h2 id="definition-of-the-bodies">Definition of the Bodies</h2>
+<p>Equations of motion are derived by means of the Newton-Euler method. The bodies definition is necessary to start the dynamic analysis. </p>
+<h3 id="vehicle-body">Vehicle body</h3>
+<p>The vehicle body consists of the whole vehicle body in the static configuration. It has a mass of <span class="arithmatex">\(M\)</span> and an inertia tensor equal to <span class="arithmatex">\(\left[I_{V}\right]\)</span>. The inertia components <span class="arithmatex">\(I_{x y, V}\)</span> and <span class="arithmatex">\(I_{y z, V}\)</span> are negligible with respect to the other terms of the matrix so they can be set equal to zero. The centre of mass of this body is always placed in the point <span class="arithmatex">\(\left[0,0, h_{G 0}\right]\)</span> of the vehicle reference frame <span class="arithmatex">\(\left(R F_{V}\right)\)</span>.</p>
+<div class="arithmatex">\[
+\left[I_{V}\right]=\left[\begin{array}{ccc}
+I_{x x, V} &amp; 0 &amp; -I_{x z, V} \\
+0 &amp; I_{y y, V} &amp; 0 \\
+-I_{x z, V} &amp; 0 &amp; I_{z z, V}
+\end{array}\right]
+\]</div>
+<h3 id="chassis-body">Chassis body</h3>
+<p>The chassis body models the spring masses. For this reason, its mass is equal to <span class="arithmatex">\(m_{S}\)</span> and its inertia tensor is <span class="arithmatex">\(\left[I_{C}\right]\)</span>. Similarly to the vehicle case, <span class="arithmatex">\(\left[I_{V}\right]\)</span> has the <span class="arithmatex">\(x y\)</span> and <span class="arithmatex">\(y z\)</span> terms that can be set to zero. The centre of mass of the chassis reference frame is placed in the origin of <span class="arithmatex">\(R F_{S}\)</span>.</p>
+<div class="arithmatex">\[
+\left[I_{C}\right]=\left[\begin{array}{ccc}
+I_{x x, C} &amp; 0 &amp; -I_{x z, C} \\
+0 &amp; I_{y y, C} &amp; 0 \\
+-I_{x z, C} &amp; 0 &amp; I_{z z, C}
+\end{array}\right]
+\]</div>
+<h3 id="wheels-bodies">Wheels bodies</h3>
+<p>The wheels bodies are four and its mass is <span class="arithmatex">\(m_{W}\)</span>. Each wheel has an associated reference frame, with the origin in the wheel centre, that is fixed with respect to the wheel. Starting from the vehicle reference frame, the applied transformations are shown in relation 6.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+R F_{W, R R}=T\left(-L_{R},-W_{R} / 2, R_{R}\right) \cdot R_{Y}\left(\xi_{R R}(t)\right) \\
+R F_{W, R L}=T\left(-L_{R}, W_{R} / 2, R_{R}\right) \cdot R_{Y}\left(\xi_{R L}(t)\right) \\
+R F_{W, F R}=T\left(L_{F},-W_{F} / 2, R_{F}\right) \cdot R_{Z}\left(\delta_{F R}\right) \cdot R_{Y}\left(\xi_{F R}(t)\right) \\
+R F_{W, F L}=T\left(L_{F}, W_{F} / 2, R_{F}\right) \cdot R_{Z}\left(\delta_{F L}\right) \cdot R_{Y}\left(\xi_{F L}(t)\right)
+\end{array}\right.
+\]</div>
+<p>The suffix of the reference frames corresponds to the wheel position: <span class="arithmatex">\(R R\)</span> rear-right, <span class="arithmatex">\(R L\)</span> real-left, <span class="arithmatex">\(F R\)</span> front-right and <span class="arithmatex">\(F L\)</span> front-left. This notation will be used to label the position of different quantities during this work. <span class="arithmatex">\(W_{F}\)</span> and <span class="arithmatex">\(W_{R}\)</span> are the front and the rear track-width respectively while <span class="arithmatex">\(R_{F}\)</span> and <span class="arithmatex">\(R_{R}\)</span> are the front and rear wheel radii. The angles <span class="arithmatex">\(\delta\)</span> are the steering angle at the wheels. Since the vehicle is front wheel steering, the associated rotation is performed only to the front wheels. The angles <span class="arithmatex">\(\xi\)</span>, instead, model the wheel spin.</p>
+<p>The inertia tensor is diagonal and it is equal to <span class="arithmatex">\(\left[I_{W}\right]\)</span>.</p>
+<div class="arithmatex">\[
+\left[I_{W}\right]=\left[\begin{array}{ccc}
+I_{d, W} &amp; 0 &amp; 0 \\
+0 &amp; I_{a, W} &amp; 0 \\
+0 &amp; 0 &amp; I_{d, W}
+\end{array}\right]
+\]</div>
+<h3 id="anti-bodies">Anti-bodies</h3>
+<p>In equation of motion, the main vehicle motion <span class="arithmatex">\((x(t), y(t)\)</span> and <span class="arithmatex">\(\psi(t))\)</span> are associated to the vehicle, while the other Degrees of Freedom, called also relative, are associated to the chassis and to the wheels. In order to neglect the static term from the chassis and from the wheels - the static term is already addressed by the vehicle body - special constructs are named anti-bodies. They are virtual bodies with the inertia components negative with respect to the associated body and placed in the static position of the related body, i.e. their relative DoF are set equal to zero. </p>
+<hr/>
+<h2 id="tire-model">Tire model</h2>
+<p>In the model of Piccinini [16], an high fidelity semi-empirica) tire model is used in order to model the tire characteristics. In particular, the Pacejka tire model allows us to have a precise steady-state representation of the tire behaviour.</p>
+<p>The tire model returns the longitudinal and lateral tire force <span class="arithmatex">\(\left(F_{x}\right.\)</span> and <span class="arithmatex">\(\left.F_{y}\right)\)</span> and the self-aligning moment <span class="arithmatex">\(\left(M_{z}\right)\)</span> as a function of the practical slip <span class="arithmatex">\((\bar{\kappa})\)</span>, the tire vertical load <span class="arithmatex">\(\left(F_{z}\right)\)</span> and the wheel camber <span class="arithmatex">\((\gamma)\)</span>.</p>
+<p>The camber is the angle between the wheel middle plane and the xz-vehicle plane. This angle is not fixed but varies with the suspension deflection. Using the suspension kinematic model, a roll-to-camber map is fitted in order to address the angle variation as a function of the roll angle.</p>
+<p>The tire slip is computed starting from the wheel speeds with reference to figure 4 .</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Tyre.png"/></p>
+<p>Figure 4: Tire top view: the wheel speeds are highlighted</p>
+<p></p>
+<p>The rolling velocity is equal to the product between the wheel angular velocity and the wheel radius <span class="arithmatex">\(-\bar{v}_{r}=[\omega R, 0,0]^{T}-\)</span>. The contact point velocity <span class="arithmatex">\(\left(\bar{v}_{c}\right)\)</span> depends on the vehicle velocity and is a <span class="arithmatex">\(2 \mathrm{D}\)</span> vector that lives in the ground plane. The sliding velocity is the vectorial difference between the contact point and the rolling velocity <span class="arithmatex">\(-\bar{v}_{s}=\bar{v}_{c}-\bar{v}_{r}\)</span></p>
+<p><span class="arithmatex">\({ }^{1}\)</span> The semi-empirical models uses physical based information in order to fit very sophisticated behaviour with a simpler mathematical function. This approach makes the computation cheaper and the simulation faster. -. Then, the practical slip can be defined as reported in 8 .</p>
+<div class="arithmatex">\[
+\bar{\kappa}=\left[\begin{array}{c}
+\lambda \\
+\tan (\alpha)
+\end{array}\right]=-\frac{\bar{v}_{s}}{\left|v_{c, x}\right|}=\left[\begin{array}{c}
+-\left(v_{c, x}-\omega R\right) /\left|v_{c, x}\right| \\
+-v_{c, y} /\left|v_{c, x}\right|
+\end{array}\right]
+\]</div>
+<p>The longitudinal slip can be also called <span class="arithmatex">\(\kappa\)</span>.</p>
+<p>In conclusion, the tire model evaluates the following functions.</p>
+<div class="arithmatex">\[
+\begin{cases}F_{x} &amp; =F_{x}\left(\lambda, \alpha, F_{z}, \gamma\right) \\ F_{y} &amp; =F_{y}\left(\lambda, \alpha, F_{z}, \gamma\right) \\ M_{z} &amp; =M_{z}\left(\lambda, \alpha, F_{z}, \gamma\right)\end{cases}
+\]</div>
+<h3 id="slip-transient-model">Slip transient model</h3>
+<p>In order to consider also the transient in the tire model, a first-order dynamical equation can be applied to the slip. Experimentally, it is possible to observe that this assumption well approximates the real tire behaviour. The time constant of the dynamical equation can be written as a function of the vehicle longitudinal speed and of the tire relaxation length <span class="arithmatex">\(-l_{i}\)</span> with <span class="arithmatex">\(i=\{x, y\}-\)</span>. The latter is assumed to be constant and describes the distance, covered by the rolling tire, at which the transient finishes.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+\frac{l_{x}}{|u(t)|} \frac{d \lambda(t)}{d t}+\lambda(t)=\lambda_{S S}(t) \\
+\frac{l_{y}}{|u(t)|} \frac{d \alpha(t)}{d t}+\alpha(t)=\alpha_{S S}(t)
+\end{array}\right.
+\]</div>
+<p>The terms with the lowercase <span class="arithmatex">\(S S\)</span> represents the steady-state slip value, computed using equation 8, while, the terms without the <span class="arithmatex">\(S S\)</span> corresponds to the transient slip.</p>
+<h3 id="low-speed-slip-correction">Low speed slip correction</h3>
+<p>The steady-state slip definition, defined in 8 , becomes singular when the longitudinal vehicle speed tends to zero. Besides, the longitudinal transient slip 10 may oscillate under the effects of a step input torque at low vehicle speed. These non-physical oscillations may remain for a relatively long time. In order to address the singularity problem, a smooth function is introduced in order to avoid the annulment of the slip denominator - ref. to expression 8 and figure 5 -.</p>
+<div class="arithmatex">\[
+\left|v_{c, x}\right| \longrightarrow \operatorname{smooth}\left(\left|v_{c, x}\right|\right)=\frac{1}{2}\left(V_{\text {low }}+\frac{v_{c, x}^{2}}{V_{\text {low }}}\right)
+\]</div>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Smooth.png"/></p>
+<p>Figure 5: Smooth Function</p>
+<p></p>
+<p><span class="arithmatex">\(V_{\text {low }}\)</span> is a threshold velocity that allows us to split the high and low speed. The smooth function is applied only if <span class="arithmatex">\(V_{\text {low }} \geq\left|v_{c, x}\right|\)</span>. Usually, this threshold is set to <span class="arithmatex">\(1 \mathrm{~m} / \mathrm{s}\)</span>.</p>
+<p>In order to cancel the oscillation phenomenon, instead, it is possible to introduce a virtual damping factor <span class="arithmatex">\(\left(K_{V_{\text {low }}}\right)\)</span> that aims to smooth these oscillations.</p>
+<div class="arithmatex">\[
+\lambda \longrightarrow \lambda-\frac{K_{V_{\text {low }}}}{C_{F_{\lambda}}} v_{s, x}
+\]</div>
+<p>In 12, <span class="arithmatex">\(C_{F_{\lambda}}\)</span> is the longitudinal tire stiffness, i.e. the slope of the tire characteristic when <span class="arithmatex">\(\lambda=0\)</span> and <span class="arithmatex">\(v_{s, x}\)</span> is the longitudinal component of the sliding velocity with reference to figure 4</p>
+<p>This correction is applied only for low speed. For this reason, it is needed a function that smoothly goes to zero when the speed tends to <span class="arithmatex">\(V_{\text {low }}\)</span>.</p>
+<div class="arithmatex">\[
+K_{V_{\text {low }}}= \begin{cases}\frac{1}{2} K_{V_{\text {low }}, 0}\left[1+\cos \left(\pi \frac{|u(t)| \mid}{V_{\text {low }}}\right)\right] &amp; \text { if }|u| \leq V_{\text {low }} \\ 0 &amp; \text { if }|u|&gt;V_{\text {low }}\end{cases}
+\]</div>
+<p>With a proper tuning of <span class="arithmatex">\(K_{V_{\text {low }, 0}}\)</span>, the non-physical oscillations can completely disappear. However, this correction may introduce instability problems around the threshold velocity <span class="arithmatex">\(V_{\text {low }}\)</span>.</p>
+<hr/>
+<h2 id="powertrain-model">Powertrain model</h2>
+<p>The powertrain of the considered electric vehicle is composed of two permanent magnets three-phase electric motors - model Emrax 208 -, two inverters, the speed reducers and the battery pack - <span class="arithmatex">\(6.5 \mathrm{kWh}-\)</span>.</p>
+<p>From Formula SAE rules, the maximum power of the battery pack is <span class="arithmatex">\(80 \mathrm{~kW}\)</span>. This is computed as follow.</p>
+<div class="arithmatex">\[
+P_{\text {batt }}=V_{\text {batt }} I_{\text {batt }}
+\]</div>
+<p>Where <span class="arithmatex">\(P_{\text {batt }}\)</span> is the battery power, in watt, <span class="arithmatex">\(V_{\text {batt }}\)</span> is the voltage supply, in volt, and <span class="arithmatex">\(I_{\text {batt }}\)</span> is the provided current, in ampere. The maximum voltage is <span class="arithmatex">\(E_{\text {batt }}=450 \mathrm{~V}\)</span>. <span class="arithmatex">\(V_{\text {batt }}\)</span> can be computed starting from <span class="arithmatex">\(E_{\text {batt }}\)</span> and subtracting the potential drop due to the internal battery cells resistance <span class="arithmatex">\(-V_{\text {batt }}=E_{\text {batt }}-I_{\text {batt }} R_{\text {tot }}\)</span> with <span class="arithmatex">\(R_{\text {tot }} \approx 0.46 \Omega-\)</span>.</p>
+<p>Knowing that the inverters convert the DC voltage into an AC three-phase voltage and assuming that the power is split in a symmetric way between the two motors, it is possible to compute the effective motor current <span class="arithmatex">\(\left(I_{m o t, r m s}\right)\)</span>. This current is used to compute the motor torque by means of the motor characteristic.</p>
+<p>The motors are connected to an ordinary single-stage gearbox with transmission ratio <span class="arithmatex">\(\tau_{\text {red }}=52 / 15\)</span> and with efficiency <span class="arithmatex">\(\left(\eta_{\text {red }}\right)\)</span> around <span class="arithmatex">\(0.93\)</span>.</p>
+<p>Each motor is able to provide <span class="arithmatex">\(80 \mathrm{Nm}\)</span> when the battery pack is fully charge. This torque is almost constant in the entire velocity range, from 0 to <span class="arithmatex">\(\omega_{\text {mot,Max }}\)</span> - for this motors, <span class="arithmatex">\(\omega_{\text {mot }, \text { Max }} \approx 5200 \mathrm{rpm}-\)</span>. The torque cutting speed <span class="arithmatex">\(\left(\omega_{\text {motTorqueCut }}\right)\)</span> is set equal to <span class="arithmatex">\(4800 \mathrm{rpm}\)</span> and represents the speed from which the torque decreases linearly until <span class="arithmatex">\(\omega_{\text {mot,Max }}\)</span>, where the torque is equal to zero. However, the maximum motor speed is not the only limit at which the motors are subjected. There is also a power limit that cuts the torque when it is larger than <span class="arithmatex">\(T_{m, \text { MaxSpeed }}=P_{\text {batt }} /\left(2 \omega_{\text {mot }}\right)\)</span>.</p>
+<p>To sum up:</p>
+<ul>
+<li>If <span class="arithmatex">\(T_{m, r e q} \omega_{\text {mot }} \leq P_{\text {batt }}\)</span> and <span class="arithmatex">\(\omega_{\text {mot }} \leq \omega_{\text {maxTorqueCut }}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+T_{w, \text { mot }}=T_{m, \text { req }} \tau_{\text {red }} \theta_{\text {red }}
+\]</div>
+<ul>
+<li>If <span class="arithmatex">\(T_{m, r e q} \omega_{m o t}&gt;P_{\text {batt }}\)</span> and <span class="arithmatex">\(\omega_{\text {mot }} \leq \omega_{\text {maxTorqueCut }}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+T_{w, \text { mot }}=\frac{P_{\text {batt }}}{2 \omega_{\text {mot }}} \tau_{\text {red }} \theta_{\text {red }}
+\]</div>
+<ul>
+<li>If <span class="arithmatex">\(\omega_{\text {mot }}&gt;\omega_{\operatorname{maxTorqueCut}}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+T_{w, \text { mot }}=\left[T_{m, \text { maxSpeed }}+\frac{T_{m, \text { max Speed }}}{\omega_{\text {maxTorqueCut }}-\omega_{\text {mot,Max }}}\left(\omega_{\text {mot }}-\omega_{\text {motTorqueCut }}\right)\right] \tau_{\text {red }} \theta_{\text {red }}
+\]</div>
+<p>where <span class="arithmatex">\(T_{m, \text { req }}\)</span> is the motor required torque and <span class="arithmatex">\(T_{w, m o t}\)</span> is the torque available at the wheel. In order to consider also the actuation delay, a first-order differential equation is applied to the required motor torque.</p>
+<div class="arithmatex">\[
+\tau_{\text {mot }} \dot{T}_{m, \text { req }}=\left(p_{D r} T_{\text {mot,Max }}-T_{m, r e q}\right)
+\]</div>
+<p><span class="arithmatex">\(p_{D r}\)</span> is the throttle pedal level that can vary from zero to one <span class="arithmatex">\(-p_{D r} \in[0,1]-\)</span>.</p>
+<hr/>
+<h2 id="aerodynamic-model">Aerodynamic model</h2>
+<p>The aerodynamic forces are applied to a virtual point called centre of pressure <span class="arithmatex">\(\left(P_{A}\right)\)</span> placed in <span class="arithmatex">\(\left[x_{A}, 0, z_{A}\right]^{T}\)</span>. The lift <span class="arithmatex">\(\left(F_{z A}\right)\)</span> is the vertical component of the aerodynamic force while the <span class="arithmatex">\(\operatorname{drag}\left(F_{x A}\right)\)</span> is the longitudinal one.</p>
+<p>An equivalent set of forces can be computed in such a way that the aerodynamic lift is divided between the front and the rear axle and the drag is applied to the projection of the centre of mass to the ground. </p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Aero.png"/></p>
+<p>Figure 6: Application scheme of aerodynamic forces</p>
+<p></p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+F_{A D}=F_{x A} \\
+F_{z A R}+F_{z A F}=F_{z A} \\
+F_{z A F} L_{F}-F_{z A R} L_{R}=F_{z A} z_{A}-F_{x A} z_{A}
+\end{array}\right.
+\]</div>
+<p>Since the aerodynamic forces have a quadratic dependency on the longitudinal velocity, we can write as follow.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+F_{A D}=C_{A x} u^{2}=C_{D} u^{2} \\
+F_{z A R}=C_{A z R} u^{2}=C_{L}\left(1-\epsilon_{A}\right) u^{2} \\
+F_{z A F}=C_{A z F} u^{2}=C_{L} \epsilon_{A} u^{2}
+\end{array}\right.
+\]</div>
+<p><span class="arithmatex">\(C_{D}\)</span> and <span class="arithmatex">\(C_{L}\)</span> are the real drag and lift coefficients, respectively. <span class="arithmatex">\(C_{A D}, C_{A z R}\)</span> and <span class="arithmatex">\(C_{A z F}\)</span> are the transformed drag and axle-lift coefficients. <span class="arithmatex">\(\epsilon_{A}\)</span> is the aero-balance and is defined as <span class="arithmatex">\(F_{z A F} / F_{z A}\)</span>. It quantifies the amount of total downforce applied at the front axle.</p>
+<hr/>
+<h2 id="load-transfer-model">Load transfer model</h2>
+<p>In the double-track vehicle model, the tire vertical load can be divided into two terms: the first - <span class="arithmatex">\(F_{z i}\)</span> with <span class="arithmatex">\(i=\{R, F\}\)</span> - considers the static force, the aerodynamic forces and the longitudinal load transfer - generated by the longitudinal acceleration <span class="arithmatex">\(a_{x}\)</span> -; the second - <span class="arithmatex">\(\Delta F_{z i}\)</span> with <span class="arithmatex">\(i=\{R, F\}\)</span> - corresponds to the lateral load transfer.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+F_{z R R}=F_{z R} / 2+\Delta F_{z R} \\
+F_{z R L}=F_{z R} / 2-\Delta F_{z R} \\
+F_{z F R}=F_{z F} / 2+\Delta F_{z F} \\
+F_{z F L}=F_{z F} / 2-\Delta F_{z F}
+\end{array}\right.
+\]</div>
+<p>The following computation shows how the two components of the vertical force are computed. <span class="arithmatex">\(F_{y i}, i=\{R, F\}\)</span> are the axle lateral force and <span class="arithmatex">\(K_{\phi i}, i=\{R, F\}\)</span> are the rear and front roll stiffness.</p>
+<div class="arithmatex">\[
+\begin{array}{ll}
+F_{z R}=M g \frac{L_{F}}{L}+M a_{x} \frac{h_{G s}}{L}+\left|F_{z A R}\right| &amp; \Delta F_{z R}=F_{y R} \frac{h_{R R}}{W_{R}}+\frac{K_{\phi R}}{W_{R}} \phi \\
+F_{z F}=M g \frac{L_{R}}{L}-M a_{x} \frac{h_{G s}}{L}+\left|F_{z A F}\right| &amp; \Delta F_{z F}=F_{y F} \frac{h_{R F}}{W_{F}}+\frac{K_{\phi F}}{W_{F}} \phi
+\end{array}
+\]</div>
+<p>From equations 22, it is possible to distinguish two components in the load transfer. The first component, called transient load transfer, involves the roll stiffness. It means that it is generated from the suspension/tire deformation. The second term, named instantaneous load transfer, is absorbed by the suspension structure and does not cause suspension deflection.</p>
+<p>In the vehicle model taken into consideration, the spring mass is seen as a rigid body that is suspended by four springs, representing the suspension/tire systems. From the model kinematics, it is possible to find the coordinates of the spring anchor points <span class="arithmatex">\({ }^{0} S_{i j}, i=\{R, F\}, j=\{R, L\}\)</span> - and compute their height variation <span class="arithmatex">\(\left(\Delta z_{i j}\right)\)</span>.</p>
+<div class="arithmatex">\[
+{ }^{0} S_{i j}=R F_{S} \cdot\left[\pm L_{i}, \pm W_{i} / 2,0,1\right]^{T} \quad \rightarrow \quad \Delta z_{i j}=h_{R i}-{ }^{0} S_{i j}(3)
+\]</div>
+<p><span class="arithmatex">\(R F_{S}\)</span> is defined in the expression 3. The sign of the coordinates <span class="arithmatex">\((\pm)\)</span> depends on the indices <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>. The supra-script <span class="arithmatex">\({ }^{0}\)</span> means that the considered point must be projected in the ground plane. For the computation of <span class="arithmatex">\(\Delta z_{i j}\)</span>, the third component of the point <span class="arithmatex">\({ }^{0} S_{i j}\)</span> is needed <span class="arithmatex">\(\left({ }^{0} S_{i j}(3)\right)\)</span>. Then, using the definition of the spring anchor points, the load transfer can be computed as follow.</p>
+<div class="arithmatex">\[
+F_{z R R}=M g \frac{L_{F}}{2 L}+\frac{\left|F_{z A R}\right|}{2}+F_{y R} \frac{h_{R R}}{W_{R}}+K_{s R} \Delta z_{R R}+
++C_{s R} \frac{d\left(\Delta z_{R R}\right)}{d t}-K_{A R B, R}\left(z_{R R}-z_{R L}\right) \\
+F_{z R L}=M g \frac{L_{F}}{2 L}+\frac{\left|F_{z A R}\right|}{2}-F_{y R} \frac{h_{R R}}{W_{R}}+K_{s R} \Delta z_{R L}+ 
++C_{s R} \frac{d\left(\Delta z_{R L}\right)}{d t}+K_{A R B, R}\left(z_{R R}-z_{R L}\right) \\
+F_{z F R}=M g \frac{L_{R}}{2 L}+\frac{\left|F_{z A F}\right|}{2}+F_{y F} \frac{h_{R F}}{W_{F}}+K_{s F} \Delta z_{F R}+
++C_{s F} \frac{d\left(\Delta z_{F R}\right)}{d t}-K_{A R B, F}\left(z_{F R}-z_{F L}\right) \\
+F_{z F L}=M g \frac{L_{R}}{2 L}+\frac{\left|F_{z A F}\right|}{2}-F_{y F} \frac{h_{R F}}{W_{F}}+K_{s F} \Delta z_{F L}+ 
++C_{s F} \frac{d\left(\Delta z_{F L}\right)}{d t}+K_{A R B, F}\left(z_{F R}-z_{F L}\right)
+\]</div>
+<p>In equation 24, the terms with <span class="arithmatex">\(K_{s}\)</span> are the stiffness of the suspension and tire subsystem - <span class="arithmatex">\(K_{s}=\left(K_{susp}^{-1}+K_{\text {tire}}^{-1}\right)^{-1}\)</span>-. The same for the damping factor <span class="arithmatex">\(\left(C_{s}\right) . K_{ARB}\)</span> is the front or rear anti-roll bar stiffness.</p>
+<p>These expressions can be generalized introducing non-linear damping effects or introducing a differential stiffness in case of a shock absorber. For the specific case of non-linear dampers, a case function can be implemented in to select the proper coefficients in relation to the effective speed of the damper itself.</p>
+<div class="arithmatex">\[
+dl_{fr} = -(atan2(-((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2) ^{-0.1e1 / 0.2e1} * (h_rc_{f} - h_rc_{r})), \\((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2)  ^{-0.1e1 / 0.2e1} * (Lf + Lr))) * sin(mu) - cos(mu)) * Lf * mu_{dot} + (-0.2e1 * sin(mu) * phi * Lf + Wf) * phi_{dot} / 0.2e1 - z_{dot}\\
+\]</div>
+<div class="arithmatex">\[
+dl_{fl} = -(atan2(-((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2) ^{-0.1e1 / 0.2e1} * (h_rc_{f} - h_rc_{r})), \\((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2)  ^{-0.1e1 / 0.2e1} * (Lf + Lr))) * sin(mu) - cos(mu)) * Lf * mu_{dot} + (-0.2e1 * sin(mu) * phi * Lf - Wf) * phi_{dot} / 0.2e1 - z_{dot}\\
+\]</div>
+<div class="arithmatex">\[
+dl_{rr} = (atan2(-((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2) ^{-0.1e1 / 0.2e1} * (h_rc_{f} - h_rc_{r})), \\((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2)  ^{-0.1e1 / 0.2e1} * (Lf + Lr))) * sin(mu) - cos(mu)) * Lr * mu_{dot} + (0.2e1 * sin(mu) * Lr * phi + Wr) * phi_{dot} / 0.2e1 - z_{dot}\\
+\]</div>
+<div class="arithmatex">\[
+dl_{rl} = (atan2(-((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r}^ 2 + (Lf + Lr) ^ 2) ^{-0.1e1 / 0.2e1} * (h_rc_{f} - h_rc_{r})), \\((h_rc_{f} ^ 2 - 2 * h_rc_{f} * h_rc_{r} + h_rc_{r} ^ 2 + (Lf + Lr) ^ 2)  ^{-0.1e1 / 0.2e1} * (Lf + Lr))) * sin(mu) - cos(mu)) * Lr * mu_{dot} + (0.2e1 * sin(mu) * Lr * phi - Wr) * phi_{dot} / 0.2e1 - z_{dot}\\
+\]</div>
+<hr/>
+<h2 id="brake-model">Brake model</h2>
+<p>The brake behaviour can be reduced to friction phenomenon and, for this reason, can result difficult to be accurately modelled. It can be argued that the friction forces aim to minimize the object speed under the constraint of the friction cone or, in practice, of the maximum friction force. Christian Studer [20] presents the time-stepping method in order to model a non-smooth dynamical mode <span class="arithmatex">\(4^{2}\)</span> In order to model the brake system behaviour, a time-stepping technique is used to smooth the model outputs.</p>
+<p>The time-stepping version used in our model is based on the wheels rolling dynamical equation, reported in 25</p>
+<div class="arithmatex">\[
+I_{a, W} \dot{\omega}(t)=T_{w, m o t}-T_{w, b r k}-F_{x} R
+\]</div>
+<p><span class="arithmatex">\({ }^{2}\)</span> A non-smooth dynamical model is a model in which the generalized positions <span class="arithmatex">\(\bar{q}\)</span> or velocities <span class="arithmatex">\(\bar{u}\)</span> jump. In the jump instant, the acceleration can not be defined. where <span class="arithmatex">\(T_{w, m o t}\)</span> and <span class="arithmatex">\(T_{w, b r k}\)</span> are the torque at the wheel from the motor and from the braking system respectively, <span class="arithmatex">\(F_{x}\)</span> is the longitudinal tire force, <span class="arithmatex">\(R\)</span> is the tire radius and <span class="arithmatex">\(\omega\)</span> is the wheel spin velocity.</p>
+<p>Assuming an explicit Euler integration scheme, it is possible to substitute the acceleration term with equation 25</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\omega(t+\Delta t) &amp; =\omega(t)+\dot{\omega} \Delta t \\
+&amp; =\omega(t)+\frac{T_{w, \text { mot }}-T_{w, b r k}-F_{x} R}{I_{a, W}} \Delta t \\
+&amp; =\frac{s-T_{w, b r k} \Delta t}{I_{a, W}}
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(\Delta t\)</span> is the integration time-step and <span class="arithmatex">\(s=I_{a, W} \omega(t)+\left(T_{w, m o t}-F_{x} R\right) \Delta t\)</span>.</p>
+<p>As previously mentioned, the friction forces acting on the disk aim to minimize the wheel speed. For this reason, to find the friction forces, we need to solve a minimization problem.</p>
+<div class="arithmatex">\[
+\begin{array}{lc}
+\underset{T_{w, b r k}}{\operatorname{minimize}} &amp; {\left[\frac{s-T_{w, b r k} \Delta t}{I_{a, W}}\right]^{2}} \\
+\text { subject to } &amp; -T_{w, b r k}^{M a x} \leq T_{w, b r k} \leq T_{w, b r k}^{\text {Max }}
+\end{array}
+\]</div>
+<p>The minimization problem presented in 27 is simple to solve because the cost function is quadratic. The solution is reported in 28 .</p>
+<div class="arithmatex">\[
+T_{w, b r k}= \begin{cases}s / \Delta t &amp; \text { if }|s / \Delta t| \leq T_{w, b r k}^{M a x} \\ T_{w, b r k}^{\text {Max }} \operatorname{sign}(s) &amp; \text { otherwise }\end{cases}
+\]</div>
+<p>The maximum braking torque <span class="arithmatex">\(\left(T_{w, b r k}^{M a x}\right)\)</span> is defined starting from the brake pedal input <span class="arithmatex">\(p_{b r k} \epsilon[0,1]\)</span>-. Moreover, a first-order dynamical equation is applied in order to consider the actuation delay.</p>
+<div class="arithmatex">\[
+\begin{gathered}
+\left\{\begin{array}{l}
+T_{b r k, R e q, F}=p_{b r k} T_{b r k}^{M a x} \epsilon_{b r k} \\
+T_{b r k, R e q, R}=p_{b r k} T_{b r k}^{M a x}\left(1-\epsilon_{b r k}\right)
+\end{array}\right. \\
+\left\{\begin{array}{l}
+\tau_{b r k}\,\dot{T}_{w, b r k, F}^{M a x}=\left(T_{b r k, R e q, F}-T_{w, b r k, F}\right) \\
+\tau_{b r k}\,\dot{T}_{w, b r k, R}^{M a x}=\left(T_{b r k, R e q, R}-T_{w, b r k, R}\right)
+\end{array}\right.
+\end{gathered}
+\]</div>
+<p>where <span class="arithmatex">\(T_{b r k}^{\text {Max }}\)</span> is the maximum braking torque that the hydraulic system can generate, <span class="arithmatex">\(\epsilon_{b r k}\)</span> is the braking ratio that refers to the percentage of the braking torque available at the front and <span class="arithmatex">\(\tau_{b r k}\)</span> is the actuator time constant.</p>
+<hr/>
+<h2 id="steering-system-model">Steering system model</h2>
+<p>The vehicle is front wheel steering. Studying the steering system model, the steering system kinematic behaviour is fitted with polynomials that connect the Hand-Wheel steering angle <span class="arithmatex">\(\left(\delta_{H W}\right)\)</span> with the front wheels steering angles <span class="arithmatex">\(\left(\left\{\delta_{F L}, \delta_{F R}\right\}\right)\)</span>. This polynomial can be derived from the <a href="https://github.com/eagletrt/fenice-steering-system-DMT">fenice-steering-system-DMT</a>
+repository.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/Steering.png"/></p>
+<p>Figure 7: Representation of half steering model built in Maple
+</p>
+<p>The polynomial function is relatively computationally cheap but, at the same time, it allows us to consider also the non-linear behaviour of the steering system.</p>
+<p>The steering kinematics may change with the suspension deformation. However, the changing due to the suspension deflection does not have a main contribute and can be neglected. </p>
+<p><center></center></p>
+<p><img alt="" src="../media/Model/SteeringFitt.png"/></p>
+<p>Figure 8: Steering model fitting results computed in Maple
+</p>
+<p>The actuation delay is considered by means of a first-order differential equation where <span class="arithmatex">\(\tau_{H}\)</span> is the steering system time constant.</p>
+<div class="arithmatex">\[
+\tau_{H} \dot{\delta}_{H W}=\left(\delta_{r e q}-\delta_{H W}\right)
+\]</div>
+<h1 id="first-order-reduction">First order reduction</h1>
+<p>The dynamical equations, in general, are of order 2. This problem is partially solved by the use of the quasi-coordinates 3 , however, in equations of motions, the second-order derivatives of <span class="arithmatex">\(z, \theta\)</span> and <span class="arithmatex">\(\phi\)</span> appear. In order to neglect these terms, three additionally differential equations (equation 32) can be added in order to solve the second-order derivation and simplify the numerical solution process.</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+\dot{z}(t)=z_{\text {dot }}(t) \\
+\dot{\phi}(t)=\phi_{\text {dot }}(t) \\
+\dot{\theta}(t)=\theta_{\text {dot }}(t)
+\end{array}\right.
+\]</div>
+<p><span class="arithmatex">\({ }^{3}\)</span> For the vehicle description, <span class="arithmatex">\(u, v\)</span> and <span class="arithmatex">\(\Omega\)</span> are usually employed, substituting the classical coordinates <span class="arithmatex">\(x, y\)</span> and <span class="arithmatex">\(\psi\)</span>. Since they are not actually coordinates but velocities, they are named quasi-coordinates. </p>
+<h1 id="equation-of-motion">Equation of Motion</h1>
+<p>The full set of Dynamical equations can be found in [16] (pp. 47-50). Here, the system equations are listed only:</p>
+<ul>
+<li>
+<p>3 Newton equations;</p>
+</li>
+<li>
+<p>3 Euler equations;</p>
+</li>
+<li>
+<p>1 equation for the steering dynamics;</p>
+</li>
+<li>
+<p>2 equations for the motor actuation dynamics;</p>
+</li>
+<li>
+<p>2 equations for the brake actuation dynamics;</p>
+</li>
+<li>
+<p>4 equations for the longitudinal slip dynamics;</p>
+</li>
+<li>
+<p>4 equations for the lateral slip dynamics;</p>
+</li>
+<li>
+<p>4 equations for the wheel spin dynamics;</p>
+</li>
+<li>
+<p>3 equations for the first order reduction</p>
+</li>
+</ul>
+<p>Hence, the total number of differential equations is 26 . Moreover, the system has other 26 equations:</p>
+<ul>
+<li>
+<p>2 equations for the steering system kinematics;</p>
+</li>
+<li>
+<p>4 equations for the steady-state longitudinal slip computation;</p>
+</li>
+<li>
+<p>4 equations for the steady-state lateral slip computation;</p>
+</li>
+<li>
+<p>4 equations for the load transfer computation;</p>
+</li>
+<li>
+<p>12 equations for the tire forces and self-aligning torque computation</p>
+</li>
+</ul>
+<p>The system states are divided into differential <span class="arithmatex">\((\bar{X})\)</span> and algebraic <span class="arithmatex">\(\left(\bar{X}_{a l g}\right)\)</span> and are reported in the expressions 33 and 34 .</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\bar{X}=\{ &amp; u, v, \Omega, z, \phi, \theta, \delta, T_{m o t, R R}, T_{m o t, R L}, T_{b r k, R}, T_{b r k, F}, \alpha_{R R}, \alpha_{R L}, \alpha_{F R}, \alpha_{F L}, \\
+&amp; \left.\lambda_{R R}, \lambda_{R L}, \lambda_{F R}, \lambda_{F L}, \omega_{R R}, \omega_{R L}, \omega_{F R}, \omega_{F L}, z_{\text {dot }}, \phi_{\text {dot }}, \theta_{\text {dot }}\right\}
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+\bar{X}_{a l g}=\{ &amp; \delta_{F R}, \delta_{F L}, \lambda_{S S, R R}, \lambda_{S S, R L}, \lambda_{S S, F R}, \lambda_{S S, F L}, \alpha_{S S, R R}, \alpha_{S S, R L}, \alpha_{S S, F R}, \alpha_{S S, F L}, \\
+&amp; F_{z R R}, F_{z R L}, F_{z F R}, F_{z F L}, F_{x R R}, F_{x R L}, F_{x F R}, F_{x F L}, \\
+&amp; \left.F_{y R R}, F_{y R L}, F_{y F R}, F_{y F L} M_{y R R}, M_{y R L}, M_{y F R}, M_{y F L}\right\}
+\end{aligned}
+\]</div>
+<p>The 10 degrees of freedom (DoF) of the model are composed by:</p>
+<ul>
+<li>
+<p>3 DoF are related to the planar motion in the absolute ground plane. They are given by the vehicle <span class="arithmatex">\(\{x, y\}\)</span> coordinates and by the yaw-angle <span class="arithmatex">\(\psi\)</span>. Alternatively, these three DoF can be associated to the quasi-coordinates <span class="arithmatex">\(\{u, v, \Omega\}\)</span>.</p>
+</li>
+<li>
+<p>3 DoF are given by the internal dynamics <span class="arithmatex">\(\{z, \phi, \theta\}\)</span>.</p>
+</li>
+<li>
+<p>4 DoF are given by the wheels spin <span class="arithmatex">\(\left\{\omega_{R R}, \omega_{R L}, \omega_{F R}, \omega_{F L}\right\}\)</span>.</p>
+</li>
+</ul>
+<p>The inputs of the model are the hand-wheel steering angle <span class="arithmatex">\(\left(\delta_{H W}\right)\)</span> and the throttle and brake pedal <span class="arithmatex">\(\left(\left\{p_{D r}, p_{b r k}\right\}\right)\)</span>. However, a longitudinal velocity tracker is implemented using a PID controller. It takes as input the desired velocity profile and returns the value of the throttle and of the brake pedals needed to track that speed profile. </p>
+<h1 id="references">References</h1>
+<p>[1] Acosta, M., Kanarachos, S. - Tire lateral force estimation and grip potential identification using Neural Networks, Extended Kalman Filter, and Recursive Least Squares. Neural Comput \&amp; Applic 30, 3445-3465 (2018). https://doi.org/10.1007/s00521-017-2932-9</p>
+<p>[2] Acosta M., Kanarachos S. and Fitzpatrick M. E., "Robust Virtual Sensing for Vehicle Agile Manoeuvring: A Tyre-Model-Less Approach," in IEEE Transactions on Vehicular Technology, vol. 67, no. 3, pp. 1894-1908, March 2018, doi: 10.1109/TVT.2017.2767942.</p>
+<p>[3] Åkesson B. M., Jørgensen J. B., Poulsen N. K., Jørgensen S. B., A tool for kalman filter tuning, Editor(s): Valentin Pleşu, Paul Şerban Agachi, Computer Aided Chemical Engineering, Elsevier, Volume 24, 2007, ISBN 9780444531575, https://doi.org/10.1016/S1570-7946(07)80166-0.</p>
+<p>[4] Alatorre A. G., Charara A. and Victorino A., "Sideslip estimation algorithm comparison between Euler angles and quaternion approaches with black box vehicle model," 2018 IEEE 15th International Workshop on Advanced Motion Control (AMC), Tokyo, 2018, pp. 553-559, doi: 10.1109/AMC.2019.8371153.</p>
+<p>[5] Da Lio M., Bortoluzzi D. \&amp; Rosati Papini G. P. (2020) Modelling longitudinal vehicle dynamics with neural networks, Vehicle System Dynamics, 58:11, 1675-1693, DOI: <span class="arithmatex">\(10.1080 / 00423114.2019 .1638947\)</span></p>
+<p>[6] De Pascali L., Biral F., Cocetti M., Zaccarian L. and Tarbouriech S., "A kinematic observer with adaptive dead-zone for vehicles lateral velocity estimation," 2018 IEEE 15th International Workshop on Advanced Motion Control (AMC), Tokyo, 2018, pp. 511-516, doi: 10.1109/AMC.2019.8371146.</p>
+<p>[7] Farrelly J. and Wellstead P., "Estimation of vehicle lateral velocity," Proceeding of the 1996 IEEE International Conference on Control Applications IEEE International Conference on Control Applications held together with IEEE International Symposium on Intelligent Contro, Dearborn, MI, USA, 1996, pp. 552-557, doi: 10.1109/CCA.1996.558920.</p>
+<p>[8] Fernández J. G. (2012) - A Vehicle Dynamics Model for Driving Simulators Chalmers University of Technology</p>
+<p>[9] Gelen A. G. and Atasoy A., "A New Method for Kalman Filter Tuning," 2018 International Conference on Artificial Intelligence and Data Processing (IDAP), Malatya, Turkey, 2018, pp. 1-6, doi: 10.1109/IDAP.2018.8620863.</p>
+<p>[10] Guiggiani M. (2014) "The science of vehicle dynamics", Springer Netherlands, pp: 137-144</p>
+<p>[11] James S. S., Anderson S. R. and Da Lio M., "Longitudinal Vehicle Dynamics: A Comparison of Physical and Data-Driven Models Under Large-Scale RealWorld Driving Conditions," in IEEE Access, vol. 8, pp. 73714-73729, 2020, doi: 10.1109/ACCESS.2020.2988592.</p>
+<p>[12] Larcher M. (2019) - Development of a 14 Degrees of Freedom Vehicle Model for Realtime Simulations in 3D Environment - Università di Trento</p>
+<p>[13] Lot R. and Da Lio M. "A symbolic approach for automatic generation of the equations of motion of multibody systems", 2004, Multibody System Dynamics, 12(2): <span class="arithmatex">\(147-172\)</span></p>
+<p>[14] Oshaman Y., Shaviv I. "Optimal tuning of a Kalman Filter using Genetic Algorithm" Technion - Israel Institute of Technology (2000), doi: https://doi.org/10.2514/6.2000-4558</p>
+<p>[15] Panzani G., Corno M., Savaresi S.M., "Longitudinal Velocity Estimation in SingleTrack Vehicles", IFAC Proceedings Volumes, Volume 45, Issue 16, 2012, Pages 17011706, https://doi.org/10.3182/20120711-3-BE-2027.00164.</p>
+<p>[16] Piccinini M. (2019) - Path Planning and Control of Self Driving Vehicles at the Limit of Handling - Università di Trento - Ch: 2 [17] Regolin E., Alatorre A., Zambelli M., Victorino A., Charara A. and Ferrara A., "A Sliding-Mode Virtual Sensor for Wheel Forces Estimation With Accuracy Enhancement via EKF," in IEEE Transactions on Vehicular Technology, vol. 68, no. 4, pp. 3457-3471, April 2019, doi: 10.1109/TVT.2019.2903598.</p>
+<p>[18] Ryu J., Nardi F., \&amp; Moshchuk N. "Vehicle Sideslip Angle Estimation and Experimental Validation." Proceedings of the ASME 2013 International Mechanical Engineering Congress and Exposition. Volume 4A: Dynamics, Vibration and Control. San Diego, California, USA. November 15-21, 2013. V04AT04A052. ASME. https://doi.org/10.1115/IMECE2013-64466</p>
+<p>[19] Ružinskas A., Sivilevičius H., "Magic Formula Tyre Model Application for a Tyre-Ice Interaction", Procedia Engineering, Volume 187, 2017, https://doi.org/10.1016/j.proeng.2017.04.383.</p>
+<p>[20] Studer C. (2009) "Numerics of Unilateral Contacts and Friction - Modeling and Numerical Time Integration in Non-Smooth Dynamics", Springer-Verlag Berlin Heidelberg, pp. 59-127</p>
+<p>[21] Viehweger M., Vaseur C., van Aalst S., Acosta M., Regolin E., Alatorre A., Desmet W., Naets F., Ivanov V., Ferrara A. \&amp; Victorino A. (2020) Vehicle state and tyre force estimation: demonstrations and guidelines, Vehicle System Dynamics, DOI: <span class="arithmatex">\(10.1080 / 00423114.2020 .1714672\)</span></p>
+<p>[22] Enciclopedia Treccani - https://www.treccani.it/enciclopedia/metodo-montecarlo/</p>
+<p>[23] Enciclopedia Treccani - https://www.treccani.it/enciclopedia/gradi-di-liberta/</p>
+<h1 id="release-notes">Release Notes</h1>
+<p>V1.0: 12/2020: Initial Release (Matteo Tomasi)
+V1.1: 10/12/2022: Added suspension velocities for non linear dampers and steering map (Luca Dalle Sasse)</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Torque Vectoring Theory" class="md-footer__link md-footer__link--prev" href="../Torque_Vectoring/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Torque Vectoring Theory
+            </div>
+</div>
+</a>
+<a aria-label="Next: Velocity Estimation Theory" class="md-footer__link md-footer__link--next" href="../Velocity_Estimation/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Velocity Estimation Theory
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Copyright © E-Agle TRT
+          </div>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/eagletrt" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/eagletrt" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://hub.docker.com/u/eagletrt" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+<script src="../../../static/js/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="../../../static/js/mermaid.js"></script>
+</body>
+</html>

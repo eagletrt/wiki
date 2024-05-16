@@ -1,0 +1,23 @@
+digraph "bms_lv" {
+    init
+    idle [label="do_idle"]
+    tson [label="do_tson"]
+    run [label="do_run"]
+    flashing [label="do_flashing"]
+    error [label="do_error"]
+
+    init -> idle [label="init_to_idle"]
+    idle -> idle
+    idle -> flashing [label="idle_to_flashing"]
+    idle -> tson [label="idle_to_tson"]
+    tson -> tson
+    tson -> run [label="tson_to_run"]
+    tson -> idle [label="tson_to_idle"]
+    run -> run
+    run -> idle [label="run_to_idle"]
+
+    init -> error [label="to_error"]
+    idle -> error [label="to_error"]
+    flashing -> error [label="to_error"]
+    run -> error [label="to_error"]
+}

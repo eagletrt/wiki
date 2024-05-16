@@ -1,0 +1,52 @@
+digraph "vehicle_fsm" {
+    graph [pad="0.5", nodesep="1", ranksep="0.5"]
+    margin=0
+    layout=dot
+    node [shape=oval]
+
+    init
+    idle
+    precharge
+    discharge
+    inv_update_activation
+    inv_update_deactivation
+    inv_drive_activation
+    inv_drive_deactivation
+    run
+
+    # Uncomment for nice drawing
+    # { rank=source;init; }
+    # { rank=same;precharge;discharge; }
+    # { rank=same;inv_update_activation;inv_update_deactivation; }
+    # { rank=same;inv_drive_activation;inv_drive_deactivation; }
+    # { rank=sink;run; }
+
+    init -> idle
+
+    idle -> precharge
+    idle:ne -> idle
+    
+    precharge -> inv_update_activation
+    precharge:nw -> precharge
+    precharge -> discharge
+    
+    inv_update_activation -> inv_drive_activation
+    inv_update_activation:nw -> inv_update_activation
+    inv_update_activation -> inv_update_deactivation
+
+    inv_drive_activation -> run
+    inv_drive_activation:nw -> inv_drive_activation
+    inv_drive_activation -> inv_drive_deactivation
+
+    run -> inv_drive_deactivation
+    run:s -> run
+
+    inv_drive_deactivation -> inv_update_deactivation
+    inv_drive_deactivation:ne -> inv_drive_deactivation
+
+    inv_update_deactivation -> discharge
+    inv_update_deactivation:ne -> inv_update_deactivation
+
+    discharge -> idle
+    discharge:ne -> discharge
+}

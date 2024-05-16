@@ -1,0 +1,2759 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-7.3.6" name="generator"/>
+<title>Torque Vectoring Theory - Eagle TRT</title>
+<link href="../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#torque-vectoring-theory">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Eagle TRT" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Eagle TRT">
+<img alt="logo" src="../../../static/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Eagle TRT
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Torque Vectoring Theory
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Eagle TRT" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Eagle TRT">
+<img alt="logo" src="../../../static/logo.png"/>
+</a>
+    Eagle TRT
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        E-Agle TRT Wiki
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Common
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Common" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Common
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1">
+          About
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="About" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/about/writing-docs/">
+        Writing Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          General Documentation Files
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="General Documentation Files" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          General Documentation Files
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/can-config/">
+        CAN-bus Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/can-debugging/">
+        CAN-bus Troubleshooting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../common/shared/openocd-errors/">
+        OpenOCD Troubleshooting
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          [SW] ACR (Advanced Cone Registration)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[SW] ACR (Advanced Cone Registration)" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          [SW] ACR (Advanced Cone Registration)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/1.%20Overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/2.%20Shield/">
+        Shield
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/3.%20Usage/">
+        Usage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../acr/4.%20Output%20formats/">
+        Output formats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Bms monitor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bms monitor" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Bms monitor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../bms-monitor/Notes/">
+        Segment board
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          Cantools
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cantools" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Cantools
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cantools/conf/">
+        Conf
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          [DMT] Data Analysis
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Data Analysis" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Data Analysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" id="__nav_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_1">
+          Estimation Functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Estimation Functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_1">
+<span class="md-nav__icon md-icon"></span>
+          Estimation Functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Estimation%20Functions/Home-Estimation/">
+        Estimation Functions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" id="__nav_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2">
+          Experimental Measurements for Validation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Experimental Measurements for Validation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+          Experimental Measurements for Validation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Experimental%20Measurement/ExperimentalMeasurement/">
+        Experimental Measurement
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+          Tire Fitting and Validation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tire Fitting and Validation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Tire Fitting and Validation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Tire%20Fitting%20and%20Validation/Home_Validation/">
+        Tyre Fitting &amp; Model Validation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Usage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Repo%20Usage/Home/">
+        Data Analysis
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data-analysis-DMT/Setup/Setup/">
+        PROCEDURE SET-UP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          [DMT] Anti Roll Bar
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Anti Roll Bar" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Anti Roll Bar
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-arb-DMT/Home/">
+        Fenice Anti Roll Bar
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          High-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="High-Voltage BMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          High-Voltage BMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/">
+        High-Voltage Battery Management System
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2">
+          Mainboard
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mainboard" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+          Mainboard
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/">
+        Mainboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/io/">
+        I/O
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2_3" id="__nav_8_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_3">
+          Subsystems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Subsystems" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Subsystems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bal/">
+        Cell Balancing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_cli/">
+        Command Line Interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/bms_fsm/">
+        Main State Machine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/config/">
+        Config
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/current/">
+        Current
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/feedback/">
+        Feedback
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/mainboard/subsystems/timebase/">
+        Timebase
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3">
+          Bootloader
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bootloader" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+          Bootloader
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-hv-sw/bootloader/openblt/">
+        OpenBLT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          Low-Voltage BMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Low-Voltage BMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Low-Voltage BMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/">
+        Low Voltage Battery Management System
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" id="__nav_9_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2">
+          Main functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Main functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+          Main functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Command%20Line%20Interface/">
+        Command Line Interface <!-- omit in toc -->
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Cooling/">
+        Cooling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Feedbacks%20signals/">
+        Feedbacks signals
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/IOC%20file%20and%20pinout/">
+        IOC File and Pinout
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/State%20machine/">
+        State Machine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Timing%20and%20Can%20messages/">
+        Timing and CAN Messages
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2_7" id="__nav_9_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2_7">
+          Safety Checks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Safety Checks" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_2_7">
+<span class="md-nav__icon md-icon"></span>
+          Safety Checks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Safety%20Checks/Errors/">
+        Errors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv/Main%20functions/Safety%20Checks/Health%20Signals/">
+        Health Signals
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          Fenice bms lv hw
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Fenice bms lv hw" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          Fenice bms lv hw
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/">
+        BMS'S CHANGELOG
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/startup/">
+        STARTING UP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/sd_feedbacks/">
+        Sd feedbacks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/sensors/">
+        SENSORS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-bms-lv-hw/other/">
+        FLASHING THE MCU
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+          [DMT] Dampers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Dampers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Dampers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-dampers-DMT/Home/">
+        Linear vs non linear model
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+          DAS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DAS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          DAS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/bkl/">
+        Brakelight
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-das-sw/buz/">
+        Buzzer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13">
+          DAS (old docs)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DAS (old docs)" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          DAS (old docs)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/modules/">
+        Modules
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-ecu/fsm/">
+        Finite State Machine
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
+          [DMT] Steering System
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Steering System" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Steering System
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steering-system-DMT/Home/">
+        Fenice Steering system
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
+          Steering Wheel
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Steering Wheel" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          Steering Wheel
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/">
+        Steering Wheel
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_2" id="__nav_15_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_2">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Development" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_2">
+<span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/development/qt/">
+        Building Qt for the Raspberry Pi
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_3" id="__nav_15_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15_3">
+          Interface
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Interface" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_15_3">
+<span class="md-nav__icon md-icon"></span>
+          Interface
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-steeringwheel/interface/tabs/">
+        Concept of Tabs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16">
+          [DMT] Suspensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Suspensions" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Suspensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-suspension-DMT/Home/">
+        Fenice Suspensions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17">
+          ECU
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="ECU" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+          ECU
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/rpi-setup/">
+        RPi Setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../fenice-traction-control-sw/compiling/">
+        Compiling &amp; Executing
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" id="__nav_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18">
+          [DMT] Vehicle Model
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Vehicle Model" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_18">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Vehicle Model
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18_1" id="__nav_18_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18_1">
+          Repo Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Repo Usage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_18_1">
+<span class="md-nav__icon md-icon"></span>
+          Repo Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Repo%20Usage/Home/">
+        Repo Usage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_18_2" id="__nav_18_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18_2">
+          Theory (model + controls)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Theory (model + controls)" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_18_2">
+<span class="md-nav__icon md-icon"></span>
+          Theory (model + controls)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Home_Theory/">
+        Vehicle Model+Control Theory
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Vehicle_Design_Choices/">
+        Vehicle Design Choices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_19" id="__nav_19" type="checkbox"/>
+<label class="md-nav__link" for="__nav_19">
+          gpslib
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="gpslib" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_19">
+<span class="md-nav__icon md-icon"></span>
+          gpslib
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gpslib/">
+        GPS lib
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_20" id="__nav_20" type="checkbox"/>
+<label class="md-nav__link" for="__nav_20">
+          Handcart hw
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Handcart hw" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_20">
+<span class="md-nav__icon md-icon"></span>
+          Handcart hw
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../handcart-hw/handcart/">
+        Hancart Hardware Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_21" id="__nav_21" type="checkbox"/>
+<label class="md-nav__link" for="__nav_21">
+          Handcart Documentation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Handcart Documentation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_21">
+<span class="md-nav__icon md-icon"></span>
+          Handcart Documentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../handcart-sw/main/">
+        Handcart Fenice&amp;Chimera 2021-22 Documentation and Guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_22" id="__nav_22" type="checkbox"/>
+<label class="md-nav__link" for="__nav_22">
+          Hw fenice ecu
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice ecu" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_22">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice ecu
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-ecu/DAS_ECU/">
+        ECU hardware
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_23" id="__nav_23" type="checkbox"/>
+<label class="md-nav__link" for="__nav_23">
+          Hw fenice evo ecu
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice evo ecu" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_23">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice evo ecu
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-ecu/DAS_ECU/">
+        DAS+ECU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-ecu/ECU%20Documentation/">
+        ECU Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_24" id="__nav_24" type="checkbox"/>
+<label class="md-nav__link" for="__nav_24">
+          Hw fenice evo tsal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Hw fenice evo tsal" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_24">
+<span class="md-nav__icon md-icon"></span>
+          Hw fenice evo tsal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hw-fenice-evo-tsal/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_25" id="__nav_25" type="checkbox"/>
+<label class="md-nav__link" for="__nav_25">
+          [DMT] Lap Time Simulator
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[DMT] Lap Time Simulator" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_25">
+<span class="md-nav__icon md-icon"></span>
+          [DMT] Lap Time Simulator
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lap-time-simulator-DMT/Home/">
+        Lap Time Simulator
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_26" id="__nav_26" type="checkbox"/>
+<label class="md-nav__link" for="__nav_26">
+          Lib communication
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Lib communication" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_26">
+<span class="md-nav__icon md-icon"></span>
+          Lib communication
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lib-communication/connection/">
+        Implement New Connection Type
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lib-communication/mqtt_connection/">
+        MOSQUITTO SETUP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27" id="__nav_27" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27">
+          Lvgl
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Lvgl" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_27">
+<span class="md-nav__icon md-icon"></span>
+          Lvgl
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CHANGELOG/">
+        Changelog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CODE_OF_CONDUCT/">
+        Contributor Covenant Code of Conduct
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CODING_STYLE/">
+        Coding style
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/CONTRIBUTING/">
+        Contributing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/ROADMAP/">
+        Roadmap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/build/">
+        Build
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/conf/">
+        Conf
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/example_list/">
+        Example list
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_10" id="__nav_27_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_10">
+           ext
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label=" ext" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_10">
+<span class="md-nav__icon md-icon"></span>
+           ext
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/_ext/lv_example/">
+        Lv example
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11" id="__nav_27_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11">
+          Get started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Get started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_11">
+<span class="md-nav__icon md-icon"></span>
+          Get started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/">
+        Get started
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/quick-overview/">
+        Quick overview
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_3" id="__nav_27_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_3">
+          Bindings
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bindings" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_3">
+<span class="md-nav__icon md-icon"></span>
+          Bindings
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/">
+        Bindings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/cpp/">
+        Cpp
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/bindings/micropython/">
+        Micropython
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_4" id="__nav_27_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_4">
+          Os
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Os" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_4">
+<span class="md-nav__icon md-icon"></span>
+          Os
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/">
+        (RT)OS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/freertos/">
+        FreeRTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/nuttx/">
+        NuttX RTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/rt-thread/">
+        RT-Thread RTOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/os/zephyr/">
+        Zephyr
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_11_5" id="__nav_27_11_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_11_5">
+          Platforms
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Platforms" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_11_5">
+<span class="md-nav__icon md-icon"></span>
+          Platforms
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/">
+        Platforms
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/arduino/">
+        Arduino
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/cmake/">
+        CMake
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/espressif/">
+        Espressif (ESP32 chip series)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/nxp/">
+        NXP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/pc-simulator/">
+        Simulator on PC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/stm32/">
+        STM32
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/get-started/platforms/tasmota-berry/">
+        Tasmota and berry
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_12" id="__nav_27_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_12">
+          Intro
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Intro" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_12">
+<span class="md-nav__icon md-icon"></span>
+          Intro
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/intro/">
+        Introduction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_13" id="__nav_27_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_13">
+          Layouts
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Layouts" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_13">
+<span class="md-nav__icon md-icon"></span>
+          Layouts
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/">
+        Layouts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/flex/">
+        Flex
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/layouts/grid/">
+        Grid
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_14" id="__nav_27_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_14">
+          Libs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Libs" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_14">
+<span class="md-nav__icon md-icon"></span>
+          Libs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/">
+        3rd party libraries
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/bmp/">
+        BMP decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/ffmpeg/">
+        FFmpeg support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/freetype/">
+        FreeType support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/fsdrv/">
+        File System Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/gif/">
+        GIF decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/png/">
+        PNG decoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/qrcode/">
+        QR code
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/rlottie/">
+        Lottie player
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/libs/sjpg/">
+        JPG decoder
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_15" id="__nav_27_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_15">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Others" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_15">
+<span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/">
+        Others
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/fragment/">
+        Fragment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/gridnav/">
+        Grid navigation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/ime_pinyin/">
+        Pinyin IME
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/imgfont/">
+        Image font (imgfont)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/monkey/">
+        Monkey
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/msg/">
+        Messaging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/others/snapshot/">
+        Snapshot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_16" id="__nav_27_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_16">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_16">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/animation/">
+        Animations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/color/">
+        Colors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/coords/">
+        Positions, sizes, and layouts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/display/">
+        Displays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/drawing/">
+        Drawing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/event/">
+        Events
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/file-system/">
+        File system
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/font/">
+        Fonts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/image/">
+        Images
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/indev/">
+        Input devices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/layer/">
+        Layers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/new_widget/">
+        New widget
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/object/">
+        Objects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/scroll/">
+        Scroll
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/style-props/">
+        Style properties
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/style/">
+        Styles
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/timer/">
+        Timers
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_16_19" id="__nav_27_16_19" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_16_19">
+          Renderers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Renderers" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_16_19">
+<span class="md-nav__icon md-icon"></span>
+          Renderers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/">
+        Renderers and GPUs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/arm-2d/">
+        Arm-2D GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/dma2d/">
+        DMA2D GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/pxp-vglite/">
+        NXP PXP and VGLite GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/sdl/">
+        SDL renderer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/overview/renderers/sw/">
+        Software renderer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_17" id="__nav_27_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_17">
+          Porting
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Porting" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_17">
+<span class="md-nav__icon md-icon"></span>
+          Porting
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/">
+        Porting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/display/">
+        Display interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/gpu/">
+        Add custom GPU
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/indev/">
+        Input device interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/log/">
+        Logging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/os/">
+        Operating system and interrupts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/project/">
+        Set up a project
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/sleep/">
+        Sleep management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/tick/">
+        Tick interface
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/porting/timer-handler/">
+        Timer Handler
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18" id="__nav_27_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18">
+          Widgets
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Widgets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_27_18">
+<span class="md-nav__icon md-icon"></span>
+          Widgets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/">
+        Widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/obj/">
+        Base object (lv_obj)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18_3" id="__nav_27_18_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18_3">
+          Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Core" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_18_3">
+<span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/">
+        Core widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/arc/">
+        Arc (lv_arc)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/bar/">
+        Bar (lv_bar)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/btn/">
+        Button (lv_btn)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/btnmatrix/">
+        Button matrix (lv_btnmatrix)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/canvas/">
+        Canvas (lv_canvas)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/checkbox/">
+        Checkbox (lv_checkbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/dropdown/">
+        Drop-down list (lv_dropdown)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/img/">
+        Image (lv_img)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/label/">
+        Label (lv_label)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/line/">
+        Line (lv_line)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/roller/">
+        Roller (lv_roller)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/slider/">
+        Slider (lv_slider)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/switch/">
+        Switch (lv_switch)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/table/">
+        Table (lv_table)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/core/textarea/">
+        Text area (lv_textarea)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_27_18_4" id="__nav_27_18_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_27_18_4">
+          Extra
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Extra" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_27_18_4">
+<span class="md-nav__icon md-icon"></span>
+          Extra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/">
+        Extra widgets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/animimg/">
+        Animation Image (lv_animimg)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/calendar/">
+        Calendar (lv_calendar)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/chart/">
+        Chart (lv_chart)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/colorwheel/">
+        Color wheel (lv_colorwheel)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/imgbtn/">
+        Image button (lv_imgbtn)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/keyboard/">
+        Keyboard (lv_keyboard)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/led/">
+        LED (lv_led)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/list/">
+        List (lv_list)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/menu/">
+        Menu (lv_menu)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/meter/">
+        Meter (lv_meter)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/msgbox/">
+        Message box (lv_msgbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/span/">
+        Span (lv_span)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/spinbox/">
+        Spinbox (lv_spinbox)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/spinner/">
+        Spinner (lv_spinner)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/tabview/">
+        Tabview (lv_tabview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/tileview/">
+        Tile view (lv_tileview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../lvgl/widgets/extra/win/">
+        Window (lv_win)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28" id="__nav_28" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28">
+          Micro-Libs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Micro-Libs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_28">
+<span class="md-nav__icon md-icon"></span>
+          Micro-Libs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/micro-libs/">
+        Micro-Libs
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_2" id="__nav_28_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_2">
+          Blinky
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Blinky" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_2">
+<span class="md-nav__icon md-icon"></span>
+          Blinky
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/blinky/">
+        Blinky
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/blinky-handler/">
+        Blinky handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/blinky/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_3" id="__nav_28_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_3">
+          Bms monitor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bms monitor" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_3">
+<span class="md-nav__icon md-icon"></span>
+          Bms monitor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/bms-monitor/">
+        Bms monitor
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_3_2" id="__nav_28_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_3_2">
+          Ltc6811
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ltc6811" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_28_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Ltc6811
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/ltc6811/">
+        Ltc6811
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/command-format/">
+        Command format
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/bms-monitor/ltc6811/pec/">
+        Packet Error Code
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_4" id="__nav_28_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_4">
+          Can manager
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Can manager" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_4">
+<span class="md-nav__icon md-icon"></span>
+          Can manager
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/can-manager/can-manager/">
+        Can manager
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_5" id="__nav_28_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_5">
+          Mcp23017
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mcp23017" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_5">
+<span class="md-nav__icon md-icon"></span>
+          Mcp23017
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/mcp23017/mcp23017/">
+        Mcp23017
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_6" id="__nav_28_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_6">
+          Min heap
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Min heap" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_6">
+<span class="md-nav__icon md-icon"></span>
+          Min heap
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/min-heap/">
+        Min heap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/heap-handler/">
+        Heap handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/min-heap/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_28_7" id="__nav_28_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_28_7">
+          Ring buffer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ring buffer" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_28_7">
+<span class="md-nav__icon md-icon"></span>
+          Ring buffer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/ring-buffer/">
+        Ring buffer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/critical-section/">
+        Critical section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/buffer-handler/">
+        Buffer handler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-libs/ring-buffer/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29" id="__nav_29" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29">
+          Micro-Utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Micro-Utils" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_29">
+<span class="md-nav__icon md-icon"></span>
+          Micro-Utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/micro-utils/">
+        Micro-Utils
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29_2" id="__nav_29_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29_2">
+          Error handler generator
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Error handler generator" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_29_2">
+<span class="md-nav__icon md-icon"></span>
+          Error handler generator
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/error-handler-generator/">
+        Error handler generator
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/error/">
+        Error
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/input-file/">
+        Input file
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_29_2_4" id="__nav_29_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_29_2_4">
+          Generated
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Generated" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_29_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Generated
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/error-handler/">
+        Error handler library
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/timer/">
+        Timer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/internal-data/">
+        Internal data
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../micro-utils/error-handler-generator/generated/operations/">
+        Operations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_30" id="__nav_30" type="checkbox"/>
+<label class="md-nav__link" for="__nav_30">
+          rasp shieldV2 config
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="rasp shieldV2 config" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_30">
+<span class="md-nav__icon md-icon"></span>
+          rasp shieldV2 config
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rasp-shieldV2-config/">
+        Documentation!
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_31" id="__nav_31" type="checkbox"/>
+<label class="md-nav__link" for="__nav_31">
+          Rtl 433
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Rtl 433" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_31">
+<span class="md-nav__icon md-icon"></span>
+          Rtl 433
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/ANALYZE/">
+        Capture and analyze devices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/BUILDING/">
+        Building rtl_433
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/CONTRIBUTING/">
+        Contributing guidelines
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/DATA_FORMAT/">
+        JSON Data fields
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/HARDWARE/">
+        Hardware tested with rtl_433
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/INTEGRATION/">
+        Integration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/IQ_FORMATS/">
+        Introduction to I/Q formats
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/LINKS/">
+        Links to tools and related projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/OPERATION/">
+        Basic rtl_433 operation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/PRIMER/">
+        Primer on SDR concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rtl_433/STARTING/">
+        Getting Started
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32" id="__nav_32" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32">
+          Telemetry
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Telemetry" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_32">
+<span class="md-nav__icon md-icon"></span>
+          Telemetry
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/">
+        Telemetry
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_2" id="__nav_32_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_2">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Overview/features/">
+        Features
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_3" id="__nav_32_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_3">
+          Setup and installation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup and installation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_3">
+<span class="md-nav__icon md-icon"></span>
+          Setup and installation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/installation/">
+        Installation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/raspberry_setup/">
+        Raspberry setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/usage/">
+        Telemetry Usage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Setup%20and%20Installation/run/">
+        Telemetry run
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_4" id="__nav_32_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_4">
+          Components
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Components" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_4">
+<span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/serializers/">
+        Serializers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/connection/">
+        Telemetry connection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Components/file_transmission/">
+        File transmission
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_32_5" id="__nav_32_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_32_5">
+          Cross compile
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cross compile" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_32_5">
+<span class="md-nav__icon md-icon"></span>
+          Cross compile
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry/Cross%20compile/setup/">
+        Setup
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_33" id="__nav_33" type="checkbox"/>
+<label class="md-nav__link" for="__nav_33">
+          JSON Loader
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="JSON Loader" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_33">
+<span class="md-nav__icon md-icon"></span>
+          JSON Loader
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../telemetry-json-loader/">
+        JSON Loader
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_34" id="__nav_34" type="checkbox"/>
+<label class="md-nav__link" for="__nav_34">
+          [SW] Traction Control
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="[SW] Traction Control" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_34">
+<span class="md-nav__icon md-icon"></span>
+          [SW] Traction Control
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/1.%20Overview/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/2.%20Architecture/">
+        Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/3.%20Implementation/">
+        Implementation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../traction-control-sw/4.%20Workflow/">
+        Workflow
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="torque-vectoring-theory">Torque Vectoring Theory</h1>
+<hr/>
+<h1 id="introduction-to-lateral-dynamics">Introduction to Lateral Dynamics</h1>
+<p>The control system VDC (Vehicle Dynamic Control), also known as ESP, VDS or DSC, is an active security system used to correct the vehicle trajectory in emergency conditions and with low adherence. In particular, the main two conditions that this control wants to reduce are understeer and oversteer. Both the behaviours can be compensated by generating a proper yawing or anti-yawing torque. For vehicles endowed with active differential, the implementation of this control is mainly realized with Torque Vectoring.</p>
+<h2 id="reference-system">Reference system</h2>
+<p>The reference systems adopted for the dynamic behaviour analysis are shown in Figure 1. The origin of the mobile system is positioned at the intersection between the roll and the symmetry axis. Furthermore, the <span class="arithmatex">\(\mathrm{x}\)</span>-axis is always longitudinal to the vehicle. The velocities along <span class="arithmatex">\(\mathrm{x}\)</span> and <span class="arithmatex">\(\mathrm{y}\)</span> are called respectively <span class="arithmatex">\(u\)</span> and <span class="arithmatex">\(v\)</span> (for the moveable system), whereas the side-slip angle <span class="arithmatex">\(\beta\)</span> describes the direction of the resultant vector for the moveable triad.</p>
+<p>The other parameter necessary for the moment-by-moment analysis of the position and direction of the vehicle is the yaw angle <span class="arithmatex">\(\varphi\)</span> between the fixed X-axis and the x-axis of the mobile system. The steering angle, instead, is called <span class="arithmatex">\(\delta\)</span>.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/RefFrame.png"/></p>
+<p>Figure 1 - Reference System 
+</p>
+<hr/>
+<h1 id="lateral-dynamics-control">Lateral Dynamics Control</h1>
+<p>For a perfect turning behaviour of the vehicle is necessary to split in a different way the torque of the motors between the two rear driving wheels avoiding both under and oversteer. Because of dissimilar longitudinal forces on the rear tires <span class="arithmatex">\(\left(\mathrm{F}_{\mathrm{drl}}\right.\)</span> and <span class="arithmatex">\(\left.\mathrm{F}_{\mathrm{drr}}\right)\)</span> is generated a yaw couple <span class="arithmatex">\(\left(\mathrm{N}_{\mathrm{z}}\right)\)</span> object of the Torque Vectoring Control (TV). The goal of this control is to maximize the longitudinal properties of the vehicle, allowing high manoeuvrability of the car while cornering.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/YawMoment.png"/></p>
+<p>Figure 2 - Torque Vectoring Principle
+</p>
+<p>The modelling of the TV control is based on the yaw rate (yaw velocity) <span class="arithmatex">\(\Omega\)</span> instead of the side-slip angle <span class="arithmatex">\(\beta\)</span> because <span class="arithmatex">\(\Omega\)</span> is:</p>
+<ul>
+<li>
+<p>easier to measure;</p>
+</li>
+<li>
+<p>nearest to the drive perception. </p>
+</li>
+</ul>
+<hr/>
+<h1 id="yaw-rate-estimation">Yaw Rate Estimation</h1>
+<p>For estimating the yaw rate, the team has connected the inputs given by the pilot, like the steering angle and the accelerator, with the car's behaviour. For the construction of the transfer function, it is possible to start from the single-track linear model of the vehicle, analyzing its dynamic behaviour (Equation 1) depending on the mass of the system <span class="arithmatex">\((\mathrm{m})\)</span>, the lateral forces <span class="arithmatex">\(\left(\mathrm{F}_{\mathrm{y}}\right)\)</span> and the harms of the front/rear axles from the centre of gravity <span class="arithmatex">\(\left(L_{f}-L_{r}\right)\)</span>.</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+m a_{y}=F_{y r}+F_{y f} \\
+I_{z z} \dot{\Omega}=-L_{r} F_{y r}+L_{f} F_{y f}
+\end{array}\right.
+\]</div>
+<p>Equation 1 - Dynamic behaviour of the vehicle
+</p>
+<p>It is possible to rewrite the equations depending on <span class="arithmatex">\(\mathrm{C}\)</span> (lateral stiffness of the tires) and <span class="arithmatex">\(\rho\)</span> (curvature), considering a linear behaviour of the vehicle in a stationary regime. Solving these equations can be found a relationship between the side-slip angle of the tires (Equation 2 and Equation 3).</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+F_{y r}=C_{r} \alpha_{r} \\
+F_{y f}=C_{f} \alpha_{f} \\
+m a_{y s s}=\rho u^{2}
+\end{array}\right.
+\]</div>
+<p>Equation 2 - Rewriting of the equations</p>
+<div class="arithmatex">\[
+\alpha_{f}-\alpha_{r}=\frac{m \rho+u^{2}}{L}(\frac{L_{r}}{C_{f}}-\frac{L_{f}}{C_{r}})
+\]</div>
+<p>Equation 3 - Relation between side-slip angles
+</p>
+<p>It is also possible to define the understeering coefficient <span class="arithmatex">\((\mathrm{K}_{\mathrm{us}})\)</span> and the general expression of the side-slip angles (Equation 4 and Equation 5), function of the side-slip angle of the chassis <span class="arithmatex">\((\beta)\)</span>.</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+K_{us}=\frac{m}{L}(\frac{L_{r}}{C_{f}}-\frac{L_{f}}{C_{r}}) \\
+\]</div>
+<p>Equation 4 - Understeering coefficien
+</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\begin{array}{l}
+\alpha_{f}=\beta+\frac{\Omega}{u} L_{f}-\delta \\
+\alpha_{r}=\beta-\frac{\Omega}{u} L_{r}-\delta
+\end{array}.
+\]</div>
+<p>Equation 5 - General expression for side-slip angles
+</p>
+<p>Combining the previous equations can be found a direct relationship between the steering angle <span class="arithmatex">\(\delta\)</span> and the yaw rate (Equation 6).</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\frac{L+K_{u s} u^{2}}{u}=\frac{\delta}{\Omega}
+\]</div>
+<p>Equation 6 - Relation between the steering angle and the yaw rate 
+</p>
+<p>It is possible to introduce a first-order system with a <span class="arithmatex">\(\tau_{\text {driver }}=0.1\)</span> (Equation 7), considering the slight delay in the driver's response (especially during steering maneuvers) due to his reflexes and the nonlinearity of the real world. The <span class="arithmatex">\(\Omega_{\text {des }}\)</span> becomes:</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\Omega=\frac{\frac{u}{L+K_{u s} u^{2}}}{\tau_{\text {driver }} s+1} \delta
+\]</div>
+<p>Equation 7 - Yaw rate expression with the adding of a first-order filter
+</p>
+<p>The filter for the driver response has been modelled in the block of the vehicle model in which the simulated inputs of the driver (brake, throttle, and steering angle) are computed for different manoeuvres.</p>
+<p>With this model, the pilot will be able to generate the desired yaw rate, acting directly on the steering angle and indirectly on the longitudinal velocity of the vehicle. The transfer function, by the way, depends on the lateral behaviour of the car through the parameter <span class="arithmatex">\(\mathrm{K}_{\mathrm{us}}\)</span>, which can affect the vehicle response:</p>
+<ul>
+<li>
+<p>Understeering Vehicle <span class="arithmatex">\((K&gt;\mathbf{0})\)</span> : the vehicle curves less than desired. This behaviour is often applied to commercial cars;</p>
+</li>
+<li>
+<p>Neutral Vehicle <span class="arithmatex">\((K=0)\)</span></p>
+</li>
+<li>
+<p>Oversteering Vehicle <span class="arithmatex">\((K&lt;\mathbf{0})\)</span> : the car tends to curve more than desired. This behaviour is usually employed in racing cars.</p>
+</li>
+</ul>
+<p>For modelling the <span class="arithmatex">\(\mathrm{K}_{\text {us }}\)</span> of the vehicle is possible to test this parameter with a fixed steering angle and a variable velocity of the car and building also the handling curves. The resulting Simulink model, employed for Fenice, is described in Figure 3.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/YawRateEst.png"/></p>
+<p>Figure 3 - Yaw rate estimation in the Simulink model of Fenice 
+</p>
+<hr/>
+<h1 id="realization-of-the-tv-control">Realization of the TV Control</h1>
+<p>For the designing of the control system, the team has adopted two different solutions:</p>
+<ul>
+<li>
+<p>PID (proportional-integral-derivative) controller;</p>
+</li>
+<li>
+<p>Fuzzy logic controller.</p>
+</li>
+</ul>
+<h2 id="pid">PID</h2>
+<p>The PID controller is the first type of control implemented by the team, also in the former car (Chimera) model, to compensate for the error of the reference yaw rate compared with the one measured in practice. For the development of the system, it is possible to start from a linearized singletrack model described with Equation 8. It is possible to build a simplified model (Equation 9): the linear bicycle model (single axel and front steering wheel).</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}I_{z} \dot{\Omega}=\left(L_{f} C_{f}-L_{r} C_{r}\right) \beta+\frac{\left(L_{f}^{2} C_{f}-L_{r}^{2} C_{r}\right) \Omega}{u}-L_{f} C_{f} \delta \\m u(\Omega+\dot{\beta})=C_{f}\left(\beta+\frac{\Omega L_{f}}{u}-\delta\right)+C_{r}\left(\beta-\frac{\Omega L_{r}}{u}\right)\end{array}\right. \\
+\]</div>
+<p>Equation 8  - Linearized single-track model</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}\dot{x}=A x+B u \\y=C x+D u\end{array} \quad x=\left[\begin{array}{l}\beta \\\Omega\end{array}\right], u=\left[\begin{array}{c}\delta \\N_{z}\end{array}\right]\right. \\
+\]</div>
+<div class="arithmatex">\[
+A=\left[\begin{array}{cc}\frac{C_{r}+C_{f}}{m u} &amp; \frac{-C_{r} L_{r}+C_{f} L_{f}}{m u^{2}}-1 \\\frac{-C_{r} L_{r}+C_{f} L_{f}}{I_{z}} &amp; \frac{C_{r} L_{r}^{2}+C_{f} L_{f}^{2}}{u I_{z}}\end{array}\right] \quad B=\left[\begin{array}{cc}0 &amp; 0 \\1 / I_{z} &amp; 0\end{array}\right] \quad C=\left[\begin{array}{ll}0 &amp; 1\end{array}\right] \quad D=\left[\begin{array}{ll}0 &amp; 0\end{array}\right]
+\]</div>
+<p>Equation 9 - Linear Model
+</p>
+<p>The state matrix A depends on the velocity, so the control must modify its action following the speed variation. The team has chosen a PI controller (the derivative of the yaw-rate is already present in the model itself) with variable gain, a first crossover frequency of <span class="arithmatex">\(13 \mathrm{rad} / \mathrm{s}\)</span>, and a phase margin of 70 degrees with particular attention to disturbances rejection.</p>
+<p>The tuning procedure is performed using the MATLAB tools, linearizing the model at different speeds, and tuning a PI controller for the step response. The linearization is made around a steadystate configuration and gives out the transfer functions between the yaw-moment - output of the PI and the yaw-rate. The steering angle must be small <span class="arithmatex">\(\left(\sim 5^{\circ}\right)\)</span> to be considered a disturbance.</p>
+<p>It is possible to tune a reference controller on the linearized system, respecting some design parameters. The stability requirements are: - Phase margin <span class="arithmatex">\(=70^{\circ}:\)</span> it is a large value of phase margin - close to <span class="arithmatex">\(90^{\circ}\)</span> - which makes the system stable also with disturbances but delays the response of the controller;</p>
+<ul>
+<li>
+<p>Crossover frequency <span class="arithmatex">\(=13 \mathrm{rad} / \mathrm{s}\)</span> : after some tuning using different crossover frequencies, it is the most appropriate for the application;</p>
+</li>
+<li>
+<p>Disturbance rejection: to reject model linearization errors or the disturbance from the steering angle, the PID must be tuned for a robust closed-loop system to disturb.</p>
+</li>
+</ul>
+<p>For the gain of the PI, it is possible, in conclusion, to develop a look-up table (Figure 4, Figure 5) for each different set-point velocity, that for Fenice's controller are eigth (Equation 10).</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; u_{c t r}=\left[\begin{array}{llllllll}20 &amp; 30 &amp; 40 &amp; 50 &amp; 60 &amp; 70 &amp; 80 &amp; 90\end{array}\right] \mathrm{km} / \mathrm{h} \\
+\end{aligned}
+\]</div>
+<p>Equation 10 - Set-point velocities </p>
+<p><img alt="" src="../media/Torque/P-Lookup.png"/></p>
+<p>Figure 4 - Look-up table of the proportional variable gain</p>
+<p><img alt="" src="../media/Torque/I-Lookup.png"/></p>
+<p>Figure 5 - Look-up table of the integral variable gain 
+</p>
+<p>The lock-up tables found with the tuning are then used as inputs for the PI regulator that controls in closed-loop the error between desired and measured yaw rate (Figure 6)</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/PI.png"/></p>
+<p>Figure 6 - PI controller
+</p>
+<p>The output of the PI controller is saturated, imposing a limit to the ammissible values of <span class="arithmatex">\(\mathrm{N}_{\mathrm{Z}}(\)</span> Equation <span class="arithmatex">\(11)\)</span> in which <span class="arithmatex">\(w_{r}\)</span> is rear track width, <span class="arithmatex">\(\Delta T_{m_{\max }}\)</span> the maximum torque difference of the motors, <span class="arithmatex">\(r_{r}\)</span> the rear wheels radius, <span class="arithmatex">\(\tau_{\text {red }}\)</span> the transmission ratio of the gearbox and <span class="arithmatex">\(e f f_{\text {red }}\)</span> the efficiency of the gearbox. The <span class="arithmatex">\(\Delta T_{m_{\text {max }}}\)</span> is then regulated by the driver on the steering wheel with TV maps, setting a percentage of the maximum <span class="arithmatex">\(\Delta T_{m_{\max }}\)</span> (which is equal to <span class="arithmatex">\(55 \mathrm{Nm}\)</span> with full TV action active and <span class="arithmatex">\(0 \mathrm{Nm}\)</span> with <span class="arithmatex">\(\mathrm{TV}\)</span> deactivated).</p>
+<p><center></center></p>
+<div class="arithmatex">\[
+\left|N_{z_{\max }}\right|=\frac{\Delta T_{m_{\max }} \cdot w_{r} \cdot \tau_{\text {red }} \cdot e f f_{r e d}}{2 r_{r}} \\
+\]</div>
+<p>Equation 11 - Saturation of the PI controller
+</p>
+<p>In reality, as described above, the actuators can be saturated. Consequently, the action of the integral control would continue to grow with an accumulation of error. For this reason, it is possible to introduce an anti-windup system embedded in the PI controller (clamping method). At the output of the yaw rate controller, inverting the Equation 11 is possible to compute the value of <span class="arithmatex">\(\Delta \mathrm{T}_{\mathrm{m}}\)</span> for computing the torque that the motors need to apply. The motor torques curves used are also chosen by the driver at the steering wheel, with 6 possible different maps (map 6 is the one that allows the higher longitudinal performances). The team has decided to modify the torque motor saturation favouring cornering behaviour at the expense of longitudinal performances, considering the desired <span class="arithmatex">\(\Omega\)</span> not always perfectly reachable (for example, when the motors are saturated). The pre-existing version gave priority to the longitudinal performance keeping constant the sum of the torque of the two actuators. For example, if the driver request was <span class="arithmatex">\(70 \mathrm{Nm}\)</span> for each motor with saturation torque of <span class="arithmatex">\(80 \mathrm{Nm}\)</span> and differential torque of <span class="arithmatex">\(15 \mathrm{Nm}\)</span>, a wheel should have <span class="arithmatex">\(85 \mathrm{Nm}(5 \mathrm{Nm}\)</span> more than <span class="arithmatex">\(80 \mathrm{Nm}\)</span> of the saturation). To keep <span class="arithmatex">\(140 \mathrm{Nm}\)</span> of total torque, the other motor must generate <span class="arithmatex">\(60 \mathrm{Nm}\)</span> with a resulting differential torque equal to <span class="arithmatex">\(10 \mathrm{Nm}(5 \mathrm{Nm}\)</span> less than the desired differential torque). Since the torque vectoring is a lateral controller, this strategy could negatively affect the cornering performance of the controller. So, it is preferable to privilege the differential torque, following the driver's request. For the same previous example, to maintain <span class="arithmatex">\(15 \mathrm{Nm}\)</span> of differential torque, one motor must be saturated, and the other must generate <span class="arithmatex">\(50 \mathrm{Nm}\)</span>. In this way, the total torque is <span class="arithmatex">\(130 \mathrm{Nm}\)</span> (previously <span class="arithmatex">\(140 \mathrm{Nm}\)</span> ), reducing the longitudinal acceleration but allowing for better cornering behaviour.</p>
+<p>In conclusion, it is possible to also limit the errors due to the noise influence that can activate torque vectoring when the driver is not cornering. So, for this reason, the team has decided that torque vectoring control will be active only with steering angle of the front wheels <span class="arithmatex">\(|\delta|&gt;2^{\circ}\)</span> and with a longitudinal velocity greater than <span class="arithmatex">\(5 \mathrm{~m} / \mathrm{s}\)</span> (for the PI controller). </p>
+<h3 id="slip-control-combined-with-pi-controller-with-torque">Slip control combined with PI controller with torque</h3>
+<p>The team has connected the slip controller outputs as a saturation of the torque vectoring to combine the two controllers (Figure 7). The saturation block limits the torque considering the differential torque output from the torque vectoring: if the higher torque wheel starts to slide, the slip controller reduces the torque for that wheel. In addition, at the same time, it limits the torque at the other wheel too, to maintain the differential torque.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/Slip%2BTorque.png"/></p>
+<p>Figure 7 - Slip control combined with torque vectoring PI regulator 
+</p>
+<h2 id="fuzzy">Fuzzy</h2>
+<p>The second type of control, based on fuzzy logic, has been developed recently. In this case, the percentage of torque applied to each wheel has been computed based on the yaw rate and the sideslip angle. The fuzzy logic is an extension of Boolean logic, allowing to obtain results also between 0 and 1. The fuzzy controller use the same yaw rate estimator of the PI regulator, but implement a totally different yaw-rate tracking technique. The fuzzy yaw moment controller manages the lateral torque distribution ( <span class="arithmatex">\(\tau_{\text {lat }}\)</span> ) for the vehicle. If <span class="arithmatex">\(\tau_{\text {lat }}=-1\)</span>, the maximum torque difference will be added to the rear right wheel torque request of the driver and subtracted to the rear wheel of the left side.</p>
+<p>The design of the system has been developed with the following structure for the input (Figure 8):</p>
+<ul>
+<li>
+<p>5 membership functions for the yaw rate error (computed as for the PI);</p>
+</li>
+<li>
+<p>5 membership functions for the derivative of the yaw rate error (this derivative has a gain lower than 1 to give much importance to the yaw rate error);</p>
+</li>
+</ul>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/Fuzzy.png"/></p>
+<p>Figure 8 - Computation of the torque percentage (fuzzy logic)
+</p>
+<p>Then has been developed also the membership functions for the output (nine), representing the percentage of torque that each motor has to apply to the corresponding rear wheel.</p>
+<p>At the end, the rules of this decisional logic of the controller have been written (file TV fuzzy) to establish the I/O behaviour (Figure 9). </p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/FuzzyFun.png"/></p>
+<p>Figure 9 - Membership functions
+</p>
+<p>The trapezoidal membership functions have been selected for the boundaries of each variable since the proposed controller tries to minimize each variable and, therefore, accuracy is not the highest priority.</p>
+<p>The triangular ones have been used for the rest of the functions, as they provide computationally efficient calculations maintaining acceptable smoothness on the response. The membership functions have been converted in a look-up table to increase the speed in the response [1]. </p>
+<hr/>
+<h1 id="testing-and-tuning">Testing and Tuning</h1>
+<p>Once the control is tuned, its performances can be evaluated to analyze if it works properly. With all controls active can be shown that the vehicle can anticipate the trajectory thanks to the torque vectoring control developed and described above. In Figure 10 it is described a ramp steer manouvre with and without controls.</p>
+<p><center></center></p>
+<p><img alt="" src="../media/Torque/Ramp.jpg"/></p>
+<p>Figure 10 - Ramp steer manoeuvre with and without controls
+</p>
+<hr/>
+<h1 id="conclusions">Conclusions</h1>
+<p>In conclusion, the team has decided to not implement the control for the race, until some robust tests
+will be performed in a safety track, validating both model and controls. In particular, it’s necessary
+to understand the influence of the delays due to pilot response, controls and data elaborations and the
+behaviour in the real word.
+Furthermore, more tests will be necessary to compare the behaviour of PI controller and fuzzy logic,
+to understand which is more suitable for the application to a Formula SAE vehicle. From the
+simulation the PI control is slightly better, both for performances and elaboration time.</p>
+<hr/>
+<h1 id="revision-history">Revision History</h1>
+<p>V1.0 27/10/2021 - Initial release (Francesco Meneghin)</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Slip Control Theory" class="md-footer__link md-footer__link--prev" href="../Slip_Control/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Slip Control Theory
+            </div>
+</div>
+</a>
+<a aria-label="Next: Vehicle Model for Simulation" class="md-footer__link md-footer__link--next" href="../Vehicle_Model/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Vehicle Model for Simulation
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Copyright © E-Agle TRT
+          </div>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/eagletrt" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/eagletrt" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://hub.docker.com/u/eagletrt" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+<script src="../../../static/js/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="../../../static/js/mermaid.js"></script>
+</body>
+</html>
